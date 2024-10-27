@@ -1,0 +1,483 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+        border: none;
+        font-family: JetBrainsMono Nerd Font;
+        font-weight: bold;
+        font-size: 9px;
+        min-height: 0;
+        padding-bottom: 0px;
+        padding-top: 0px;
+}
+
+window#waybar {
+/*	background: rgba(193,201,194,0.11); */
+	background: transparent;
+	border-bottom: 0px solid #332b2b;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+}
+
+window#waybar.hidden {
+    	opacity: 0.2;
+}
+
+window#waybar.termite {
+    	background-color: #3F3F3F;
+}
+window#waybar.empty #window {
+    	background-color: transparent;
+    	box-shadow: inherit;
+    	border-color:transparent;
+
+}
+
+window#waybar.chromium {
+/*    	background-color: #000000;
+    	border: none; */
+}
+tooltip {
+        border-radius: 5px;
+        background-color: rgba(9,0,0,0.8);
+}
+tooltip label {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #fcffe9;
+}
+
+
+
+button {
+    	/* Use box-shadow instead of border so the text isn't offset */
+	/*box-shadow: inset 0 -3px transparent;*/
+	/* Avoid rounded borders under each button name */
+    	border: none;
+    	border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    	background: inherit;
+    	border-bottom: 1px solid #ffffff;
+    	box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces {
+        background-color: rgba(226, 152, 255, 0.169);
+	margin: 5px 0px 2px 6px;
+        padding: 3px 1px;
+        border-radius: 15px;
+}
+
+#workspaces button {
+	margin: 0px 3px;
+    	padding: 0px 2px;
+    	box-shadow: inherit;
+        border-radius: 15px;
+    	color: #ebdbb2;
+        background-color: rgba(219,219,223, 0.3);
+        font-size: 2px;
+
+}
+#workspaces button:hover {
+	background-color: rgba(75,0,130,0.3);
+    	padding: 0px 0px;
+        border-radius: 15px;
+        border: 2px;
+	border-style: solid;
+	border-color:#9d99bc;
+}
+
+/*Hyprland Specific*/
+#workspaces button.active {
+        border-radius: 15px;
+	min-width: 50px;
+        background-color: rgba(110, 110, 170, 0.6);
+}
+
+
+#workspaces button.active:hover {
+	background-color: rgba(75,0,130,0.3);
+}
+
+/*Hyprland*/
+
+#mode {
+    	border-radius: 25px;
+}
+
+#clock,
+#battery,
+#backlight,
+#network,
+#wireplumber,
+#tray,
+#mode,
+#scratchpad,
+#power-profiles-daemon,
+#mode {
+        margin: 2px 0px 2px 6px;
+        padding-left: 10px;
+	padding-right:10px;
+        background: rgba(23,48,40,0.9);
+
+}
+
+#window {
+	margin: 3px 0px 1px 3px;
+        margin-left: 7px;
+	background: rgba(23,48,40,0.9);
+	color: #ebdbb2;
+	padding: 0px;
+	padding-left: 10px;
+	padding-right:10px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border: 0px;
+	border-style: solid;
+	border-color:#9eecf9;
+}
+
+#window:hover {
+	background: rgba(23,48,40,0.3);
+	box-shadow: inset 0px 0px 2px #b700db;
+}
+
+#workspaces {
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+	margin: 2px 0px 2px 0px;
+	padding: 1px;
+	padding-top: 1px;
+	padding-left: 6px;
+	padding-right: 5px;
+	color: #ffffff;
+/*	background: rgba(153,0,76,0.4);*/
+        background: rgba(217,179,255,0.1);
+  	border-radius: 5px;
+        border: 1px;
+	border-style: solid;
+        border-color:#4c4561;
+/*	border-color: rgba(255,255,0,0.4); */
+
+}
+
+#clock:hover {
+	background: rgba(153,0,76,0.1);
+	box-shadow: inset 0px 0px 1px #9eecf9;
+}
+
+/*
+#clock tooltip lable {
+        padding-top: 100px;
+        font-size: 20px;
+}
+*/
+#battery {
+	/*margin: 3px 0px 3px 0px;*/
+	margin: 2px 0px 2px 0px;
+  	background: rgba(29,31,33,0.8);
+  	padding: 2px 6px;
+  	color: #ebdbb2;
+	border-radius: 5px;
+	border: 0px;
+	border-style: solid;
+	border-color:#4c4561;
+
+        background: transparent;
+
+}
+
+#battery.charging, #battery.plugged {
+	background: rgba(23,48,40,0.5);
+	padding:  2px 6px;
+
+        background: transparent;
+}
+
+#battery.critical:not(.charging) {
+	animation-direction: alternate;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-name: blink;
+	animation-timing-function: linear;
+	background-color: #f53c3c;
+	color: gray;
+}
+
+#battery:hover{
+	background: rgba(144,177,177,0.2);
+
+/*
+        box-shadow: inset 0px 0px 2px #ffffff;
+*/
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    	background-color: #f53c3c;
+    	color: #ffffff;
+    	animation-name: blink;
+    	animation-duration: 0.5s;
+    	animation-timing-function: steps(12);
+    	animation-iteration-count: infinite;
+    	animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+/*	margin: 3px 0px 3px 3px; */
+	margin: 2px 0px 2px 0px;
+    	padding-top: 5px;
+  	padding-bottom: 5px;
+  	border-radius: 5px;
+	color: #ebdbb2;
+        border: 1px;
+	border-style: solid;
+	border-color:#4c4561;
+}
+
+#power-profiles-daemon.performance {
+    	background-color: rgba(226,0,142,0.3);
+        padding-left: 10px;
+  	padding-right: 11.99px;
+}
+
+#power-profiles-daemon.balanced {
+    	background-color: rgba(33,61,179,0.5);
+        padding-left: 7.8px;
+        padding-right: 14.4px;
+}
+
+#power-profiles-daemon.power-saver {
+        background: rgba(5,255,0,0.5);
+        padding-left: 8.5px;
+        padding-right: 13.7px;
+}
+
+label:focus {
+    	background-color: #000000;
+}
+
+#power-profiles-daemon:hover {
+	box-shadow: inset 0px 0px 2px #ffffff;
+}
+
+#backlight {
+/*	margin: 3px 0px 3px 0px; */
+	margin: 2px 0px 2px 0px;
+    	background: rgba(23,48,40,0.5);
+        padding: 5px;
+	padding-right: 6px;
+  	color: #ebdbb2;
+	border-radius: 5px;
+	border: 0px;
+	border-style: solid;
+	border-color:#4c4561;
+
+        background: transparent;
+
+}
+#backlight:hover {
+	background: rgba(144,177,177,0.2);
+/*
+        box-shadow: inset 0px 0px 2px #ffffff;
+*/
+}
+
+#network {
+	margin: 2px 0px 2px 0px;
+    	color: #ebdbb2;
+    	padding-left: 8px;
+    	padding-right: 8px;
+    	border-radius: 5px;
+	border: 0px;
+	border-style: solid;
+	border-color:#4c4561;
+	background-color: rgba(75,0,130,0.8);
+
+        background: transparent;
+}
+#network:hover {
+	background: rgba(0,10,100,0.3);
+/*	box-shadow: inset 0px 0px 2px #ffffff;
+*/
+}
+
+#network.disconnected {
+    	color: red;
+}
+
+#wireplumber {
+/*    	background-color: rgba(23,48,40,0.5); */
+    	color: #ebdbb2;
+/*    	margin: 3px 0px 3px 3px;*/
+	margin: 2px 0px 2px 0px;
+    	padding: 2px 5px;
+    	border-radius: 5px;
+	border: 0px;
+	border-style: solid;
+	border-color:#4c4561;
+
+        background: transparent;
+}
+
+#wireplumber.muted {
+        /*
+        background-color: rgba(3,48,40,0.3);
+    	color: #2a5c45;
+         */
+	background: rgba(144,177,177,0.3);
+        color: #a3b8c8;
+}
+
+#wireplumber:hover {
+/*    	background-color: #a37800; */
+	background: rgba(144,177,177,0.2);
+/*
+        box-shadow: inset 0px 0px 2px #ffffff;
+*/
+}
+
+#tray {
+/*	margin: 3px 0px 3px 3px; */
+	margin: 2px 0px 2px 0px;
+        /*
+    	background: rgba(23,48,40,0.5);
+   	*/
+        color: #ebdbb2;
+    	padding: 0px 8px;
+        padding-left: 3px;
+        padding-right: 3.1px;
+	border-top-left-radius: 5px;
+   	border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+	border: 0px;
+	border-style: solid;
+	border-color:#4c4561;
+
+        background: transparent;
+}
+
+#tray:hover {
+	background: rgba(144,177,177,0.2);
+/*
+        box-shadow: inset 0px 0px 2px #9eecf9;
+*/
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#scratchpad {
+    	background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+
+#custom-power {
+	margin: 2px 3px 2px 0px;
+    /*	background: rgba(23,48,40,0.5);
+   */
+        border-radius: 10px;
+        background: transparent;
+        color: #ebdbb2;
+    	padding-left: 8px;
+	padding-right: 11px;
+	/*
+	box-shadow: inset 0px 0px 2px #9eecf9;
+	*/
+	border: 1px;
+	border-style: solid;
+	border-color:#4c4561;
+}
+#custom-power:hover {
+	background: rgba(144,177,177,0.2);
+/*
+        box-shadow: inset 0px 0px 2px #ffffff;
+*/
+}
+#keyboard-state {
+        margin-left: 4px;
+        margin-right: 5px;
+
+}
+#backlight-slider slider {
+        min-height: 0px;
+        min-width: 0px;
+        opacity: 0;
+        background-image: none;
+        border: none;
+        box-shadow: none;
+}
+#backlight-slider trough {
+        min-height: 0px;
+        min-width: 1px;
+        border-radius: 5px;
+        background-color: black;
+}
+#backlight-slider highlight {
+        min-width: 0px;
+        border-radius: 5px;
+        background-color: red;
+}
+#custom-rofi {
+	margin: 5px 0px 2px 6px;
+        padding-left: 7px;
+        padding-right: 11px;
+        padding-top: 0px;
+        border-radius: 15px;
+        color: #1793d1;
+        font-size: 13px;
+        background-color: rgba(226, 152, 255, 0.169);
+
+
+}
+#custom-rofi:hover {
+	background-color: rgba(75,0,130,0.3);
+}
+
+.modules-left {
+}
+
+.modules-right {
+        background: rgba(226, 152, 255, 0.169);
+        border-radius: 5px 5px 5px 5px;
+        padding-left: 2px;
+        padding-right: 0px;
+        margin-top: 3px;
+        margin-right: 8px;
+        border: 1px;
+        border-style: solid;
+        border-color:#4c4561;
+}
+

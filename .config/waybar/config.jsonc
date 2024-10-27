@@ -1,0 +1,318 @@
+//=========================================================================//
+//  __   __  ___       __       ___  ___  _______       __        _______   
+// |"  |/  \|  "|     /""\     |"  \/"  ||   _  "\     /""\      /"      \  
+// |'  /    \:  |    /    \     \   \  / (. |_)  :)   /    \    |:        | 
+// |: /'        |   /' /\  \     \\  \/  |:     \/   /' /\  \   |_____/   ) 
+//  \//  /\'    |  //  __'  \    /   /   (|  _  \\  //  __'  \   //      /  
+//  /   /  \\   | /   /  \\  \  /   /    |: |_)  :)/   /  \\  \ |:  __   \  
+// |___/    \___|(___/    \___)|___/     (_______/(___/    \___)|__|  \___)
+// 
+// Waybar Configuration File
+// 
+//
+//==========================================================================//
+
+{
+	"layer": "middle",
+	"position": "top",
+	"height": 32,
+	"spacing": 2,
+	"margin-top": 0,
+	"margin-bottom": 0,
+
+	// Choose the order of the modules
+	"modules-left": [
+	//	"sway/workspaces",
+                "custom/rofi",
+		"hyprland/workspaces",
+	//	"sway/mode",
+	//	"sway/window",
+		"hyprland/window",
+	],
+	"modules-center": [
+		"clock",
+                "idle_inhibitor",
+	],
+	"modules-right": [ 
+		"network",
+//                "idle_inhibitor",
+                "wireplumber",
+		"backlight",
+		"battery",
+//                "power-profiles-daemon",
+                "keyboard-state",
+		"tray",
+         //       "backlight/slider",
+		"custom/power",
+	],
+
+	"sway/workspaces": {
+		"format": "{icon}  {name}",
+		"all-outputs":true,
+		"disable-scroll": false,
+		"enable-bar-scroll": false,
+        	"smooth-scrolling-threshold": 5,
+		"disable-scroll-wraparound": false,
+		"current-only": false,
+		"format-icons": {
+		//	"0": "",
+			"0": "",
+            		"1": "",
+            		"2": "",
+            		"3": "",
+            		"4": "",
+            		"5": "",
+			"6": "",
+			"7": "",
+                        "8": "",
+			"9": "󰦊",
+		//	"focused": " ",
+		},
+		"persistent-workspaces": {
+			"0":[],
+			"1":[],
+			"2":[],
+			"9":["HDMI-A-1"],
+		}
+	},
+        "custom/rofi": {
+                "format": "",
+                "on-click": "wlogout",
+                "tooltip-format": "Arch Linux",
+
+        },
+	"hyprland/workspaces": {
+		"format": " {icon} ",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"format-icons": {
+		//	"0": " ",
+			"1": "0",
+            		"2": "1",
+            		"3": "10",
+            		"4": "11",
+            		"5": "100",
+            		"6": "101",
+			"7": "110",
+			"8": "111",
+			"9": "1000",
+			"10": "1001",
+			"active": "",
+                        "special": " ",
+		},
+		"persistent-workspaces": {
+                        "*": [ 1,2,3,4], 
+		}
+	},
+
+	"sway/mode": {
+		"format": " {}"
+	},
+
+	"sway/window": {
+		"max-length": 30,
+		"format": "{title}",
+		"rewrite": {
+			"(.*) Mozilla Firefox" : "Mozilla Firefox  :$1",
+			"Mozilla Firefox" : "Mozilla Firefox  ",
+			"(.*) - Mozilla Thunderbird" : "Thunderbird 󱃚 | $1",
+			"~" : "󰟒 HOME",
+			"vim (.*)" : " nvim $1",
+			"VLC (.*)" : "󰕼 VLC $1",
+			"ranger:(.*)" : "󰉓 Ranger : $1",
+			"~/(.*)"  : "󰟒 ~/$1",
+			"/(.*)"  : " /$1",
+			"sudo pacman (.*)" : " sudo pacman $1",
+			"paru (.*)" : " paru $1",
+			"paru" : " paru",
+			"OBS (.*)": "󰨜 OBS $1",
+			"(.*) - VLC media player": " $1 VLC",
+			"(.*) - Chromium" : " Chromium − $1",
+			"Tor Browser" : " Tor Browser",
+			"(.*) Tor Browser" : " Tor Browser − $1",
+			"htop" : " Htop",
+			"btop" : " Btop",
+			"Virtual Machine Manager" : "  Virtual Machines",
+			"zsh" : " zsh",
+			"Pipewire Volume Control" : "󰝚  Pipewire Volume Control",
+			"GNU Image (.*)" : " GNU Image $1",
+			"Inkscape (.*)" : " Inkscape $1",
+			"Deluge" : " Deluge",
+		}
+	},
+        "hyprland/window": {
+		"max-length": 30,
+                "tooltip": true,
+		"format": "{}",
+                "separate-outputs": true,
+                "tooltip-format": "{}",
+		"rewrite": {
+			"(.*) Mozilla Firefox" : "Mozilla Firefox  :$1",
+			"Mozilla Firefox" : "Mozilla Firefox  ",
+			"(.*) - Mozilla Thunderbird" : "Thunderbird 󱃚 | $1",
+			"~" : "󰟒 HOME",
+			"vim (.*)" : " nvim $1",
+			"VLC (.*)" : "󰕼 VLC $1",
+			"ranger:(.*)" : "󰉓 Ranger : $1",
+			"~/(.*)"  : "󰟒 ~/$1",
+			"/(.*)"  : " /$1",
+			"sudo pacman (.*)" : " sudo pacman $1",
+			"paru (.*)" : " paru $1",
+			"paru" : " paru",
+			"OBS (.*)": "󰨜 OBS $1",
+			"(.*) - VLC media player": " $1 VLC",
+			"(.*) - Chromium" : " Chromium − $1",
+			"Tor Browser" : " Tor Browser",
+			"(.*) Tor Browser" : " Tor Browser − $1",
+			"htop" : " Htop",
+			"btop" : " Btop",
+			"Virtual Machine Manager" : "  Virtual Machines",
+			"zsh" : " zsh",
+			"Pipewire Volume Control" : "󰝚  Pipewire Volume Control",
+			"GNU Image (.*)" : " GNU Image $1",
+			"Inkscape (.*)" : " Inkscape $1",
+			"Deluge" : " Deluge",
+		}
+	},
+
+	"battery": {
+		"format": "{capacity}% {icon}",
+                "interval": 10,
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
+		"format-alt": "{time} {icon}",
+                "format-plugged-alt": "{time} {icon}",
+                "format-charging-alt": "{time} {icon}",
+                 "states": {
+                         "warning": 30,
+                         "critical": 15
+                 },
+		"format-icons": [
+			"󱃍",
+			"󰁺",
+			"󰁻",
+			"󰁼",
+			"󰁽",
+			"󰁾",
+        	    	"󰁿",
+            		"󰂀",
+            		"󰂁",
+            		"󰂂",
+			"󰁹"
+		]
+	},
+	"idle_inhibitor": {
+		"format": " {icon} ",
+                "tooltip": true,
+        	"format-icons": {
+			"activated": "",
+            		"deactivated": ""
+		},
+	},
+	"network": {
+		"format-wifi": "  ({signalStrength}%)",
+		"format-ethernet": "{ifname} 󰈀",
+		"format-linked": "{ifname} 󰲜 (No IP)",
+		"format-disconnected": "Disconnected ",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}",
+		"tooltip-format": "{ifname}: {ipaddr}",
+		"tooltip-format-wifi": "{ifname}:   {essid} ({ipaddr})",
+		"tooltip-format-ethernet": "{ifname} 󰈀 ({ipaddr})",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+	},
+	"clock" : {
+                "format": " {:%H:%M %Z}",
+	//	"format": "{:%H:%M}  ",
+		"format-alt": "󰃰 {:%a, %b %d %Y}",
+	//	"tooltip-format": "\n<tt><big>{calendar}</big></tt>\n",
+		"tooltip-format": "<tt><big>{calendar}</big></tt>",
+		"calendar": {
+                        "on-scroll" : 1,
+                        "on-click-right": "mode",
+			"mode": "month",
+                        "mode-mon-col": 3,
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b>{}</b></span>"
+			}
+		},
+                "actions": {
+                        "on-click-right": "mode",
+                        "on-scroll-up": "shift_down",
+                        "on-scroll-down": "shift_down"
+                }
+	},
+
+	"wireplumber": {
+		"scroll-step": 1, // %, can be a float
+	      	"format": "{volume}% {icon}",
+        	"format-bluetooth": "{volume}% {icon}",
+       	 	"format-bluetooth-muted": "Off {icon}󰂲",
+        	"format-muted": "Off 󰖁",
+        	"format-source": " {volume}% ",
+        	"format-source-muted": "",
+        	"format-icons": {
+			"headphone": " ",
+            		"hands-free": " ",
+            		"headset": " ",
+            		"phone": " ",
+            		"portable": " ",
+            		"car": " ",
+            		"default": ["", "", " "]
+		},
+		"on-click": "pwvucontrol",
+		"max-volume": "100%",
+		//"on-click": "helvum"
+		"tooltip-format": "{node_name}\nVolume: {volume}%  "
+	},
+	"tray": {
+        	"icon-size": 14,
+        	"spacing": 6,
+	},
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile} {icon} \nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
+	},
+	"backlight": {
+        	// "device": "acpi_video1",
+        	"format": "{percent}% {icon}",
+        	"tooltip-format": "Backlight: {percent}% {icon}",
+        	"format-icons": ["", "", "", "", "", "", "", "", ""]
+	},
+	"custom/power": {
+		"format": "",
+		"tooltip": true,
+        	"tooltip-format": "Shutdown",
+		//"on-click": " 
+		//swaynag -t warning -m '  Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Reboot' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33 --button-text FFFFFF --button-border-size 1 --button-padding 6 --text FFFFFF
+		//",
+                "on-click": "wlogout",
+	},
+        "keyboard-state": {
+	        "numlock": false,
+        	"capslock": true,
+	        "format": "{icon}",
+	        "format-icons": {
+		        "locked": "",
+		        "unlocked": "",
+                }
+        },
+        "backlight/slider": {
+                "min": 0,
+                "max": 100,
+                "orientation": "vertical",
+        },
+
+}
+

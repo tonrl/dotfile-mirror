@@ -1,0 +1,13 @@
+configuration {
+	modi: "window,run,drun,combi";
+	font: "ttf-iosevka-nerd 9";
+	combi-modi: "window,run,drun,ssh";
+	display-drun: "    :";
+	display-window: "Windows";
+	show-icons: true;
+	icon-theme: "Papirus-Dark";
+}
+
+//@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+@theme "/home/schlau/.config/rofi/theme.rasi"
+

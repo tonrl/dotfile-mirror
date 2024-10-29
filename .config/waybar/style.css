@@ -129,20 +129,24 @@ button:hover {
 	background: rgba(23,48,40,0.9);
 	color: #ebdbb2;
 	padding: 0px;
-	padding-left: 10px;
-	padding-right:10px;
+	padding-left: 9px;
+	padding-right:9px;
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
 	border-bottom-right-radius: 25px;
 	border-bottom-left-radius: 25px;
-	border: 0px;
+	border: 2px;
 	border-style: solid;
-	border-color:#9eecf9;
+	border-color:transparent;
 }
 
 #window:hover {
 	background: rgba(23,48,40,0.3);
-	box-shadow: inset 0px 0px 2px #b700db;
+	padding-left: 9px;
+	padding-right:9px;
+        border: 2px;
+	border-style: solid;
+        border-color: #b700db;
 }
 
 #workspaces {
@@ -429,8 +433,17 @@ label:focus {
 #keyboard-state {
         margin-left: 4px;
         margin-right: 5px;
+        color: #ebdbb2;
 
 }
+
+#keyboard-state label.capslock.locked {
+        color: #ffa500;
+}
+
+
+
+
 #backlight-slider slider {
         min-height: 0px;
         min-width: 0px;
@@ -464,6 +477,16 @@ label:focus {
 }
 #custom-rofi:hover {
 	background-color: rgba(75,0,130,0.3);
+}
+
+#privacy {
+        color: #FFA500;
+        margin-right: 5px;
+}
+#privacy-item.audio-in,
+#privacy-item.screenshare {
+        color: #FF0000;
+        margin-right: 5px;
 }
 
 .modules-left {

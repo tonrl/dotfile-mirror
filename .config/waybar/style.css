@@ -322,8 +322,10 @@ label:focus {
         background: transparent;
 }
 #network:hover {
-	background: rgba(0,10,100,0.3);
-/*	box-shadow: inset 0px 0px 2px #ffffff;
+	background: rgba(144,177,177,0.2);
+/*
+        background: rgba(0,10,100,0.3);
+	box-shadow: inset 0px 0px 2px #ffffff;
 */
 }
 

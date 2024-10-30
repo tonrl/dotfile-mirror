@@ -211,7 +211,7 @@
 		},
 	},
 	"network": {
-		"format-wifi": "  ({signalStrength}%)",
+		"format-wifi": "{essid}   ({signalStrength}%)",
 		"format-ethernet": "{ifname} 󰈀",
 		"format-linked": "{ifname} 󰲜 (No IP)",
 		"format-disconnected": "Disconnected ",

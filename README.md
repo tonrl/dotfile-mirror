@@ -6,5 +6,13 @@ named with a dot (.) at the beginning of the filename, which indicate that they
 are hidden from normal directory listings. This repository contains my personal
 dotfiles.
 
+- **Window Manager** : [Hyprland](https://github.com/hyprwm/Hyprland)
+- **Terminal** : [Kitty](https://sw.kovidgoyal.net/kitty/)
+- **Notification** : [Dunst](https://github.com/dunst-project/dunst)
+- **Launcher** : [Rofi](https://github.com/davatorium/rofi)
+- **File Manager** : [Ranger](https://github.com/ranger/ranger)
+
+## Setup
+
 ![Screenshots](.screenshots/hyprland_scr.png)
 

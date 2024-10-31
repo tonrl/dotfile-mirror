@@ -98,20 +98,6 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-# The Fuck (enable)
-# eval $(thefuck --alias)
-
-#==========================#
-# Env variable (export)    #
-#==========================#
-
-# Logout terminal after 60 secodnds
-# export TMOUT="$(( 60*10 ))";
-export TERMINAL=kitty
-
-#expor path
-
-PATH="/usr/local/bin:/sbin:/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 # Fix the bug on JAVA appliation on sway window manager
 if [ "$XDG_SESSION_DESKTOP" = "sway" ] ; then
@@ -121,25 +107,6 @@ fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
-#==========================#
-# SSH SSH-AGENT            #
-#==========================#
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket 
-
-
-
-#if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-#    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
-#fi
-#if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-#    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-#fi
-
-#==========================#
-# GPG GPG-AGENT            #
-#==========================#
-export GPG_TTY=$(tty)
 
 
 #========================================#

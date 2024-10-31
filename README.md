@@ -7,6 +7,7 @@ are hidden from normal directory listings. This repository contains my personal
 dotfiles.
 
 - **Window Manager** : [Hyprland](https://github.com/hyprwm/Hyprland)
+- **Operating System** : [Arch Linux](https://archlinux.org/)
 - **Terminal** : [Kitty](https://sw.kovidgoyal.net/kitty/)
 - **Notification** : [Dunst](https://github.com/dunst-project/dunst)
 - **Launcher** : [Rofi](https://github.com/davatorium/rofi)

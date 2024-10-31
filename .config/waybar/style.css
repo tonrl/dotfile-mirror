@@ -180,7 +180,10 @@ button:hover {
 }
 
 #clock:hover {
-	background: rgba(153,0,76,0.1);
+	/*
+        background: rgba(153,0,76,0.1);
+	*/
+        background-color: rgba(75,0,130,0.3);
 	box-shadow: inset 0px 0px 1px #9eecf9;
 }
 
@@ -479,6 +482,12 @@ label:focus {
 }
 #custom-rofi:hover {
 	background-color: rgba(75,0,130,0.3);
+        border: 2px;
+	border-style: solid;
+	border-color:#9d99bc;
+        padding-left: 5px;
+        padding-right: 9px;
+
 }
 
 #privacy {

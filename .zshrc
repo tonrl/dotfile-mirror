@@ -73,15 +73,15 @@ fi
 #================================#
 # Alias to use exa instead of ls #
 #================================#
-alias ex='exa --icons --header'
-alias exa='exa --icons --header'
-alias eza='eza --icons --header'
-alias l='exa --icons --header'
-alias ls='exa --icons --header --color-scale'
-alias la='exa --long --all --icons --grid --header --color-scale'
-alias lg='exa --long --icons --header --git'
-alias lag='exa --long --icons --header --grid --all --git --color-scale'
-alias ll='exa --long --icons --header'
+alias ex='eza --icons --header'
+alias exa='eza --icons --header'
+# alias eza='eza --icons --header'
+alias l='eza --icons --header'
+alias ls='eza --icons --header --color-scale'
+alias la='eza --long --all --icons --grid --header --color-scale'
+alias lg='eza --long --icons --header --git'
+alias lag='eza --long --icons --header --grid --all --git --color-scale'
+alias ll='eza --long --icons --header --grid'
 
 #alias dir='exa --icons --header'
 alias dir='ls'

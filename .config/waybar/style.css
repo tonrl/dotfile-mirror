@@ -172,7 +172,7 @@ button:hover {
 /*	background: rgba(153,0,76,0.4);*/
         background: rgba(217,179,255,0.1);
   	border-radius: 5px;
-        border: 1px;
+        border: 1.5px;
 	border-style: solid;
         border-color:#4c4561;
 /*	border-color: rgba(255,255,0,0.4); */
@@ -508,9 +508,9 @@ label:focus {
         border-radius: 5px 5px 5px 5px;
         padding-left: 2px;
         padding-right: 0px;
-        margin-top: 3px;
+        margin-top: 2px;
         margin-right: 8px;
-        border: 1px;
+        border: 1.5px;
         border-style: solid;
         border-color:#4c4561;
 }

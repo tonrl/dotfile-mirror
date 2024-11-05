@@ -10,6 +10,8 @@ return {
                 "javascript",
                 "typescript",
                 "json",
+                "markdown",
+                "markdown_inline",
                 "c",
                 "cpp",
                 "lua",
@@ -31,7 +33,7 @@ return {
             auto_install = true,
 
             indent = {
-                enable = true
+                enable = false
             },
 
             highlight = {

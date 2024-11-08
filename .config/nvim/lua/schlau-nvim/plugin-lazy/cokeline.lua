@@ -7,31 +7,45 @@ return{
         },
         config = function ()
                 local get_hex = require('cokeline.hlgroups').get_hl_attr
+                local fg = "#8864ce"
+                local bg = "#383838"
+                local inactive_fg = "#808080"
+                local inactive_bg = "#211f1f"
+                local yellow = "#c6ce14"
+                local green = "#14ce5c"
+
                 require('cokeline').setup({
                         default_hl = {
-                                fg = function(buffer)
-                                        return
-                                        buffer.is_focused
-                                        and get_hex('Normal', 'fg')
-                                        or get_hex('Comment', 'fg')
-                                end,
-                                bg = 'NONE',
+                                fg = function(buffer) return buffer.is_focused and fg or inactive_fg end,
+                                bg = function(buffer) return buffer.is_focused and bg or inactive_bg end,
                         },
                         components = {
                                 {
-                                        text = function(buffer) return (buffer.index ~= 1) and '▏' or '' end,
-                                        fg = function() return get_hex('Normal', 'fg') end
+                                        text = '｜',
+                                        fg = function(buffer)
+                                                return
+                                                buffer.is_modified and yellow or green
+                                        end
                                 },
                                 {
-                                        text = function(buffer) return '    ' .. buffer.devicon.icon end,
+                                        text = function(buffer) return '  ' .. buffer.devicon.icon end,
                                         fg = function(buffer) return buffer.devicon.color end,
                                 },
                                 {
-                                        text = function(buffer) return buffer.filename .. '    ' end,
+                                        text = function(buffer) return buffer.index .. ': ' end,
+                                },
+                                {
+                                        text = function(buffer) return buffer.unique_prefix end,
+                                        fg = get_hex('Comment', 'fg'),
+                                        italic = true,
+                                },
+                                {
+                                        text = function(buffer) return buffer.filename .. '  ' end,
                                         bold = function(buffer) return buffer.is_focused end
                                 },
                                 {
                                         text = '󰖭',
+                                        fg = inactive_fg,
                                         on_click = function(_, _, _, _, buffer)
                                                 buffer:delete()
                                         end
@@ -39,6 +53,7 @@ return{
                                 {
                                         text = '  ',
                                 },
+
                         },
                 })
         end

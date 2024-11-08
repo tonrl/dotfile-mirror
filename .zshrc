@@ -23,20 +23,13 @@ compinit
 zstyle ':completion:*' menu select
 
 # End of lines added by compinstall
-set -o vi
+# set -o vi
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
 
 # Functions like autocorrect .zshrc
 # setopt autocd              # change directory just by typing its name
 setopt correct            # auto correct mistakes
-
-# Git status
-#autoload -Uz vcs_info
-#precmd_vcs_info() { vcs_info }
-#precmd_functions+=( precmd_vcs_info )
-#setopt prompt_subst
-## RPROMPT='${vcs_info_msg_0_}'
-#zstyle ':vcs_info:git:*' formats '%b'
-
 
 #============================#
 # Custom shell prompt (PS1)  #

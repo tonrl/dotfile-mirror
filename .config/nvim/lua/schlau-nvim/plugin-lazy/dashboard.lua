@@ -55,7 +55,7 @@ return {
                                 },
                                 footer = {
                                         "",
-                                        " Emacs is an OS with bad editor, Vi is a masterpiece of elegance",
+                                        " Vi is a masterpiece of elegance",
                                 },
                         }
                 }

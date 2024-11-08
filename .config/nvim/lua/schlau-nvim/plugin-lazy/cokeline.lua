@@ -21,14 +21,14 @@ return{
                         },
                         components = {
                                 {
-                                        text = '｜',
+                                        text = ' Δ ',
                                         fg = function(buffer)
                                                 return
                                                 buffer.is_modified and yellow or green
                                         end
                                 },
                                 {
-                                        text = function(buffer) return '  ' .. buffer.devicon.icon end,
+                                        text = function(buffer) return ' ' .. buffer.devicon.icon end,
                                         fg = function(buffer) return buffer.devicon.color end,
                                 },
                                 {

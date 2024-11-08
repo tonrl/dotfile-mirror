@@ -73,11 +73,16 @@ return {
                                         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                                 end,
                         },
+                        window = {
+                                --completion = cmp.config.window.bordered(),
+                                --documentation = cmp.config.window.bordered(),
+                        },
                         mapping = cmp.mapping.preset.insert({
                                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
                                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                                 ["<C-Space>"] = cmp.mapping.complete(),
+                                ['<C-a>'] = cmp.mapping.abort(),
                         }),
                         sources = cmp.config.sources({
                                 { name = 'nvim_lsp' },
@@ -87,7 +92,8 @@ return {
                                 { name = 'buffer' },
                         })
                 })
-                vim.diagnostic.config({-- update_in_insert = true,
+                vim.diagnostic.config({
+                        -- update_in_insert = true,
                         float = {
                                 focusable = false,
                                 style = "minimal",

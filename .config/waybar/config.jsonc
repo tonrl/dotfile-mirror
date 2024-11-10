@@ -36,15 +36,11 @@
         ],
         "modules-right": [ 
                 "network",
-//                "idle_inhibitor",
-"wireplumber",
-"backlight",
-"battery",
-//                "power-profiles-daemon",
-"keyboard-state",
-"tray",
-         //       "backlight/slider",
-         "custom/power",
+                "wireplumber",
+                "backlight",
+                "battery",
+                "tray",
+                "custom/power",
         ],
 
         "sway/workspaces": {

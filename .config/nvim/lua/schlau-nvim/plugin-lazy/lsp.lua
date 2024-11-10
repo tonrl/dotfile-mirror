@@ -31,23 +31,11 @@ return {
                         handlers = {
                                 function(server_name) -- Default handler (optional)
                                         require("lspconfig")[server_name].setup {
+                                                vim.keymap.set('n', 'K', vim.lsp.buf.hover, {}),
+                                                vim.keymap.set('n', 'ag', vim.lsp.buf.definition, {}),
+                                                vim.keymap.set({'n'},'<leader>ca', vim.lsp.buf.code_action, {}),
                                                 capabilities = capabilities
                                         }
-                                end,
-                                zls = function()
-                                        local lspconfig = require("lspconfig")
-                                        lspconfig.zls.setup({
-                                                root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
-                                                settings = {
-                                                        zls = {
-                                                                enable_inlay_hints = true,
-                                                                enable_snippets = true,
-                                                                warn_style = true,
-                                                        },
-                                                },
-                                        })
-                                        vim.g.zig_fmt_parse_errors = 0
-                                        vim.g.zig_fmt_autosave = 0
                                 end,
                                 ["lua_ls"] = function()
                                         local lspconfig = require("lspconfig")
@@ -61,6 +49,28 @@ return {
                                                                 }
                                                         }
                                                 }
+                                        }
+                                end,
+                                ["rust_analyzer"] = function()
+                                        local lspconfig = require("lspconfig")
+                                        lspconfig.rust_analyzer.setup {
+                                                capabilities = capabilities,
+                                                settings = {
+                                                        ['rust_analyzer'] = {
+                                                                diagnostics = {
+                                                                        enable = true;
+                                                                }
+                                                        },
+                                                                                                        },
+                                        }
+                                end,
+                                ["clangd"] = function()
+                                        local lspconfig = require("lspconfig")
+                                        lspconfig.clangd.setup {
+                                                capabilities = capabilities,
+                                                settings = {
+                                                        ['clangd'] = {},
+                                                },
                                         }
                                 end,
                         }
@@ -93,7 +103,7 @@ return {
                         })
                 })
                 vim.diagnostic.config({
-                        -- update_in_insert = true,
+                        --update_in_insert = true,
                         float = {
                                 focusable = false,
                                 style = "minimal",

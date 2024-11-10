@@ -4,7 +4,8 @@ return {
     tag = "0.1.5",
 
     dependencies = {
-        "nvim-lua/plenary.nvim"
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-ui-select.nvim"
     },
 
     config = function()
@@ -15,6 +16,12 @@ return {
                                         hight = 0.2,
                                 }
                         },
+                        extensions = {
+                                ["ui-select"] = {
+                                        require("telescope.themes").get_dropdown {
+                                        }
+                                }
+                        }
                 })
 
 		local builtin = require('telescope.builtin')
@@ -35,5 +42,7 @@ return {
 		vim.keymap.set('n', '<leader>sn', function()
 			builtin.find_files ({ cwd = vim.fn.stdpath 'config' })
                 end, {desc = '[S]earch [N]eovim files'})
-	end
+                require("telescope").load_extension("ui-select")
+
+        end
 }

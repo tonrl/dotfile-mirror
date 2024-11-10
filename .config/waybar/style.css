@@ -31,10 +31,6 @@ window#waybar.empty #window {
 
 }
 
-window#waybar.chromium {
-        /*    	background-color: #000000;
-        border: none; */
-}
 tooltip {
         border-radius: 5px;
         background-color: rgba(9,0,0,0.8);

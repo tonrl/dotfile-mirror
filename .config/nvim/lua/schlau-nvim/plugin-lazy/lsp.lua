@@ -21,7 +21,15 @@ return {
                 vim.lsp.protocol.make_client_capabilities(),
                 cmp_lsp.default_capabilities())
                 require("fidget").setup({})
-                require("mason").setup()
+                require("mason").setup({
+                        ui = {
+                                icons = {
+                                        package_installed = "",
+                                        package_pending = "",
+                                        package_uninstalled = "",
+                                },
+                        }
+                })
                 require("mason-lspconfig").setup({
                         ensure_installed = {
                                 "lua_ls",
@@ -30,12 +38,14 @@ return {
                         },
                         handlers = {
                                 function(server_name) -- Default handler (optional)
-                                        require("lspconfig")[server_name].setup {
-                                                vim.keymap.set('n', 'K', vim.lsp.buf.hover, {}),
-                                                vim.keymap.set('n', 'ag', vim.lsp.buf.definition, {}),
-                                                vim.keymap.set({'n'},'<leader>ca', vim.lsp.buf.code_action, {}),
-                                                capabilities = capabilities
-                                        }
+                                        if server_name ~= 'rust_analyzer' then
+                                                require("lspconfig")[server_name].setup {
+                                                        vim.keymap.set('n', 'K', vim.lsp.buf.hover, {}),
+                                                        vim.keymap.set('n', 'ag', vim.lsp.buf.definition, {}),
+                                                        vim.keymap.set({'n'},'<leader>ca', vim.lsp.buf.code_action, {}),
+                                                        capabilities = capabilities
+                                                }
+                                        end
                                 end,
                                 ["lua_ls"] = function()
                                         local lspconfig = require("lspconfig")
@@ -49,19 +59,6 @@ return {
                                                                 }
                                                         }
                                                 }
-                                        }
-                                end,
-                                ["rust_analyzer"] = function()
-                                        local lspconfig = require("lspconfig")
-                                        lspconfig.rust_analyzer.setup {
-                                                capabilities = capabilities,
-                                                settings = {
-                                                        ['rust_analyzer'] = {
-                                                                diagnostics = {
-                                                                        enable = true;
-                                                                }
-                                                        },
-                                                                                                        },
                                         }
                                 end,
                                 ["clangd"] = function()
@@ -84,8 +81,8 @@ return {
                                 end,
                         },
                         window = {
-                                --completion = cmp.config.window.bordered(),
-                                --documentation = cmp.config.window.bordered(),
+                                completion = cmp.config.window.bordered(),
+                                documentation = cmp.config.window.bordered(),
                         },
                         mapping = cmp.mapping.preset.insert({
                                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),

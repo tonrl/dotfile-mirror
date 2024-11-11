@@ -11,6 +11,8 @@ return {
                 "L3MON4D3/LuaSnip",
                 "saadparwaiz1/cmp_luasnip",
                 "j-hui/fidget.nvim",
+                "jcha0713/cmp-tw2css", -- CSS support
+                "jc-doyle/cmp-pandoc-references", --Markdown support
         },
         config = function()
                 local cmp = require('cmp')
@@ -93,7 +95,9 @@ return {
                         }),
                         sources = cmp.config.sources({
                                 { name = 'nvim_lsp' },
-                                { name = 'luasnip' }, -- For luasnip users.
+                                { name = 'luasnip' }, -- For Luasnip users.
+                                { name = 'cmp-tw2css' },
+                                { name = 'pandoc_references'},
                         },
                         {
                                 { name = 'buffer' },

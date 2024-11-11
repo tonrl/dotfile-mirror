@@ -10,10 +10,15 @@ return {
 
         config = function()
                 require('telescope').setup({
-                        layout_config = {
-                                vertical = {
-                                        width = 0.5,
-                                        hight = 0.2,
+                        defaults = {
+                                layout_config = {
+                                        height = 0.7,
+                                        prompt_position = "top",
+                                }
+                        },
+                        pickers = {
+                                find_files = {
+                                        thme = "dropdown",
                                 }
                         },
                         extensions = {
@@ -30,7 +35,6 @@ return {
                 vim.keymap.set('n', '<leader>gg', builtin.grep_string, {})
                 vim.keymap.set('n', '<leader>pg', builtin.live_grep, { desc = 'Telescope live grep' })
                 vim.keymap.set('n', '<leader>pb', builtin.buffers, { desc = 'Telescope buffers' })
-
 
 
 

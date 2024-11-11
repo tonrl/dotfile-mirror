@@ -41,7 +41,7 @@ return {
                                         if server_name ~= 'rust_analyzer' then
                                                 require("lspconfig")[server_name].setup {
                                                         vim.keymap.set('n', 'K', vim.lsp.buf.hover, {}),
-                                                        vim.keymap.set('n', 'ag', vim.lsp.buf.definition, {}),
+                                                        vim.keymap.set('n', 'dg', vim.lsp.buf.definition, {}),
                                                         vim.keymap.set({'n'},'<leader>ca', vim.lsp.buf.code_action, {}),
                                                         capabilities = capabilities
                                                 }

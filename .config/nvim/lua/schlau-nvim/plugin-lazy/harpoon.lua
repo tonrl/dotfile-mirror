@@ -47,7 +47,7 @@ return {
                                         -- Delete selected entry from the list
                                         map(
                                         "i",
-                                        "<C-d>", -- your mapping here
+                                        "<C-d>",
                                         function()
                                                 local state = require("telescope.actions.state")
                                                 local selected_entry = state.get_selected_entry()

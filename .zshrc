@@ -76,6 +76,7 @@ alias lg='eza --long --icons --header --git'
 alias lag='eza --long --icons --header --grid --all --git --color-scale'
 alias ll='eza --long --icons --header --grid'
 
+alias tree='eza --icons --header --color-scale --tree'
 #alias dir='exa --icons --header'
 alias dir='ls'
 

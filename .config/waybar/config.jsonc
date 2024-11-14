@@ -33,6 +33,7 @@
                 "privacy",
                 "clock",
                 "idle_inhibitor",
+                 "mpris",
         ],
         "modules-right": [ 
                 "network",
@@ -220,7 +221,6 @@
         },
         "clock" : {
                 "format": " {:%H:%M %Z}",
-        //	"format": "{:%H:%M}  ",
         "format-alt": "󰃰 {:%a, %b %d %Y}",
         //	"tooltip-format": "\n<tt><big>{calendar}</big></tt>\n",
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
@@ -311,7 +311,7 @@
                 "orientation": "vertical",
         },
         "privacy": {
-                "icon-spacing": 4,
+                "icon-spacing": 0,
                 "icon-size": 10,
                 "transition-duration": 250,
                 "modules": [
@@ -332,6 +332,24 @@
                         }
                 ]       
         },
+        "mpris": {
+                "format": " {player_icon}",
+                "tooltip-format": "{status_icon} {dynamic}",
+                "tooltip-format-paused": "{status_icon} {status} {dynamic}",
+                "format-paused":  " {status_icon} {position}",
+                "on-click": "playerctl play-pause",
+                "on-click-right":"playerctl stop",
+                "player-icons": {
+                        "default": " ",
+                        "mpv": "🎵"
+                },
+                "status-icons": {
+                        "playing": " ",
+                        "paused": "⏸",
+                        "stopped": "",
+                },
+        // "ignored-players": ["firefox"]
+        }
 
 }
 

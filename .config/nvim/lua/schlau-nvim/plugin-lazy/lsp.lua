@@ -63,6 +63,15 @@ return {
                                                 }
                                         }
                                 end,
+                                ["harper-ls"] = function()
+                                        local lspconfig = require("lspconfig")
+                                        lspconfig.harper_ls.setup {
+                                                capabilities = capabilities,
+                                                settings = {
+                                                        ['harper-ls'] = {},
+                                                },
+                                        }
+                                end,
                                 ["clangd"] = function()
                                         local lspconfig = require("lspconfig")
                                         lspconfig.clangd.setup {

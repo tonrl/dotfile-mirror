@@ -145,6 +145,9 @@ alias vim="nvim"
 alias vi="\vim"
 alias v="nvim"
 
+#sudo edit more easy
+alias svim="sudoedit"
+
 # alias to paru
 alias yay="paru"
 

@@ -293,6 +293,7 @@ label:focus {
         background: transparent;
 
 }
+
 #backlight:hover {
         background: rgba(144,177,177,0.2);
 }
@@ -357,9 +358,6 @@ label:focus {
 
 #tray:hover {
         background: rgba(144,177,177,0.2);
-        /*
-        box-shadow: inset 0px 0px 2px #9eecf9;
-         */
 }
 
 #tray > .passive {
@@ -386,7 +384,7 @@ label:focus {
          */
         border-radius: 10px;
         background: transparent;
-        color: #ebdbb2;
+        color: #c3e88d;
         padding-left: 8px;
         padding-right: 11px;
         /*
@@ -487,9 +485,11 @@ label:focus {
 #mpris {
         color: #c0caf5;
 }
+
 #mpris.firefox {
         color : #c3e88d;
 }
+
 #mpris.chromium {
         color: #9d7cd8;
 }

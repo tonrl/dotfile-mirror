@@ -28,7 +28,7 @@ bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
 
 # Functions like autocorrect .zshrc
-# setopt autocd              # change directory just by typing its name
+setopt autocd              # change directory just by typing its name
 setopt correct            # auto correct mistakes
 
 #============================#

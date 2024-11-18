@@ -17,7 +17,7 @@ dotfiles.
 
 ## 💻 Setup
 
-![Screenshots](.screenshots/hyprland_scr.png)
+![Screenshots](.screenshots/hyprland_scr0.png)
 
 ## 
 

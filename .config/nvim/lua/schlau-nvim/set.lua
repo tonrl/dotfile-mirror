@@ -2,7 +2,7 @@
 -- init.lua (.config/nvim/schlau/init.lua) 
 -- Basic setting for neovim (add numbers etc)
 
--- vim.opt.termguicursors = true
+vim.opt.guicursor = ''
 vim.opt.number = true  -- Number
 vim.opt.relativenumber = true --Relativenumber
 
@@ -30,10 +30,8 @@ vim.opt.undofile = true
 
 --vim.opt.scrolloff = 8
 --vim.opt.isfname:append("@-@")
---vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes"
+
+
 vim.opt.colorcolumn = "80"
-
--- vim.cmd('syntax enable')
--- vim.cmd('filetype plugin indent on')
-
 vim.opt.clipboard="unnamed,unnamedplus"

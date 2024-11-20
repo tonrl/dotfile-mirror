@@ -35,9 +35,14 @@ setopt correct            # auto correct mistakes
 # Custom shell prompt (PS1)  #
 #============================#
 autoload -U colors && colors
+autoload -Uz vcs_info
+precmd() { vcs_info }
 
-PROMPT="(%F{#007f5c}%b%n%f)-%B%F{#666699}[%f🐧%F{#e3f988}%~%f%F{#666699}]%f%b%F{#5e644f}%#%f "
+zstyle ':vcs_info:git*' formats '( %b)'
 
+setopt PROMPT_SUBST
+#PROMPT="(%F{#007f5c}%b%n%f)-%B%F{#666699}[%f🐧%F{#e3f988}%~%f%F{#666699}]%f%b%F{#5e644f}%#%f "
+PROMPT='(%F{#007f5c}%b%n%f)-%F{#666699}[%f%F{#e3f988}${PWD/#$HOME/~}%f%F{#666699}]%f%F{#5e644f}-${vcs_info_msg_0_}%f%F{#5e644f}>%f '
 # RPROMPT='${vcs_info_msg_0_}'
 RPROMPT="%F{241}%B%t [%?]%b%f"
 

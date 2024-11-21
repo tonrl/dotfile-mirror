@@ -42,7 +42,7 @@ zstyle ':vcs_info:git*' formats '( %b) '
 
 setopt PROMPT_SUBST
 #PROMPT="(%F{#007f5c}%b%n%f)-%B%F{#666699}[%f🐧%F{#e3f988}%~%f%F{#666699}]%f%b%F{#5e644f}%#%f "
-PROMPT='(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#e3f988}${PWD/#$HOME/~}%f%F{#666699}]%f%F{#ff007c} ${vcs_info_msg_0_}%f%F{#5e644f}>%f '
+PROMPT='(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f%F{#ff007c} ${vcs_info_msg_0_}%f%F{#414868}>%f '
 # RPROMPT='${vcs_info_msg_0_}'
 RPROMPT="%F{241}%B%t [%?]%b%f"
 

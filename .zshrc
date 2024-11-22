@@ -77,9 +77,9 @@ alias dir='ls'
 
 # enable auto-suggestions based on the history (Require zsh-autosuggestions to be installed)
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#666'
 fi
 
 # function to clear screen and scrollback
@@ -87,6 +87,9 @@ function clear-screen-and-scrollback() {
         printf '\x1Bc'
         zle clear-screen
 }
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 zle -N clear-screen-and-scrollback
 bindkey '^L' clear-screen-and-scrollback

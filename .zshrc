@@ -38,13 +38,25 @@ autoload -U colors && colors
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
-zstyle ':vcs_info:git*' formats '( %b) '
+zstyle ':vcs_info:git*' formats '%F{#3d59a1}git:%f%F{#ff007c}(%b)%f '
 
 setopt PROMPT_SUBST
 #PROMPT="(%F{#007f5c}%b%n%f)-%B%F{#666699}[%f🐧%F{#e3f988}%~%f%F{#666699}]%f%b%F{#5e644f}%#%f "
-PROMPT='(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f%F{#ff007c} ${vcs_info_msg_0_}%f%F{#414868}>%f '
+PROMPT='(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f%F{#414868}%f '
 # RPROMPT='${vcs_info_msg_0_}'
-RPROMPT="%F{241}%B%t [%?]%b%f"
+# RPROMPT="%F{241}%B%t [%?]%b%f"
+
+set_exit_status() {
+  if [ $? -eq 0 ]; then
+    RPROMPT='%F{241}%B%t [%f%F{#93dc5c}%f%F{241}]%b%f'
+  else
+    RPROMPT='%F{241}%B%t [%f%F{#ff07c0}%?%f%F{241}]%f%b%f'
+  fi
+}
+
+precmd() {
+  set_exit_status
+}
 
 #==========================#
 # Terminal Tiele           #

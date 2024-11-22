@@ -5,13 +5,13 @@
 #        Licensed Under GPL v3 or later          #
 #================================================#
 
-# Lines configured by zsh-newuser-install
+# Nerd fonts are required for icon support
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt extendedglob
 bindkey -v
-# End of lines configured by zsh-newuser-install
 
 # The following lines were added by compinstall
 
@@ -40,7 +40,7 @@ precmd() {
         set_exit_icons
         vcs_info
 }
-
+# Change color of arrow based on exit code (Green if 0, red if else)
 set_exit_icons() {
         if [ $? -eq 0 ]; then
                 exit_icons='%F{#93dc5c} %f'
@@ -57,29 +57,6 @@ setopt PROMPT_SUBST
 PROMPT='${exit_icons}(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f%F{#414868}%f '
 RPROMPT="%F{241}%B%t [%?]%b%f"
 
-
-
-#==========================#
-# Terminal Tiele           #
-#==========================#
-
-autoload -Uz add-zsh-hook
-
-function xterm_title_precmd () {
-	print -Pn -- '\e]2;%n@%m %~\a'
-	[[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
-}
-
-function xterm_title_preexec () {
-	print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
-	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
-}
-
-if [[ "$TERM" == (Eterm*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|wezterm*|tmux*|xterm*) ]]; then
-	add-zsh-hook -Uz precmd xterm_title_precmd
-	add-zsh-hook -Uz preexec xterm_title_preexec
-fi
-#End here:
 
 #================================#
 # Alias to use exa instead of ls #
@@ -98,26 +75,29 @@ alias tree='eza --icons --header --color-scale --tree'
 #alias dir='exa --icons --header'
 alias dir='ls'
 
-# enable auto-suggestions based on the history
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# enable auto-suggestions based on the history (Require zsh-autosuggestions to be installed)
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     # change suggestion color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
-# enable command-not-found if installed
-if [ -f /etc/zsh_command_not_found ]; then
-    . /etc/zsh_command_not_found
-fi
+# function to clear screen and scrollback
+function clear-screen-and-scrollback() {
+        printf '\x1Bc'
+        zle clear-screen
+}
 
+zle -N clear-screen-and-scrollback
+bindkey '^L' clear-screen-and-scrollback
 
-# Fix the bug on JAVA appliation on sway window manager
+# Fix for bug on JAVA appliation on sway window manager
 if [ "$XDG_SESSION_DESKTOP" = "sway" ] ; then
     # https://github.com/swaywm/sway/issues/595
     export _JAVA_AWT_WM_NONREPARENTING=1
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Add RVM to PATH for scripting.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Set neovim for man pager
@@ -153,14 +133,14 @@ alias killzombie="sudo kill -HUP `ps -A -ostat,ppid,pid,cmd | grep -e '^[Zz]' | 
 
 # reload runs exec zsh to applie changes in .zshrc
 alias restartzsh="exec zsh" #this will restart zsh
-alias reload=". ~/.zshrc" #This will reread .zsh, may not work
+alias reload=". ~/.zshrc" #This will reread
 alias unixtime="~/Documents/script/unixtime.sh"
 
-# :w
+
 # check shell
 alias shellt="chsh -l"
 
-# Disable vim and chage it to neovim
+# vim for neovim
 alias vim="nvim"
 alias vi="\vim"
 alias v="nvim"
@@ -174,14 +154,10 @@ alias yay="paru"
 # alias ncdu (color support)
 alias ncdu="ncdu --color dark"
 
-# Jump to Rust Project dir
-alias rustpra="cd ~/Project/Practice/rust/"
-
-# alias to sudo (to make things work with sudo
+# alias sudo (to make things work with sudo
 alias sudo="sudo "
 
-
-# Check for app_id
+# Check for app_id (Only works if you use sway)
 alias swayapp="swaymsg -t get_tree | grep app_id"
 
 # Manage dot files

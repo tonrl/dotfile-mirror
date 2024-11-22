@@ -24,6 +24,7 @@
     },
     
     "display": {
+            "separator" : "",
 	    "key": {
 		    "width": 11
 	},
@@ -38,126 +39,126 @@
 	      "break",
         {
 		    "type": "custom",
-		    "format":"╭────╮──────── System Informations ─────────────",
-		    "outputColor": "red"
+		    "format":"╭────╮======= System Informations ==============",
+		    "outputColor": "38;2;157;124;216"
 	},
 	{
             "type": "host",
             "key": "│ 󰌢  │",
-            "keyColor": "red"
+            "keyColor": "38;2;157;124;216"
         },
 //        {
 //            "type": "cpu",
 //            "key": "│   │",
-//            "keyColor": "red"
+//            "keyColor": "38;2;157;124;216"
 //        },
         {
             "type": "disk",
             "key": "│   │",
-            "keyColor": "red"
+            "keyColor": "38;2;157;124;216"
         },
         {
             "type": "memory",
             "key": "│ 󰑭  │",
-            "keyColor": "red"
+            "keyColor": "38;2;157;124;216"
         },
 //        {
 //            "type": "swap",
 //            "key": "│ 󰓡 ",
-//            "keyColor": "red"
+//            "keyColor": "38;2;157;124;216"
 //        },
         {
             "type": "battery",
             "key": "│ 󰄌  │",
-            "keyColor": "red"
+            "keyColor": "38;2;157;124;216"
         },
 	{
 		    "type": "custom",
-		    "format":"╰────╯──────────────────────────────────────────",
-		    "outputColor": "red"
+		    "format":"╰────╯==========================================",
+		    "outputColor": "38;2;157;124;216"
 	},
         {
 		    "type": "custom",
-		    "format":"╭────╮──────────────────────────────────────────",
-		    "outputColor": "cyan"
+		    "format":"╭────╮==========================================",
+		    "outputColor": "38;2;255;157;100"
 	},
 	{
             "type": "shell",
             "key":  "│   │",
-            "keyColor": "cyan"
+            "keyColor": "38;2;255;157;100"
         },
         {
             "type": "terminal",
             "key": "│   │",
-            "keyColor": "cyan"
+            "keyColor": "38;2;255;157;100"
         },
 	{
             "type": "lm",
             "key": "│ 󰧨  │",
-            "keyColor": "cyan"
+            "keyColor": "38;2;255;157;100"
         },
         {
             "type": "de",
             "key": "│   │",
-            "keyColor": "cyan"
+            "keyColor": "38;2;255;157;100"
         },
         {
             "type": "wm",
             "key": "│   │",
-            "keyColor": "cyan"
+            "keyColor": "38;2;255;157;100"
 	},
 	{
 		"type": "custom",
-		"format":"╰────╯──────────────────────────────────────────",
-		"outputColor": "cyan"
+		"format":"╰────╯==========================================",
+		"outputColor": "38;2;255;157;100"
 	},
         {
 		    "type": "custom",
-		    "format":"╭────╮──────────────────────────────────────────",
-		    "outputColor": "green"
+		    "format":"╭────╮==========================================",
+		    "outputColor": "38;2;65;166;181"
 	},
 	{
             "type": "title",
             "key": "│   │",
             "format": "{user-name}@{host-name}",
-            "keyColor": "green"
+            "keyColor": "38;2;65;166;181"
         },
         {
             "type": "os",
             "key": "│ {icon}  │", // Just get your distro's logo off nerdfonts.com
-            "keyColor": "green"
+            "keyColor": "38;2;65;166;181"
         },
         {
             "type": "kernel",
             "key": "│   │",
-            "keyColor": "green"
+            "keyColor": "38;2;65;166;181"
         },
         {
             "type": "packages",
             "key": "│ 󰏖  │",
-            "keyColor": "green"
+            "keyColor": "38;2;65;166;181"
         },
         {
             "type": "uptime",
             "key": "│ 󰅐  │",
-            "keyColor": "green"
+            "keyColor": "38;2;65;166;181"
         },
         {
             "type": "localip",
             "key": "│ 󰩟  │",
             "compact": true,
-            "keyColor": "green"
+            "keyColor": "38;2;65;166;181"
         },
 //        {
 //            "type": "publicip",
 //            "key": "│ 󰩠 ",
-//            "keyColor": "green",
+//            "keyColor": "38;2;65;166;181",
 //            "timeout": 1000
 //        },
 	{
 		"type": "custom",
-		"format":"╰────╯──────────────────────────────────────────",
-		"outputColor": "green"
+		"format":"╰────╯==========================================",
+		"outputColor": "38;2;65;166;181"
 	},
 
 

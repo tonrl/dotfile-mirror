@@ -18,7 +18,7 @@ dotfiles.
 ## 💻 Setup
 
 ![Screenshots](.screenshots/hyprland_scr.png)
-
+![Shell](.screenshots/shell.png)
 ## 
 
 

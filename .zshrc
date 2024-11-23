@@ -11,7 +11,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 HISTDUP=erase
-unsetopt extendedglob
+#unsetopt extendedglob
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space

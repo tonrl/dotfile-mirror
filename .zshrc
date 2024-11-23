@@ -10,22 +10,54 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+HISTDUP=erase
 unsetopt extendedglob
-bindkey -v
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle :compinstall filename '/home/kanji/.zshrc'
-
 autoload -Uz compinit && compinit
 compinit
-zstyle ':completion:*' menu select
+
+
+export LS_COLORS="di=34:fi=0:ln=36:so=32:pi=33:ex=31"
+zstyle ':completion:*' menu no
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*:commands' list-colors '=*=1;38;5;142'
+zstyle ':completion:*:parameters' list-colors '=*=2;38;5;128'
+zstyle ':fzf-tab:completion:*' fzf-preview 'ls --color $ralpath'
 
 # End of lines added by compinstall
 # set -o vi
+#================#
+# Key bindings   #
+#================#
+
+bindkey -v
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
+
+# function to clear screen and scrollback
+function clear-screen-and-scrollback() {
+        printf '\x1Bc'
+        zle clear-screen
+}
+
+zle -N clear-screen-and-scrollback
+bindkey '^L' clear-screen-and-scrollback
+
+# Select history
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # Functions like autocorrect .zshrc
 # setopt autocd              # change directory just by typing its name
@@ -45,7 +77,7 @@ set_exit_icons() {
         if [ $? -eq 0 ]; then
                 exit_icons='%F{#93dc5c} %f'
         else
-                exit_icons='%F{#ff07c0} %f'
+                exit_icons='%F{#ff07c0} %f'
         fi
 }
 
@@ -55,7 +87,7 @@ zstyle ':vcs_info:git*' formats '%F{#3d59a1}git:%f%F{#ff007c}(%b)%f '
 setopt PROMPT_SUBST
 
 PROMPT='${exit_icons}(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f%F{#414868}%f '
-RPROMPT="%F{241}%B%t [%?]%b%f"
+RPROMPT="%F{241}%B%t [%f%F{#7aa2f7}%?%f%F{241}]%b%f"
 
 
 #================================#
@@ -75,24 +107,20 @@ alias tree='eza --icons --header --color-scale --tree'
 #alias dir='exa --icons --header'
 alias dir='ls'
 
+#=================================#
+# Plugins etc                     #
+#=================================#
+
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
+
 # enable auto-suggestions based on the history (Require zsh-autosuggestions to be installed)
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#666'
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#9b9b9b"
 fi
 
-# function to clear screen and scrollback
-function clear-screen-and-scrollback() {
-        printf '\x1Bc'
-        zle clear-screen
-}
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-zle -N clear-screen-and-scrollback
-bindkey '^L' clear-screen-and-scrollback
 
 # Fix for bug on JAVA appliation on sway window manager
 if [ "$XDG_SESSION_DESKTOP" = "sway" ] ; then
@@ -169,5 +197,10 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Rust command
 . "$HOME/.cargo/env"
 
+# Enable z command
+eval "$(zoxide init --cmd cd zsh)"
+
+# fzf
+source <(fzf --zsh)
 # Custom message script to run on new shell
 

@@ -19,5 +19,3 @@ dotfiles.
 
 ![Screenshots](.screenshots/hyprland_scr.png)
 ## 
-
-

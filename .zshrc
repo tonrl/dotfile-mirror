@@ -119,8 +119,16 @@ if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; th
     # change suggestion color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#9b9b9b"
 fi
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets pattern)
+    ZSH_HIGHLIGHT_STYLES[default]='fg=#d0d0d0'
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=#7aa2f7,bold'
+    ZSH_HIGHLIGHT_STYLES[globbing]='fg=#ff007c'
+    ZSH_HIGHLIGHT_STYLES[arg0]='fg=#c3e88d'
+    ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ff757f'
+    ZSH_HIGHLIGHT_STYLES[path]='fg=#c0caf5,underline'
+fi
 
 # Fix for bug on JAVA appliation on sway window manager
 if [ "$XDG_SESSION_DESKTOP" = "sway" ] ; then

@@ -28,12 +28,12 @@ autoload -Uz compinit && compinit
 compinit
 
 
-export LS_COLORS="di=34:fi=0:ln=36:so=32:pi=33:ex=31"
+#export LS_COLORS="di=34:fi=0:ln=36:so=32:pi=33:ex=31"
 zstyle ':completion:*' menu no
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*:commands' list-colors '=*=1;38;5;142'
-zstyle ':completion:*:parameters' list-colors '=*=2;38;5;128'
+#zstyle ':completion:*:commands' list-colors '=*=1;38;5;142'
+#zstyle ':completion:*:parameters' list-colors '=*=2;38;5;128'
 zstyle ':fzf-tab:completion:*' fzf-preview 'ls --color $ralpath'
 
 # End of lines added by compinstall
@@ -97,8 +97,8 @@ alias ex='eza --icons --header'
 alias exa='eza --icons --header'
 # alias eza='eza --icons --header'
 alias l='eza --icons --header'
-alias ls='eza --icons --header --color-scale'
-alias la='eza --long --all --icons --grid --header --color-scale'
+alias ls='eza --icons --header'
+alias la='eza --long --all --icons --grid --header'
 alias lg='eza --long --icons --header --git'
 alias lag='eza --long --icons --header --grid --all --git --color-scale'
 alias ll='eza --long --icons --header --grid'
@@ -178,6 +178,9 @@ alias v="nvim"
 
 #sudo edit more easy
 alias svim="sudoedit"
+
+# use bat instead of cat
+alias cat="bat -p"
 
 # alias to paru
 alias yay="paru"

@@ -75,9 +75,13 @@ precmd() {
 # Change color of arrow based on exit code (Green if 0, red if else)
 set_exit_icons() {
         if [ $? -eq 0 ]; then
-                exit_icons='%F{#93dc5c} %f'
+                exit_status='%F{#93dc5c} %f'
+                exit_icon='%F{#93dc5c}%f'
+                exit_icons='%F{#7aa2f7}%?%f'
         else
-                exit_icons='%F{#ff07c0} %f'
+                exit_status='%F{#ff07c0} %f'
+                exit_icon='%F{#ff07c0}%f'
+                exit_icons='%F{#bb9af7}%?%f'
         fi
 }
 
@@ -86,8 +90,14 @@ zstyle ':vcs_info:git*' formats '%F{#3d59a1}git:%f%F{#ff007c}(%b)%f '
 
 setopt PROMPT_SUBST
 
-PROMPT='${exit_icons}(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f%F{#414868}%f '
-RPROMPT="%F{241}%B%t [%f%F{#7aa2f7}%?%f%F{241}]%b%f"
+# -> (USER)-[pwd] git:(branch) >
+PROMPT='${exit_status}(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f%F{#414868}%f '
+
+# (USER)-[pwd] git:(branch) >
+#PROMPT='(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f${exit_icon} '
+
+#PS1='%F{#ffc777}%~ %(?.%F{#93dc5c}.%F{#ff07c0})%f '
+RPROMPT='%F{241}%B%t [%f${exit_icons}%F{241}]%b%f'
 
 
 #================================#
@@ -99,6 +109,7 @@ alias exa='eza --icons --header'
 alias l='eza --icons --header'
 alias ls='eza --icons --header'
 alias la='eza --long --all --icons --grid --header'
+alias lla='eza --long --all --icons --header'
 alias lg='eza --long --icons --header --git'
 alias lag='eza --long --icons --header --grid --all --git --color-scale'
 alias ll='eza --long --icons --header --grid'

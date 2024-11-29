@@ -331,7 +331,7 @@ label:focus {
 }
 
 #wireplumber.muted {
-        background: rgba(144,177,177,0.3);
+        background: rgba(144,177,177,0.1);
         color: #a3b8c8;
 }
 

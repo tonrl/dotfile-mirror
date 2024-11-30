@@ -63,12 +63,12 @@ return {
                                                 }
                                         }
                                 end,
-                                ["harper-ls"] = function()
+                                ["harper_ls"] = function()
                                         local lspconfig = require("lspconfig")
                                         lspconfig.harper_ls.setup {
                                                 capabilities = capabilities,
                                                 settings = {
-                                                        ['harper-ls'] = {},
+                                                        ['harper_ls'] = {},
                                                 },
                                         }
                                 end,

@@ -12,7 +12,7 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.autoread = true
 vim.opt.expandtab = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.opt.title = true
 vim.opt.wildmenu = true

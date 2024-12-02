@@ -62,7 +62,7 @@ return {
                                         text = function(buffer)
                                                 local status = ''
                                                 if buffer.is_readonly then
-                                                        status = '  '
+                                                        status = ' '
                                                 end
                                                 return status
                                         end,

@@ -6,9 +6,8 @@
 [[ $- != *i* ]] && return
 
 # Prompt
-
 DEFAULT=$PS1
-PS1="(%F{#007f5c}%b%n%f)-%B%F{#666699}[%f🐧%F{#e3f988}%~%f%F{#666699}]%f%b%F{#5e644f}%#%f "
+PS1="(\u)-[\w]\$ "
 
 
 RPROMPT="%F{241}%B%t [%?]%b%f"
@@ -22,9 +21,14 @@ fi
 
 # alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-
+alias ls='eza --color --icons'
+alias l='eza --color --icons'
+alias ll='exa --color --icons --header --grid --long'
+alias la='eza --color --icons --header --all --grid --long'
+alias vim='nvim'
+alias v='nvim'
+alias cat='bat -p'
 # alias ls= "eza --icons"
 
 
-PS1='[\u@\h \W]\$ '
 . "$HOME/.cargo/env"

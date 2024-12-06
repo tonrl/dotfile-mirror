@@ -24,9 +24,9 @@ function send_notification {
         fi
         # Send the notification
         if [ "$volume" -gt 0 ]; then
-                dunstify -a "System" -i "$icon_volume" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 1500
+                dunstify -a "System" -i "$icon_volume" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 2500
         else
-                dunstify -a "System" -i "$icon_mute" -t 1500 -r 2593 -u low "Volume: ${volume}%" "$bar" 
+                dunstify -a "System" -i "$icon_mute" -t 2500 -r 2593 -u low "Volume: ${volume}%" "$bar" 
         fi
 }
 
@@ -47,7 +47,7 @@ case $1 in
                 # Toggle mute
                 amixer -D pulse set Master 1+ toggle > /dev/null
                 if is_mute ; then
-                        dunstify -a "System" -i "$icon_mute" -t 1500 -r 2593 -u low "Mute"
+                        dunstify -a "System" -i "$icon_mute" -t 2500 -r 2593 -u low "Mute"
                 else
                         send_notification
                 fi

@@ -33,13 +33,14 @@
                 "clock",
                 "mpris",
         ],
-        "modules-right": [ 
-                "group/system-info",
-                "battery",
+        "modules-right": [
+                "network",
+                "wireplumber",
+                "group/powerlevel",
                 "tray",
                 "custom/power",
         ],
-        "group/system-info": {
+        "group/powerlevel": {
                 "orientation": "horizontal",
                  "drawer": {
                          "transition-duration": 500,
@@ -47,12 +48,13 @@
                          "transition-left-to-right": false,
                  },
                 "modules": [
-                        "wireplumber",
-                        "network",
+                        "battery",
                         "backlight",
                 ],
 
         },
+
+
 
         "sway/workspaces": {
                 "format": "{icon}  {name}",

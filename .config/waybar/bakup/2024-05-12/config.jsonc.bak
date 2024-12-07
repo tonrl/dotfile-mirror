@@ -22,57 +22,63 @@
         // Choose the order of the modules
         "modules-left": [
         //	"sway/workspaces",
+        "custom/rofi",
+        "hyprland/workspaces",
         //	"sway/mode",
         //	"sway/window",
-                "hyprland/window",
+        "hyprland/window",
         ],
         "modules-center": [
-                "group/statusInfo",
-                "hyprland/workspaces",
+                "privacy",
                 "clock",
+                "idle_inhibitor",
                 "mpris",
         ],
-        "modules-right": [
-                "group/systemInfo",
+        "modules-right": [ 
+                "network",
+                "wireplumber",
+                "backlight",
+                "battery",
                 "tray",
                 "custom/power",
         ],
-        "group/systemInfo": {
-                "orientation": "horizontal",
-                "modules": [
-                        "network",
-                        "wireplumber",
-                        "backlight",
-                        "battery",
-                ],
-        },
-        "group/statusInfo": {
-                "orientation": "horizontal",
-                "modules": [
-                        "privacy",
-                        "idle_inhibitor",
-                ],
-        },
 
-        "group/powerlevel": {
-                "orientation": "horizontal",
-                 "drawer": {
-                         "transition-duration": 500,
-                         "children-class": "not-main",
-                         "transition-left-to-right": false,
-                 },
-                "modules": [
-                        "battery",
-                        "backlight",
-                ],
-
+        "sway/workspaces": {
+                "format": "{icon}  {name}",
+                "all-outputs":true,
+                "disable-scroll": false,
+                "enable-bar-scroll": false,
+                "smooth-scrolling-threshold": 5,
+                "disable-scroll-wraparound": false,
+                "current-only": false,
+                "format-icons": {
+                //	"0": "",
+                "0": "",
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": "",
+                "5": "",
+                "6": "",
+                "7": "",
+                "8": "",
+                "9": "󰦊",
+                //	"focused": " ",
+                },
+                "persistent-workspaces": {
+                        "0":[],
+                        "1":[],
+                        "2":[],
+                        "9":["HDMI-A-1"],
+                }
         },
-
         "custom/rofi": {
                 "format": "",
-                "on-click": "rofi -show drun",
-                "on-click-right": "killall rofi",
-                "tooltip-format": "Arch Linux",
+         //       "on-click": "wlogout",
+         "on-click": "rofi -show drun",
+         "on-click-right": "killall rofi",
+         "tooltip-format": "Arch Linux",
+
         },
         "hyprland/workspaces": {
                 "format": " {icon} ",
@@ -82,19 +88,55 @@
                 //	"0": " ",
                 "1": "0",
                 "2": "1",
-                "3": "2",
-                "4": "3",
-                "5": "4",
-                "6": "5",
-                "7": "6",
-                "8": "7",
-                "9": "8",
-                "10": "9",
+                "3": "10",
+                "4": "11",
+                "5": "100",
+                "6": "101",
+                "7": "110",
+                "8": "111",
+                "9": "1000",
+                "10": "1001",
                 "active": "",
                 "special": " ",
                 },
                 "persistent-workspaces": {
-                        "*": [ 1,2,3,4,5,6], 
+                        "*": [ 1,2,3,4], 
+                }
+        },
+
+        "sway/mode": {
+                "format": " {}"
+        },
+
+        "sway/window": {
+                "max-length": 30,
+                "format": "{title}",
+                "rewrite": {
+                        "(.*) Mozilla Firefox" : "Mozilla Firefox  :$1",
+                        "Mozilla Firefox" : "Mozilla Firefox  ",
+                        "(.*) - Mozilla Thunderbird" : "Thunderbird 󱃚 | $1",
+                        "~" : "󰟒 HOME",
+                        "vim (.*)" : " nvim $1",
+                        "VLC (.*)" : "󰕼 VLC $1",
+                        "ranger:(.*)" : "󰉓 Ranger : $1",
+                        "~/(.*)"  : "󰟒 ~/$1",
+                        "/(.*)"  : " /$1",
+                        "sudo pacman (.*)" : "  sudo pacman $1",
+                        "paru (.*)" : "  paru $1",
+                        "paru" : "  paru",
+                        "OBS (.*)": "󰨜 OBS $1",
+                        "(.*) - VLC media player": " $1 VLC",
+                        "(.*) - Chromium" : "  Chromium − $1",
+                        "Tor Browser" : "  Tor Browser",
+                        "(.*) Tor Browser" : " Tor Browser − $1",
+                        "htop" : " Htop",
+                        "btop" : " Btop",
+                        "Virtual Machine Manager" : "  Virtual Machines",
+                        "zsh" : " zsh",
+                        "Pipewire Volume Control" : "󰝚  Pipewire Volume Control",
+                        "GNU Image (.*)" : " GNU Image $1",
+                        "Inkscape (.*)" : " Inkscape $1",
+                        "Deluge" : " Deluge",
                 }
         },
         "hyprland/window": {
@@ -107,29 +149,28 @@
                         "(.*) Mozilla Firefox" : "Mozilla Firefox  :$1",
                         "Mozilla Firefox" : "Mozilla Firefox  ",
                         "(.*) - Mozilla Thunderbird" : "Thunderbird 󱃚 | $1",
-                        "~" : "󰟒  HOME",
-                        "vim (.*)" : "  nvim $1",
-                        "VLC (.*)" : "󰕼  VLC $1",
-                        "ranger:(.*)" : "󰉓  Ranger : $1",
-                        "~/(.*)"  : "󰟒  ~/$1",
-                        "/(.*)"  : "  /$1",
-                        "sudo pacman (.*)" : "  sudo pacman $1",
-                        "paru (.*)" : "  paru $1",
-                        "paru" : "  paru",
-                        "OBS (.*)": "󰨜  OBS $1",
-                        "(.*) - VLC media player": "  $1 VLC",
+                        "~" : "󰟒 HOME",
+                        "vim (.*)" : " nvim $1",
+                        "VLC (.*)" : "󰕼 VLC $1",
+                        "ranger:(.*)" : "󰉓 Ranger : $1",
+                        "~/(.*)"  : "󰟒 ~/$1",
+                        "/(.*)"  : " /$1",
+                        "sudo pacman (.*)" : " sudo pacman $1",
+                        "paru (.*)" : " paru $1",
+                        "paru" : " paru",
+                        "OBS (.*)": "󰨜 OBS $1",
+                        "(.*) - VLC media player": " $1 VLC",
                         "(.*) - Chromium" : "  Chromium − $1",
-                        "Tor Browser" : "  Tor Browser",
-                        "(.*) Tor Browser" : "  Tor Browser − $1",
-                        "htop" : "  Htop",
-                        "btop" : "  Btop",
+                        "Tor Browser" : " Tor Browser",
+                        "(.*) Tor Browser" : " Tor Browser − $1",
+                        "htop" : " Htop",
+                        "btop" : " Btop",
                         "Virtual Machine Manager" : "  Virtual Machines",
                         "zsh" : " zsh",
                         "Pipewire Volume Control" : "󰝚  Pipewire Volume Control",
-                        "GNU Image (.*)" : "  GNU Image $1",
-                        "Inkscape (.*)" : "  Inkscape $1",
-                        "Deluge" : "  Deluge",
-
+                        "GNU Image (.*)" : " GNU Image $1",
+                        "Inkscape (.*)" : " Inkscape $1",
+                        "Deluge" : " Deluge",
                 }
         },
 
@@ -137,7 +178,7 @@
                 "format": "{capacity}% {icon}",
                 "interval": 10,
                 "format-charging": "{capacity}% ",
-                "format-plugged": "{capacity}% ",
+                "format-plugged": "{capacity}% ",
                 "format-alt": "{time} {icon}",
                 "format-plugged-alt": "{time} {icon}",
                 "format-charging-alt": "{time} {icon}",
@@ -160,7 +201,7 @@
                 ]
         },
         "idle_inhibitor": {
-                "format": "{icon} ",
+                "format": " {icon} ",
                 "tooltip": true,
                 "format-icons": {
                         "activated": "",
@@ -180,27 +221,28 @@
                 "max-length": 50,
         },
         "clock" : {
-                "format": "  {:%H:%M %Z}",
+                "format": " {:%H:%M %Z}",
                 "format-alt": "󰃰 {:%a, %b %d %Y}",
-                "tooltip-format": "<tt><big>{calendar}</big></tt>",
-                "calendar": {
-                        "on-scroll" : 1,
-                        "on-click-right": "mode",
-                        "mode": "month",
-                        "mode-mon-col": 3,
-                        "format": {
-                                "months": "<span color='#ffead3'><b>{}</b></span>",
-                                "days": "<span color='#ecc6d9'><b>{}</b></span>",
-                                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-                                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                                "today": "<span color='#ff6699'><b>{}</b></span>"
-                        }
-                },
-                "actions": {
-                        "on-click-right": "mode",
-                        "on-scroll-up": "shift_down",
-                        "on-scroll-down": "shift_down"
+        //	"tooltip-format": "\n<tt><big>{calendar}</big></tt>\n",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+                "on-scroll" : 1,
+                "on-click-right": "mode",
+                "mode": "month",
+                "mode-mon-col": 3,
+                "format": {
+                        "months": "<span color='#ffead3'><b>{}</b></span>",
+                        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                        "today": "<span color='#ff6699'><b>{}</b></span>"
                 }
+        },
+        "actions": {
+                "on-click-right": "mode",
+                "on-scroll-up": "shift_down",
+                "on-scroll-down": "shift_down"
+        }
         },
 
         "wireplumber": {
@@ -208,7 +250,7 @@
                 "format": "{volume}% {icon}",
                 "format-bluetooth": "{volume}% {icon}",
                 "format-bluetooth-muted": "Off {icon}󰂲",
-                "format-muted": "Off 󰖁 ",
+                "format-muted": "Off 󰖁",
                 "format-source": " {volume}% ",
                 "format-source-muted": "",
                 "format-icons": {
@@ -218,15 +260,15 @@
                         "phone": " ",
                         "portable": " ",
                         "car": " ",
-                        "default": ["󰸊","󱡕","󰖌"]
-
+                        "default": ["", "", " "]
                 },
                 "on-click": "pwvucontrol",
                 "max-volume": "100%",
+                //"on-click": "helvum"
                 "tooltip-format": "{node_name}\nVolume: {volume}%  "
         },
         "tray": {
-                "icon-size": 11,
+                "icon-size": 14,
                 "spacing": 6,
         },
         "power-profiles-daemon": {
@@ -244,8 +286,7 @@
                 // "device": "acpi_video1",
                 "format": "{percent}% {icon}",
                 "tooltip-format": "Backlight: {percent}% {icon}",
-                //"format-icons": ["", "", "", "", "", "", "", "", ""]
-                "format-icons": ["󱩍", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩕","󱩖","󰛨"]
+                "format-icons": ["", "", "", "", "", "", "", "", ""]
         },
         "custom/power": {
                 "format": "",
@@ -272,7 +313,7 @@
         },
         "privacy": {
                 "icon-spacing": 0,
-                "icon-size": 12,
+                "icon-size": 10,
                 "transition-duration": 250,
                 "modules": [
                         {
@@ -293,10 +334,10 @@
                 ]       
         },
         "mpris": {
-                "format": "{player_icon}Playing" ,
+                "format": " {player_icon}",
                 "tooltip-format": "{status_icon} {dynamic}",
                 "tooltip-format-paused": "{status_icon} {status} {dynamic}",
-                "format-paused":  "{status_icon} {position}",
+                "format-paused":  " {status_icon} {position}",
                 "on-click": "playerctl play-pause",
                 "on-click-right":"playerctl stop",
                 "player-icons": {

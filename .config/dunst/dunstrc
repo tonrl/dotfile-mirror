@@ -24,10 +24,10 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 400
+    width = 350
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = 80
 
     # Position the notification in the top right corner
     origin = top-right
@@ -148,7 +148,6 @@
     #        <i>italic</i>
     #        <s>strikethrough</s>
     #        <u>underline</u>
-    #
     #        For a complete reference see
     #        <https://docs.gtk.org/Pango/pango_markup.html>.
     #
@@ -332,7 +331,7 @@
 
 
 [urgency_low]
-    background = "#181825"
+    background = "#181825CC"
     foreground = "#CDD6F4"
     highlight = "#CDD6F4"
     frame_color = "#7de0a6"
@@ -340,7 +339,8 @@
    # new_icon = '/usr/share/icons/ePapirus-Dark/32x32/panel/audio-on.svg'
 
 [urgency_normal]
-    background = "#181825"
+    #background = "#181825"
+    background = "#181825CC"
     foreground = "#CDD6F4"
     highlight = "#CDD6F4"
     frame_color = "#7801f7"
@@ -349,15 +349,21 @@
    # new_icon = preferences-desktop-notification-bell.svg
 
 [urgency_critical]
-    background = "#181825"
+    background = "#181825CC"
     foreground = "#CDD6F4"
     frame_color = "#f38ba8"
     timeout = 1000
-
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/gnome-warning.svg
 
+[thunderbird]
+    appname = "Thunderbird"
+    urgency = normal
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/org.mozilla.Thunderbird.svg
 
-
+[nm_applet]
+    appname = "NetworkManager Applet"
+    urgency = normal
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/devices/network-wired.svg
 
 
 # Every section that isn't one of the above is interpreted as a rules to

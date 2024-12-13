@@ -72,32 +72,51 @@ precmd() {
         set_exit_icons
         vcs_info
 }
+
+
 # Change color of arrow based on exit code (Green if 0, red if else)
 set_exit_icons() {
         if [ $? -eq 0 ]; then
                 exit_status='%F{#93dc5c} %f'
-                exit_icon='%F{#93dc5c}%f'
-                exit_icons='%F{#7aa2f7}%?%f'
+                exit_arrow='%F{#93dc5c}%f'
+                exit_icons='%F{#059143}✔ %f'
         else
                 exit_status='%F{#ff07c0} %f'
-                exit_icon='%F{#ff07c0}%f'
-                exit_icons='%F{#bb9af7}%?%f'
+                exit_arrow='%F{#ff07c0}%f'
+                exit_icons='%F{#292e42}[%f%F{#bb9af7}%?%f%F{#292e42}]%f'
         fi
 }
 
-zstyle ':vcs_info:git*' formats '%F{#3d59a1}git:%f%F{#ff007c}(%b)%f '
+
+# Display the current path
+current_path() {
+        case "$PWD" in
+                "$HOME") echo "~" ;;
+                "$HOME/Downloads"*) echo " $(basename "$PWD")" ;;
+                "$HOME/.config"*) echo " $(basename "$PWD")" ;;
+                "$HOME/Documents"*) echo "󱔗 $(basename "$PWD")" ;;
+                "$HOME/Music"*) echo "󰼄 $(basename "$PWD")" ;;
+                "$HOME/Pictures"*) echo " $(basename "$PWD")" ;;
+                "$HOME/Videos"*) echo "󰨜 $(basename "$PWD")" ;;
+                "$HOME/"*) echo "󱁍 $(basename "$PWD")" ;;
+                *) echo "$PWD" ;;
+        esac
+}
+
+zstyle ':vcs_info:git*' formats '%F{#ff007c}(%b)%f '
 
 
 setopt PROMPT_SUBST
 
 # -> (USER)-[pwd] git:(branch) >
-PROMPT='${exit_status}(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f%F{#414868}%f '
+PROMPT='${exit_status}(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}$(current_path)%f%F{#666699}]%f ${vcs_info_msg_0_}%f%F{#414868}%f '
 
 # (USER)-[pwd] git:(branch) >
-#PROMPT='(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}${PWD/#$HOME/~}%f%F{#666699}]%f ${vcs_info_msg_0_}%f${exit_icon} '
+#PROMPT='(%f%F{#007f5c}%b%n%f)%F{#666699}-%f%F{#666699}[%f%F{#ffc777}$(current_path)%f%F{#666699}]%f ${vcs_info_msg_0_}%f${exit_arrow} '
 
 #PS1='%F{#ffc777}%~ %(?.%F{#93dc5c}.%F{#ff07c0})%f '
-RPROMPT='%F{241}%B%t [%f${exit_icons}%F{241}]%b%f'
+#RPROMPT='%F{#292e42}%t%f %F{#292e42}[%f${exit_icons}%F{#292e42}]%b%f'
+RPROMPT='%F{#292e42}%t%f ${exit_icons}%F{#292e42}%b%f'
 
 
 #================================#
@@ -111,10 +130,8 @@ alias ls='eza --icons --header'
 alias la='eza --long --all --icons --grid --header'
 alias lla='eza --long --all --icons --header'
 alias lg='eza --long --icons --header --git'
-alias lag='eza --long --icons --header --grid --all --git --color-scale'
+alias lag='eza --long --icons --header --grid --all'
 alias ll='eza --long --icons --header --grid'
-
-alias tree='eza --icons --header --color-scale --tree'
 #alias dir='exa --icons --header'
 alias dir='ls'
 
@@ -126,19 +143,20 @@ source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 
 # enable auto-suggestions based on the history (Require zsh-autosuggestions to be installed)
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#9b9b9b"
+        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+        # change suggestion color
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#9b9b9b"
 fi
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets pattern)
-    ZSH_HIGHLIGHT_STYLES[default]='fg=#d0d0d0'
-    ZSH_HIGHLIGHT_STYLES[alias]='fg=#7aa2f7,bold'
-    ZSH_HIGHLIGHT_STYLES[globbing]='fg=#ff007c'
-    ZSH_HIGHLIGHT_STYLES[arg0]='fg=#c3e88d'
-    ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ff757f'
-    ZSH_HIGHLIGHT_STYLES[path]='fg=#c0caf5,underline'
+        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets pattern)
+        ZSH_HIGHLIGHT_STYLES[default]='fg=#fff'
+        ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#ffc777'
+        ZSH_HIGHLIGHT_STYLES[alias]='fg=#9d7cd8,bold'
+        ZSH_HIGHLIGHT_STYLES[globbing]='fg=#ff007c'
+        ZSH_HIGHLIGHT_STYLES[arg0]='fg=#c3e88d'
+        ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ff757f'
+        ZSH_HIGHLIGHT_STYLES[path]='fg=#c0caf5,underline'
 fi
 
 # Fix for bug on JAVA appliation on sway window manager
@@ -153,6 +171,13 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Set neovim for man pager
 export MANPAGER='nvim +Man!'
 
+export KUBECONFIG='/home/schlau/.kube/config'
+#export KUBECONFIG='/home/schlau/.kube/rpi-config.yaml:/home/schlau/.kube/config'
+
+export ESP_PATH='/boot'
+
+# export TMOUT="$(( 60*10 ))";
+
 #========================================#
 # Additional Alias: Put Alias below here #
 #========================================#
@@ -164,6 +189,7 @@ alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
+alias less='less -S'
 # hexdump alias as hd
 alias hd="hexdump"
 # fastfetch
@@ -192,7 +218,7 @@ alias shellt="chsh -l"
 
 # vim for neovim
 alias vim="nvim"
-alias vi="\vim"
+alias vi="nvim"
 alias v="nvim"
 
 #sudo edit more easy
@@ -225,4 +251,8 @@ eval "$(zoxide init --cmd cd zsh)"
 # fzf
 source <(fzf --zsh)
 # Custom message script to run on new shell
+alias linux='echo "$(date +%Y) is Year of Linux Desktop!"'
+
+
+
 

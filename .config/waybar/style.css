@@ -24,6 +24,7 @@ window#waybar.hidden {
 window#waybar.termite {
         background-color: #3F3F3F;
 }
+
 window#waybar.empty #window {
         background-color: transparent;
         box-shadow: inherit;
@@ -35,17 +36,16 @@ tooltip {
         border-radius: 5px;
         background-color: rgba(9,0,0,0.8);
 }
+
 tooltip label {
         padding-top: 10px;
         padding-bottom: 10px;
         color: #fcffe9;
 }
 
-
-
 button {
         /* Use box-shadow instead of border so the text isn't offset */
-        /*box-shadow: inset 0 -3px transparent;*/
+        /* box-shadow: inset 0 -3px transparent; */
         /* Avoid rounded borders under each button name */
         border: none;
         border-radius: 0;
@@ -60,7 +60,7 @@ button:hover {
 
 #workspaces {
         background-color: rgba(217,179,255,0.1);
-        margin-left: 4px;
+        margin-left: 2px;
         margin-top: 4px;
         margin-bottom: 4px;
         padding: 3px 1px;
@@ -77,6 +77,7 @@ button:hover {
         font-size: 2px;
 
 }
+
 #workspaces button:hover {
         background-color: rgba(75,0,130,0.3);
         padding: 0px 0px;
@@ -93,7 +94,6 @@ button:hover {
         min-width: 30px;
         background-color: #545c7e;
 }
-
 
 #workspaces button.active:hover {
         background-color: rgba(75,0,130,0.3);
@@ -118,6 +118,7 @@ button:hover {
         padding-right: 5px;
 
 }
+
 #window {
         margin-left: 0px;
         background: transparent;
@@ -139,6 +140,7 @@ button:hover {
         border: 2px;
         border-style: solid;
         border-color: #9d7cd8;
+        /* background: rgba(144,177,177,0.2); */
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -164,23 +166,24 @@ button:hover {
         background: rgba(217,179,255,0.1);
         border-radius: 15px;
         border: 1.5px;
-/*        border-style: solid;
-        border-color:#4c4561;*/
-        /*	border-color: rgba(255,255,0,0.4); */
+        /* border-style: solid; */
+        /* border-color:#4c4561; */
+        /* border-color: rgba(255,255,0,0.4); */
 
 }
 
 #clock:hover {
-        /*
-        background: rgba(153,0,76,0.1);
-         */
-        color: #C3E88D;
-        background-color: rgba(75,0,130,0.3);
+        /* background: rgba(153,0,76,0.1); */
+        /* color: #C3E88D; */
+        color: #ffc777;
+        /* background-color: rgba(75,0,130,0.3); */
+        background: rgba(144,177,177,0.2);
         box-shadow: inset 0px 0px 1px #9eecf9;
 }
 
 #battery {
-        padding-right: 12px;
+        padding-right: 11px;
+        padding-left: 5px;
         color: #4fd6be;
         border-radius: 5px;
         border-top-right-radius: 15px;
@@ -191,8 +194,7 @@ button:hover {
 
 #battery.charging, #battery.plugged {
         background: rgba(23,48,40,0.5);
-        padding-right: 12px;
-
+        padding-right: 11px;
         background: transparent;
 }
 
@@ -242,7 +244,7 @@ label:focus {
         /*	margin: 3px 0px 3px 0px; */
         padding-right: 6px;
         color: #bb9af7;
-        padding-right: 10px;
+        padding-right: 8px;
         border-radius: 5px;
         border: 0px;
         border-style: solid;
@@ -258,7 +260,7 @@ label:focus {
 
 #network {
         color: #b4f9f8;
-        padding-left: 8px;
+        padding-left: 10px;
         padding-right: 8px;
         border-radius: 5px;
         border-top-left-radius: 15px;
@@ -285,6 +287,7 @@ label:focus {
 
 #wireplumber.muted {
         background: rgba(144,177,177,0.1);
+        padding-right: 8px;
         color: #a3b8c8;
 }
 
@@ -416,7 +419,6 @@ label:focus {
         margin-right: 5px;
 }
 
-
 #privacy-item.audio-in:hover,
 #privacy-item.screenshare:hover {
         color: #7aa2f7;
@@ -437,8 +439,6 @@ label:focus {
         padding-right: 10px;
         border-radius: 15px;
         border: 1.5px;
-
-
 }
 
 #mpris.firefox {
@@ -459,6 +459,7 @@ label:focus {
 #mpris.firefox:hover,
 #mpris.chromium:hover {
         color: #ffc777;
+        background: rgba(144,177,177,0.2);
 }
 
 .modules-left {

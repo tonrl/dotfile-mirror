@@ -134,6 +134,7 @@ alias lag='eza --long --icons --header --grid --all'
 alias ll='eza --long --icons --header --grid'
 #alias dir='exa --icons --header'
 alias dir='ls'
+alias tree='exa --icons --tree'
 
 #=================================#
 # Plugins etc                     #

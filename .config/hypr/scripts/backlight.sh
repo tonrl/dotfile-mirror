@@ -22,13 +22,13 @@ function send_notification {
         fi
 
         if [ "$brightness" -ge 80 ]; then
-                notify-send -a "System" -i "${high_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 2500
+                notify-send -a "System" -i "${high_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
 
         elif [ "$brightness" -ge 30 ]; then
-                notify-send -a "System" -i "${mid_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 2500
+                notify-send -a "System" -i "${mid_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
 
         else
-                notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 2500
+                notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
         fi  
 
 }

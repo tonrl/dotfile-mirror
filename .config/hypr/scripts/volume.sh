@@ -30,16 +30,16 @@ function send_notification {
         fi
         # Send the notification
         if [ "$volume" -ge 80 ]; then
-                dunstify -a "System" -i "$icon_volume_high" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 2500
+                dunstify -a "System" -i "$icon_volume_high" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
         elif [ "$volume" -ge 50 ]; then
-                dunstify -a "System" -i "$icon_volume" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 2500
+                dunstify -a "System" -i "$icon_volume" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
 
         elif [ "$volume" -ge 10 ]; then
-                dunstify -a "System" -i "$icon_volume_mid" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 2500
+                dunstify -a "System" -i "$icon_volume_mid" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
         elif [ "$volume" -eq 0 ]; then
-                dunstify -a "System" -i "$icon_mute" -t 2500 -r 2593 -u low "Volume: ${volume}%" "$bar" 
+                dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: ${volume}%" "$bar" 
         else
-                dunstify -a "System" -i "$icon_volume_low" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 2500
+                dunstify -a "System" -i "$icon_volume_low" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
 
         fi
 }
@@ -61,7 +61,7 @@ case $1 in
                 # Toggle mute
                 amixer -D pulse set Master 1+ toggle > /dev/null
                 if is_mute ; then
-                        dunstify -a "System" -i "$icon_mute" -t 2500 -r 2593 -u low "Mute"
+                        dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Mute"
                 else
                         send_notification
                 fi
@@ -69,9 +69,9 @@ case $1 in
         mic)
                 pactl set-source-mute @DEFAULT_SOURCE@ toggle
                 if mic_on_off ; then 
-                        dunstify -a "System" -i "$mic_on" -t 2500 -r 2593 -u low "Active"
+                        dunstify -a "System" -i "$mic_on" -t 4000 -r 2593 -u low "Active"
                 else
-                        dunstify -a "System" -i "$mic_mute" -t 2500 -r 2593 -u low "Mute"
+                        dunstify -a "System" -i "$mic_mute" -t 4000 -r 2593 -u low "Mute"
                 fi
                 ;;
 

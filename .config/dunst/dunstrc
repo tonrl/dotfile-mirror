@@ -334,25 +334,26 @@
     background = "#181825CC"
     foreground = "#CDD6F4"
     highlight = "#CDD6F4"
-    frame_color = "#7de0a6"
-    timeout = 5
-   # new_icon = '/usr/share/icons/ePapirus-Dark/32x32/panel/audio-on.svg'
+    # frame_color = "#7de0a6"
+    frame_color = "#bb9af7"
+    timeout = 8
+    # new_icon = '/usr/share/icons/ePapirus-Dark/32x32/panel/audio-on.svg'
 
 [urgency_normal]
-    #background = "#181825"
+    # background = "#181825"
     background = "#181825CC"
     foreground = "#CDD6F4"
     highlight = "#CDD6F4"
     frame_color = "#7801f7"
-    timeout = 5
+    timeout = 10
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/preferences-desktop-notification-bell.svg
-   # new_icon = preferences-desktop-notification-bell.svg
+    # new_icon = preferences-desktop-notification-bell.svg
 
 [urgency_critical]
     background = "#181825CC"
     foreground = "#CDD6F4"
     frame_color = "#f38ba8"
-    timeout = 1000
+    timeout = 60
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/gnome-warning.svg
 
 [thunderbird]
@@ -466,10 +467,10 @@
      history_ignore = yes
 
 #[skip-display]
-#    # This notification will not be displayed, but will be included in the history
-#    summary = "foobar"
-#    skip_display = yes
-
+     # This notification will not be displayed, but will be included in the history
+     # summary = "foobar"
+     # skip_display = yes
+     #
 #[signed_on]
 #    appname = Pidgin
 #    summary = "*signed on*"

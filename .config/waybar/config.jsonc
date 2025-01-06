@@ -21,18 +21,18 @@
 
         // Choose the order of the modules
         "modules-left": [
-                "hyprland/window",
+                "hyprland/window"
         ],
         "modules-center": [
                 "group/statusInfo",
                 "hyprland/workspaces",
                 "clock",
-                "mpris",
+                "mpris"
         ],
         "modules-right": [
                 "group/systemInfo",
                 "tray",
-                "custom/power",
+                "custom/power"
         ],
         "group/systemInfo": {
                 "orientation": "horizontal",
@@ -40,15 +40,15 @@
                         "network",
                         "wireplumber",
                         "backlight",
-                        "battery",
-                ],
+                        "battery"
+                ]
         },
         "group/statusInfo": {
                 "orientation": "horizontal",
                 "modules": [
                         "privacy",
-                        "idle_inhibitor",
-                ],
+                        "idle_inhibitor"
+                ]
         },
 
         "group/powerlevel": {
@@ -69,7 +69,7 @@
                 "format": "",
                 "on-click": "rofi -show drun",
                 "on-click-right": "killall rofi",
-                "tooltip-format": "Arch Linux",
+                "tooltip-format": "Arch Linux"
         },
         "hyprland/workspaces": {
                 "format": " {icon} ",
@@ -87,10 +87,10 @@
                         "9": "8",
                         "10": "9",
                         "active": "",
-                        "special": " ",
+                        "special": " "
                 },
                 "persistent-workspaces": {
-                        "*": [ 1,2,3,4,5,6], 
+                        "*": [ 1,2,3,4,5,6]
                 }
         },
         "hyprland/window": {
@@ -300,8 +300,8 @@
                         "playing": " ",
                         "paused": "⏸",
                         "stopped": "",
-                },
-        // "ignored-players": ["firefox"]
-        },
+                }
+                // "ignored-players": ["firefox"]
+        }
 }
 

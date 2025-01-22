@@ -38,6 +38,7 @@
                 "orientation": "horizontal",
                 "modules": [
                         "network",
+                        "bluetooth",
                         "wireplumber",
                         "backlight",
                         "battery"
@@ -168,12 +169,15 @@
                 "format-ethernet": "{ifname} 󰈀",
                 "format-linked": "{ifname} 󰲜 (No IP)",
                 "format-disconnected": "Disconnected ",
+                "format-disabled": "Disconnected ",
                 "format-alt": "{ifname}: {ipaddr}/{cidr}",
                 "tooltip-format": "{ifname}: {ipaddr}",
                 "tooltip-format-wifi": "{ifname}:   {essid} ({ipaddr})",
                 "tooltip-format-ethernet": "{ifname} 󰈀 ({ipaddr})",
                 "tooltip-format-disconnected": "Disconnected",
+                "tooltip-format-disabled": "Disconnected",
                 "max-length": 50,
+                "on-click-right": "nm-connection-editor"
         },
         "clock" : {
                 "format": "  {:%H:%M %Z}",
@@ -218,6 +222,7 @@
 
                 },
                 "on-click": "pwvucontrol",
+                "on-click-right": "$HOME/.config/hypr/scripts/volume.sh mute",
                 "max-volume": "100%",
                 "tooltip-format": "{node_name}\nVolume: {volume}%  "
         },
@@ -302,6 +307,12 @@
                         "stopped": "",
                 }
                 // "ignored-players": ["firefox"]
+        },
+        "bluetooth": {
+                "format": " {status}",
+                "format-disabled": "",
+                "format-no-controller": "",
+                "format-connected": " {num_connections} connected"
         }
 }
 

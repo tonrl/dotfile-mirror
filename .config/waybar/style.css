@@ -226,15 +226,15 @@ button:hover {
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-        background-color: #f53c3c;
-        color: #ffffff;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: steps(12);
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-}
+/* #battery.critical:not(.charging) { */
+/*         background-color: #f53c3c; */
+/*         color: #ffffff; */
+/*         animation-name: blink; */
+/*         animation-duration: 0.5s; */
+/*         animation-timing-function: steps(12); */
+/*         animation-iteration-count: infinite; */
+/*         animation-direction: alternate; */
+/* } */
 
 
 label:focus {
@@ -274,6 +274,7 @@ label:focus {
         background: rgba(144,177,177,0.2);
 }
 
+#network.disabled,
 #network.disconnected {
         color: red;
 }

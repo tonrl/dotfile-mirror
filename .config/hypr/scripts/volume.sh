@@ -37,7 +37,7 @@ function send_notification {
         elif [ "$volume" -ge 10 ]; then
                 dunstify -a "System" -i "$icon_volume_mid" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
         elif [ "$volume" -eq 0 ]; then
-                dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: ${volume}%" "$bar" 
+                dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: ${volume}%" "Your Speakers are Disabled" 
         else
                 dunstify -a "System" -i "$icon_volume_low" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
 
@@ -61,7 +61,7 @@ case $1 in
                 # Toggle mute
                 amixer -D pulse set Master 1+ toggle > /dev/null
                 if is_mute ; then
-                        dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Mute"
+                        dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: 0%" "Your Speakers are Disabled"
                 else
                         send_notification
                 fi
@@ -69,9 +69,9 @@ case $1 in
         mic)
                 pactl set-source-mute @DEFAULT_SOURCE@ toggle
                 if mic_on_off ; then 
-                        dunstify -a "System" -i "$mic_on" -t 4000 -r 2593 -u low "Active"
+                        dunstify -a "System" -i "$mic_on" -t 4000 -r 2593 -u low "Microphone Enabled" "Your microphone is now turned on"
                 else
-                        dunstify -a "System" -i "$mic_mute" -t 4000 -r 2593 -u low "Mute"
+                        dunstify -a "System" -i "$mic_mute" -t 4000 -r 2593 -u low "Microphone Muted" "Your microphone is now turned off"
                 fi
                 ;;
 

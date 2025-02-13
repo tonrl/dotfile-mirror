@@ -26,7 +26,9 @@ function send_notification {
 
         elif [ "$brightness" -ge 30 ]; then
                 notify-send -a "System" -i "${mid_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
-
+        
+        elif [ "$brightness" -eq 0 ]; then
+                notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "Backlight off" -t 4000
         else
                 notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
         fi  

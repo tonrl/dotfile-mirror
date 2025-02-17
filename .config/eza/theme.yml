@@ -3,13 +3,13 @@ colourful: true
 filekinds:
   normal: { foreground: "#c0caf5" }
   directory: { foreground: "#7aa2f7" }
-  symlink: { foreground: "#2ac3de" }
+  symlink: { foreground: "#2ac3de"}
   pipe: { foreground: "#414868" }
   block_device: { foreground: "#e0af68" }
   char_device: { foreground: "#e0af68" }
   socket: { foreground: "#414868" }
   special: { foreground: "#9d7cd8" }
-  executable: { foreground: "#9ece6a" }
+  executable: { foreground: "#9ece6a"}
   mount_point: { foreground: "#b4f9f8" }
 
 perms:
@@ -84,7 +84,7 @@ file_type:
   document: { foreground: "#a9b1d6" }
   compressed: { foreground: "#ff9e64" }
   temp: { foreground: "#737aa2" }
-  compiled: { foreground: "#737aa2" }
+  compiled: { foreground: "#737aa2"}
   build: { foreground: "#1abc9c" }
   source: { foreground: "#bb9af7" }
 
@@ -106,7 +106,7 @@ broken_path_overlay: { foreground: "#ff007c" }
 
 filenames:
   # Custom filename-based overrides
-  # Cargo.toml: {icon: {glyph: 🦀}}
+  Cargo.toml: {icon: {glyph: 🦀}}
   Desktop: {icon: {glyph: 󰟀}}
   Documents: {icon: {glyph: 󱔗}}
   Downloads: {icon: {glyph: }}
@@ -124,6 +124,7 @@ filenames:
   waybar: {icon: {glyph: }}
   git-lab: {icon: {glyph: }}
   IMAGE: {icon: {glyph: }}
+  books: {icon: {glyph: }}
 
 extensions:
   # Custom extension-based overrides
@@ -137,6 +138,10 @@ extensions:
   mpg: {icon: {glyph: }}
   m4v: {icon: {glyph: }}
   mov: {icon: {glyph: }}
+  bak: {icon: {glyph: 󰁯}}
+  key: {icon: {glyph: }}
+  pub: {icon: {glyph: }}
+  psk: {icon: {glyph: }}
 
 
 

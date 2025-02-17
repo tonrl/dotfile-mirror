@@ -131,7 +131,7 @@ alias la='eza --long --all --icons --grid --header'
 alias lla='eza --long --all --icons --header'
 alias lg='eza --long --icons --header --git'
 alias lag='eza --long --icons --header --grid --all'
-alias ll='eza --long --icons --header --grid'
+alias ll='eza --long --icons --header'
 #alias dir='exa --icons --header'
 alias dir='ls'
 alias tree='exa --icons --tree'
@@ -243,6 +243,9 @@ alias swayapp="swaymsg -t get_tree | grep app_id"
 # Manage dot files
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# Yazi
+alias f='y'
+
 # Rust command
 . "$HOME/.cargo/env"
 
@@ -255,5 +258,12 @@ source <(fzf --zsh)
 alias linux='echo "$(date +%Y) is Year of Linux Desktop!"'
 
 
-
-
+# Yazi allow to change CWD
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

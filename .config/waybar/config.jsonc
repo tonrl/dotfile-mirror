@@ -165,17 +165,24 @@
                 },
         },
         "network": {
-                "format-wifi": "{essid}   ({signalStrength}%)",
+                // "format-wifi": "{essid}   ({signalStrength}%)",
+                "format-wifi": "{essid} {icon}",
                 "format-ethernet": "{ifname} 󰈀",
                 "format-linked": "{ifname} 󰲜 (No IP)",
                 "format-disconnected": "Disconnected ",
                 "format-disabled": "Disconnected ",
                 "format-alt": "{ifname}: {ipaddr}/{cidr}",
                 "tooltip-format": "{ifname}: {ipaddr}",
-                "tooltip-format-wifi": "{ifname}:   {essid} ({ipaddr})",
-                "tooltip-format-ethernet": "{ifname} 󰈀 ({ipaddr})",
+                "tooltip-format-wifi": "{icon} ({signalStrength}%) {ipaddr}",
+                "tooltip-format-ethernet": "󰈀 {ipaddr}",
                 "tooltip-format-disconnected": "Disconnected",
                 "tooltip-format-disabled": "Disconnected",
+                "format-icons": [
+                        "󰤟",
+                        "󰤢",
+                        "󰤢",
+                        "󰤨"
+                ],
                 "max-length": 50,
                 "on-click-right": "nm-connection-editor"
         },
@@ -221,8 +228,8 @@
                         "default": ["󰸊","󱡕","󰖌"]
 
                 },
-                "on-click": "pwvucontrol",
-                "on-click-right": "$HOME/.config/hypr/scripts/volume.sh mute",
+                "on-click": "$HOME/.config/hypr/scripts/volume.sh mute",
+                "on-click-right": "pwvucontrol",
                 "max-volume": "100%",
                 "tooltip-format": "{node_name}\nVolume: {volume}%  "
         },
@@ -246,7 +253,9 @@
                 "format": "{percent}% {icon}",
                 "tooltip-format": "Backlight: {percent}% {icon}",
                 //"format-icons": ["", "", "", "", "", "", "", "", ""]
-                "format-icons": ["󱩍", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩕","󱩖","󰛨"]
+                "format-icons": ["󱩍", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩕","󱩖","󰛨"],
+                "on-click": "night_mode",
+                "on-click-right": "/home/schlau/.config/hypr/scripts/sunset.sh off"
         },
         "custom/power": {
                 "format": "",
@@ -304,7 +313,7 @@
                 "status-icons": {
                         "playing": " ",
                         "paused": "⏸",
-                        "stopped": "",
+                        "stopped": ""
                 }
                 // "ignored-players": ["firefox"]
         },
@@ -312,7 +321,13 @@
                 "format": " {status}",
                 "format-disabled": "",
                 "format-no-controller": "",
-                "format-connected": " {num_connections} connected"
+                "format-connected": " {device_alias}",
+                "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+                "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+                "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+                "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+                "on-click-right": "overskride",
+                "on-click": "/home/schlau/.config/hypr/scripts/bluetooth.sh"
         }
 }
 

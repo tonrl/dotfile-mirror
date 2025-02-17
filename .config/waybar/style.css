@@ -269,6 +269,9 @@ label:focus {
         border-bottom-left-radius: 15px;
         background: transparent;
 }
+#network.wifi {
+        color: #00b4d8;
+}
 
 #network:hover {
         background: rgba(144,177,177,0.2);
@@ -277,6 +280,19 @@ label:focus {
 #network.disabled,
 #network.disconnected {
         color: red;
+}
+
+#bluetooth {
+        padding-left: 5px;
+        padding-right: 6px;
+        border-radius: 4px;
+}
+#bluetooth:hover {
+        background: rgba(144,177,177,0.2);
+}
+#bluetooth.on,
+#bluetooth.connected {
+        color: #21d375;
 }
 
 #wireplumber {

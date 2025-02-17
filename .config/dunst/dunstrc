@@ -27,7 +27,7 @@
     width = 350
 
     # The maximum height of a single notification, excluding the frame.
-    height = 80
+    height = 130
 
     # Position the notification in the top right corner
     origin = top-right
@@ -125,7 +125,7 @@
     #  * urgency_ascending: sort by urgency (low then normal then critical)
     #  * urgency_descending: sort by urgency (critical then normal then low)
     #  * update: sort by update (most recent always at the top)
-    sort = yes
+    sort = update
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -283,7 +283,7 @@
 
     # Uncomment this if you want to let notifications appear under fullscreen
     # applications (default: overlay)
-    layer = top
+    # layer = top
 
     # Set this to true to use X11 output on Wayland.
     force_xwayland = false
@@ -316,7 +316,8 @@
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
     mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
+    # mouse_middle_click = do_action, close_current
+    mouse_middle_click = do_action, open_url
     mouse_right_click = close_all
 
 # Experimental features that may or may not work correctly. Do not expect them
@@ -356,16 +357,41 @@
     timeout = 60
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/gnome-warning.svg
 
+[system]
+    appname = "System"
+    urgency = critical
+    format = "<b>%s</b>\n%b\n"
+    history_ignore = yes
 [thunderbird]
     appname = "Thunderbird"
     urgency = normal
+    timeout = 20
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/org.mozilla.Thunderbird.svg
 
 [nm_applet]
     appname = "NetworkManager Applet"
     urgency = normal
+    timeout = 3
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/devices/network-wired.svg
-
+    history_ignore = yes
+[mullvad_vpn]
+    appname = "Mullvad VPN"
+    timeout = 3
+    set_stack_tag = "Mullvad"
+    new_icon =  ~/.local/share/icons/ePapirus-Dark/32x32/apps/mullvad-vpn.svg
+    history_ignore = yes
+[clamav]
+    appname = "clamav"
+    new_icon =  ~/.local/share/icons/ePapirus-Dark/32x32/apps/clamav.svg 
+    format = "<b>%s</b>\n%b\n"
+[apparmor]
+    appname = "AppArmor"
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/gufw.svg 
+    history_ignore = yes
+[wireless]
+    appname = "radio"
+    format = "<b>%s</b>\n%b\n"
+    history_ignore = yes
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -460,11 +486,11 @@
 #    summary = "foobar"
 #    skip_display = true
 
-[history-ignore]
+#[history-ignore]
 #    # This notification will not be saved in history
-     appname = System
+#     appname = "System"
 #    summary = "foobar"
-     history_ignore = yes
+#     history_ignore = yes
 
 #[skip-display]
      # This notification will not be displayed, but will be included in the history

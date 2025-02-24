@@ -23,7 +23,6 @@
         "modules-left": [
                 "group/menu",
                 "hyprland/window",
-                "upower"
         ],
         "modules-center": [
                 "group/statusInfo",

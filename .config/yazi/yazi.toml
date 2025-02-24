@@ -1,0 +1,48 @@
+[manager]
+show_hidden = true
+show_symlink = true
+sort_by = "natural"
+sort_dir_first = true
+linemode = "mtime"
+title_format = "yazi: {cwd}"
+ratio = [1, 3, 4]
+[preview]
+wrap = "yes"
+[opener]
+play = [
+	{ run = 'vlc "$@"', orphan = true, for = "unix" },
+]
+edit = [
+	{ run = '$EDITOR "$@"', block = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+pdf_open = [
+        { run = 'evince "$@"', orphan = true, desc = "Open" },
+
+]
+image_open = [
+        { run = 'imv "$@"', desc = "Oepn" },
+]
+
+[open]
+prepend_rules = [
+	{ name = "*.json", use = "edit" },
+	{ name = "*.html", use = [ "edit", "open"] },
+	{ name = "*.pdf", use = "pdf_open" },
+	{ name = "*.png", use = "image_open" },
+	{ name = "*.jpg", use = "image_open" },
+]
+append_rules = [
+	{ name = "*", use = "open" },
+]
+
+[input]
+cursor_blink = true
+origin = "center"
+
+[pick]
+open = true
+
+

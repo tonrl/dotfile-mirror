@@ -21,7 +21,9 @@
 
         // Choose the order of the modules
         "modules-left": [
-                "hyprland/window"
+                "group/menu",
+                "hyprland/window",
+                "upower"
         ],
         "modules-center": [
                 "group/statusInfo",
@@ -34,6 +36,22 @@
                 "tray",
                 "custom/power"
         ],
+
+        // ===================== Groups ==============================
+
+        "group/menu": {
+                "orientation": "horizontal",
+                "drawer": {
+                       "transition-duration": 500,
+                       "children-class": "childs",
+                       "transition-left-to-right": true
+                 },
+                "modules": [
+                        "custom/rofi",
+                        "wlr/taskbar"
+                ]
+        },
+
         "group/systemInfo": {
                 "orientation": "horizontal",
                 "modules": [
@@ -41,9 +59,10 @@
                         "bluetooth",
                         "wireplumber",
                         "backlight",
-                        "battery"
+                        "group/powerInfo"
                 ]
         },
+
         "group/statusInfo": {
                 "orientation": "horizontal",
                 "modules": [
@@ -52,26 +71,57 @@
                 ]
         },
 
-        "group/powerlevel": {
+        "group/powerInfo": {
                 "orientation": "horizontal",
-                "drawer": {
+                 "drawer": {
                         "transition-duration": 500,
-                        "children-class": "not-main",
-                        "transition-left-to-right": false,
-                },
-                "modules": [
-                        "battery",
-                        "backlight",
-                ],
-
+                        "children-class": "childs",
+                        "transition-left-to-right": false
+                 },
+                 "modules": [
+                         "battery"
+                ]
         },
+
+
+        
+        // ================== Module Left ===============================
 
         "custom/rofi": {
-                "format": "",
-                "on-click": "rofi -show drun",
-                "on-click-right": "killall rofi",
-                "tooltip-format": "Arch Linux"
+                "format": "󰣇",
+                "tooltip": false
         },
+        "hyprland/window": {
+                "max-length": 30,
+                "icon": true,
+                "icon-size": 12,
+                "format": "{title}",
+                "separate-outputs": true,
+                "rewrite": {
+                        "(.*) Mozilla Firefox" : "$1",
+                        "Mozilla Firefox" : "Firefox ",
+                        "(.*) - Mozilla Thunderbird" : "Thunderbird 󱃚 | $1",
+                        "vim (.*)" : "nvim $1",
+                        "~/(.*)"  : "~/$1",
+                        "/(.*)"  : "  /$1",
+                        "sudo pacman (.*)" : "  sudo pacman $1",
+                        "paru (.*)" : "  paru $1",
+                        "paru" : "  paru"
+                },
+                "on-click-right": "rofi -show window"
+        },
+        "wlr/taskbar": {
+                "format": "{icon}",
+                "tooltip-format": "{title}",
+                "icon-size": 14,
+                "active-first": false,
+                "on-click": "activate",
+                "on-click-middle": "close"
+        },
+
+        
+        // ===================== Module Center ===========================
+
         "hyprland/workspaces": {
                 "format": " {icon} ",
                 "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -93,189 +143,6 @@
                 "persistent-workspaces": {
                         "*": [ 1,2,3,4,5,6]
                 }
-        },
-        "hyprland/window": {
-                "max-length": 30,
-                "tooltip": true,
-                "format": "{}",
-                "separate-outputs": true,
-                "tooltip-format": "{}",
-                "rewrite": {
-                        "(.*) Mozilla Firefox" : "Mozilla Firefox  :$1",
-                        "Mozilla Firefox" : "Mozilla Firefox  ",
-                        "(.*) - Mozilla Thunderbird" : "Thunderbird 󱃚 | $1",
-                        "~" : "󰟒  HOME",
-                        "vim (.*)" : "  nvim $1",
-                        "VLC (.*)" : "󰕼  VLC $1",
-                        "ranger:(.*)" : "󰉓  Ranger : $1",
-                        "~/(.*)"  : "󰟒  ~/$1",
-                        "/(.*)"  : "  /$1",
-                        "sudo pacman (.*)" : "  sudo pacman $1",
-                        "paru (.*)" : "  paru $1",
-                        "paru" : "  paru",
-                        "OBS (.*)": "󰨜  OBS $1",
-                        "(.*) - VLC media player": "  $1 VLC",
-                        "(.*) - Chromium" : "  Chromium − $1",
-                        "Tor Browser" : "  Tor Browser",
-                        "(.*) Tor Browser" : "  Tor Browser − $1",
-                        "htop" : "  Htop",
-                        "btop" : "  Btop",
-                        "Virtual Machine Manager" : "  Virtual Machines",
-                        "zsh" : " zsh",
-                        "Pipewire Volume Control" : "󰝚  Pipewire Volume Control",
-                        "GNU Image (.*)" : "  GNU Image $1",
-                        "Inkscape (.*)" : "  Inkscape $1",
-                        "Deluge" : "  Deluge",
-
-                }
-        },
-
-        "battery": {
-                "format": "{capacity}% {icon}",
-                "interval": 10,
-                "format-charging": "{capacity}% ",
-                "format-plugged": "{capacity}% ",
-                "format-alt": "{time} {icon}",
-                "format-plugged-alt": "{time} {icon}",
-                "format-charging-alt": "{time} {icon}",
-                "states": {
-                        "warning": 30,
-                        "critical": 15
-                },
-                "format-icons": [
-                        "󱃍",
-                        "󰁺",
-                        "󰁻",
-                        "󰁼",
-                        "󰁽",
-                        "󰁾",
-                        "󰁿",
-                        "󰂀",
-                        "󰂁",
-                        "󰂂",
-                        "󰁹"
-                ]
-        },
-        "idle_inhibitor": {
-                "format": "{icon} ",
-                "tooltip": true,
-                "format-icons": {
-                        "activated": "",
-                        "deactivated": ""
-                },
-        },
-        "network": {
-                // "format-wifi": "{essid}   ({signalStrength}%)",
-                "format-wifi": "{essid} {icon}",
-                "format-ethernet": "{ifname} 󰈀",
-                "format-linked": "{ifname} 󰲜 (No IP)",
-                "format-disconnected": "Disconnected ",
-                "format-disabled": "Disconnected ",
-                "format-alt": "{ifname}: {ipaddr}/{cidr}",
-                "tooltip-format": "{ifname}: {ipaddr}",
-                "tooltip-format-wifi": "{icon} ({signalStrength}%) {ipaddr}",
-                "tooltip-format-ethernet": "󰈀 {ipaddr}",
-                "tooltip-format-disconnected": "Disconnected",
-                "tooltip-format-disabled": "Disconnected",
-                "format-icons": [
-                        "󰤟",
-                        "󰤢",
-                        "󰤢",
-                        "󰤨"
-                ],
-                "max-length": 50,
-                "on-click-right": "nm-connection-editor"
-        },
-        "clock" : {
-                "format": "  {:%H:%M %Z}",
-                "format-alt": "󰃰 {:%a, %b %d %Y}",
-                "tooltip-format": "<span size='12pt'>{calendar}</span>",
-                "calendar": {
-                        "on-scroll" : 1,
-                        "on-click-right": "mode",
-                        "mode": "month",
-                        "mode-mon-col": 3,
-                        "format": {
-                                "months": "<span color='#b4c6d0'><b>{}</b></span>",
-                                "days": "<span color='#b4c6d0'><b>{}</b></span>",
-                                "weeks": "<span color='#7e8a91'><b>W{}</b></span>",
-                                "weekdays": "<span color='#7e8a91'><b>{}</b></span>",
-                                "today": "<span color='#ff6699'><b>{}</b></span>"
-                        }
-                },
-                "actions": {
-                        "on-click-right": "mode",
-                        "on-scroll-up": "shift_up",
-                        "on-scroll-down": "shift_down"
-                }
-        },
-
-        "wireplumber": {
-                "scroll-step": 1, // %, can be a float
-                "format": "{volume}% {icon}",
-                "format-bluetooth": "{volume}% {icon}",
-                "format-bluetooth-muted": "Off {icon}󰂲",
-                "format-muted": "Off 󰖁",
-                "format-source": " {volume}% ",
-                "format-source-muted": "",
-                "format-icons": {
-                        "headphone": " ",
-                        "hands-free": " ",
-                        "headset": " ",
-                        "phone": " ",
-                        "portable": " ",
-                        "car": " ",
-                        "default": ["󰸊","󱡕","󰖌"]
-
-                },
-                "on-click": "$HOME/.config/hypr/scripts/volume.sh mute",
-                "on-click-right": "pwvucontrol",
-                "max-volume": "100%",
-                "tooltip-format": "{node_name}\nVolume: {volume}%  "
-        },
-        "tray": {
-                "icon-size": 11,
-                "spacing": 6,
-        },
-        "power-profiles-daemon": {
-                "format": "{icon}",
-                "tooltip-format": "Power profile: {profile} {icon} \nDriver: {driver}",
-                "tooltip": true,
-                "format-icons": {
-                        "default": "",
-                        "performance": "",
-                        "balanced": "",
-                        "power-saver": ""
-                }
-        },
-        "backlight": {
-                // "device": "acpi_video1",
-                "format": "{percent}% {icon}",
-                "tooltip-format": "Backlight: {percent}% {icon}",
-                //"format-icons": ["", "", "", "", "", "", "", "", ""]
-                "format-icons": ["󱩍", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩕","󱩖","󰛨"],
-                "on-click": "night_mode",
-                "on-click-right": "/home/schlau/.config/hypr/scripts/sunset.sh off"
-        },
-        "custom/power": {
-                "format": "",
-                "tooltip": true,
-                "tooltip-format": "Shutdown",
-                "on-click": "wlogout",
-        },
-        "keyboard-state": {
-                "numlock": false,
-                "capslock": true,
-                "format": "{icon}",
-                "format-icons": {
-                        "locked": "",
-                        "unlocked": "",
-                }
-        },
-        "backlight/slider": {
-                "min": 0,
-                "max": 100,
-                "orientation": "horizontal",
         },
         "privacy": {
                 "icon-spacing": 0,
@@ -317,6 +184,139 @@
                 }
                 // "ignored-players": ["firefox"]
         },
+
+        "clock" : {
+                "format": "  {:%H:%M %Z}",
+                "format-alt": "󰃰 {:%a, %b %d %Y}",
+                "tooltip-format": "<span size='12pt'>{calendar}</span>",
+                "calendar": {
+                        "on-scroll" : 1,
+                        "on-click-right": "mode",
+                        "mode": "month",
+                        "mode-mon-col": 3,
+                        "format": {
+                                "months": "<span color='#b4c6d0'><b>{}</b></span>",
+                                "days": "<span color='#b4c6d0'><b>{}</b></span>",
+                                "weeks": "<span color='#7e8a91'><b>W{}</b></span>",
+                                "weekdays": "<span color='#7e8a91'><b>{}</b></span>",
+                                "today": "<span color='#ff6699'><b>{}</b></span>"
+                        }
+                },
+                "actions": {
+                        "on-click-right": "mode",
+                        "on-scroll-up": "shift_up",
+                        "on-scroll-down": "shift_down"
+                }
+        },
+
+        // ====================== Module Right ============================
+        "battery": {
+                "format": "{capacity}% {icon}",
+                "interval": 1,
+                "format-charging": "{capacity}% ",
+                "format-plugged": "{capacity}% ",
+                "format-warning": "{capacity}% ",
+                "format-alt": "{time} {icon}",
+                "format-plugged-alt": "{time} {icon}",
+                "format-charging-alt": "{time} {icon}",
+                // "full-at": 85,
+                "states": {
+                        "warning": 40,
+                        "critical": 20
+                },
+                "format-icons": [
+                        "󱃍",
+                        "󰁺",
+                        "󰁻",
+                        "󰁼",
+                        "󰁽",
+                        "󰁾",
+                        "󰁿",
+                        "󰂀",
+                        "󰂁",
+                        "󰂂",
+                        "󰁹"
+                ]
+        },
+        "idle_inhibitor": {
+                "format": "{icon} ",
+                "tooltip": true,
+                "format-icons": {
+                        "activated": "",
+                        "deactivated": ""
+                }
+        },
+        "network": {
+                // "format-wifi": "{essid}   ({signalStrength}%)",
+                "format-wifi": "{essid} {icon}",
+                "format-ethernet": "{ifname} 󰈀",
+                "format-linked": "{ifname} 󰲜 (No IP)",
+                "format-disconnected": "Disconnected ",
+                "format-disabled": "Disconnected ",
+                "format-alt": "{ifname}: {ipaddr}/{cidr}",
+                "tooltip-format": "{ifname}: {ipaddr}",
+                "tooltip-format-wifi": "{icon} ({signalStrength}%) {ipaddr}",
+                "tooltip-format-ethernet": "󰈀 {ipaddr}",
+                "tooltip-format-disconnected": "Disconnected",
+                "tooltip-format-disabled": "Disconnected",
+                "format-icons": [
+                        "󰤟",
+                        "󰤢",
+                        "󰤢",
+                        "󰤨"
+                ],
+                "max-length": 50,
+                "on-click-right": "nm-connection-editor"
+        },
+  
+        "wireplumber": {
+                "scroll-step": 1, // %, can be a float
+                "format": "{volume}% {icon}",
+                "format-bluetooth": "{volume}% {icon}",
+                "format-bluetooth-muted": "Off {icon}󰂲",
+                "format-muted": "Off 󰖁",
+                "format-source": " {volume}% ",
+                "format-source-muted": "",
+                "format-icons": {
+                        "headphone": " ",
+                        "hands-free": " ",
+                        "headset": " ",
+                        "phone": " ",
+                        "portable": " ",
+                        "car": " ",
+                        "default": ["󰸊","󱡕","󰖌"]
+
+                },
+                "on-click": "$HOME/.config/hypr/scripts/volume.sh mute",
+                "on-click-right": "pwvucontrol",
+                "on-scroll-up": "/home/schlau/.config/hypr/scripts/volume.sh up",
+                "on-scroll-down": "/home/schlau/.config/hypr/scripts/volume.sh down",
+                "max-volume": "100%",
+                "tooltip-format": "{node_name}\nVolume: {volume}%  "
+        },
+        "tray": {
+                "icon-size": 11,
+                "spacing": 6
+        },
+        "backlight": {
+                // "device": "acpi_video1",
+                "format": "{percent}% {icon}",
+                "tooltip-format": "Backlight: {percent}% {icon}",
+                // "format-icons": ["", "", "", "", "", "", "", "", ""]
+                // "format-icons": ["󱩍", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩕","󱩖","󰛨"],
+                "format-icons": ["󰃞","󰃝","󰃟","󰃠"],
+                "on-click": "night_mode",
+                "on-click-right": "/home/schlau/.config/hypr/scripts/sunset.sh off",
+                "on-scroll-up": "/home/schlau/.config/hypr/scripts/backlight.sh up",
+                "on-scroll-down": "/home/schlau/.config/hypr/scripts/backlight.sh down"
+        },
+        "custom/power": {
+                "format": "",
+                "tooltip": true,
+                "tooltip-format": "Shutdown",
+                "on-click": "wlogout"
+        },
+
         "bluetooth": {
                 "format": " {status}",
                 "format-disabled": "",
@@ -328,6 +328,15 @@
                 "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
                 "on-click-right": "overskride",
                 "on-click": "/home/schlau/.config/hypr/scripts/bluetooth.sh"
+        },
+        "upower": {
+                "show-icon": true,
+                "icon-size": 18,
+                "hide-if-empty": false,
+                "tooltip": true,
+                "tooltip-spacing": 20
         }
+
+
 }
 

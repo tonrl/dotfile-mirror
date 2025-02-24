@@ -1,3 +1,5 @@
+@define-color bg0 rgba(217,179,255,0.1);
+
 * {
         /* `otf-font-awesome` is required to be installed for icons */
         border: none;
@@ -10,7 +12,7 @@
 }
 
 window#waybar {
-	background: rgba(19,16,20,0.8);
+	background: rgba(19,16,20,0.9);
         /* background: transparent;*/
         border-bottom: 0px solid rgba(0,4,26,0.8);
         border-top-left-radius: 0px;
@@ -34,7 +36,6 @@ window#waybar.empty #window {
 
 tooltip {
         border-radius: 5px;
-        /* background-color: rgba(9,0,0,0.8); */
         background-color: rgba(37,46,51,0.9);
 }
 
@@ -60,7 +61,7 @@ button:hover {
 }
 
 #workspaces {
-        background-color: rgba(217,179,255,0.1);
+        background-color: @bg0;
         margin-left: 2px;
         margin-top: 4px;
         margin-bottom: 4px;
@@ -125,15 +126,12 @@ button:hover {
         background: transparent;
         /* color: #C4C4C4; */
         color: #b4c6d0;
-        padding-left: 9px;
+        padding-left: 5px;
         padding-right:9px;
-        border-top-left-radius: 25px;
-        border-top-right-radius: 25px;
-        border-bottom-right-radius: 25px;
-        border-bottom-left-radius: 25px;
+        border-radius: 25px;
         border: 2px;
         border-style: solid;
-        border-color:transparent;
+        border-color: transparent;
 }
 
 #window:hover {
@@ -141,7 +139,9 @@ button:hover {
         padding-right:9px;
         border: 2px;
         border-style: solid;
-        border-color: #9d7cd8;
+        border-color: transparent;
+        color: #fff;
+        /* border-color: #9d7cd8; */
         /* background: rgba(144,177,177,0.2); */
 }
 
@@ -186,7 +186,7 @@ button:hover {
 #battery {
         padding-right: 11px;
         padding-left: 5px;
-        color: #4fd6be;
+        color: #fff;
         border-radius: 5px;
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
@@ -195,10 +195,15 @@ button:hover {
 }
 
 #battery.charging, #battery.plugged {
-        background: rgba(23,48,40,0.5);
+        /* background: rgba(23,48,40,0.5); */
+        color: #4fd6be;
         padding-right: 11px;
         background: transparent;
 }
+#battery.warning {
+        color: #ec9706;
+}
+
 
 #battery.critical:not(.charging) {
         animation-direction: alternate;
@@ -206,8 +211,7 @@ button:hover {
         animation-iteration-count: infinite;
         animation-name: blink;
         animation-timing-function: linear;
-        background-color: #f53c3c;
-        color: gray;
+        color: #f53c3c;
 }
 
 #battery:hover{
@@ -224,17 +228,6 @@ button:hover {
                 color: #000000;
         }
 }
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-/* #battery.critical:not(.charging) { */
-/*         background-color: #f53c3c; */
-/*         color: #ffffff; */
-/*         animation-name: blink; */
-/*         animation-duration: 0.5s; */
-/*         animation-timing-function: steps(12); */
-/*         animation-iteration-count: infinite; */
-/*         animation-direction: alternate; */
-/* } */
 
 
 label:focus {
@@ -402,24 +395,22 @@ label:focus {
 }
 
 #custom-rofi {
-        margin: 5px 0px 2px 6px;
-        padding-left: 7px;
-        padding-right: 11px;
+        margin: 5px 0px 5px 6px;
+        padding-left: 6px;
+        padding-right: 9px;
         padding-top: 0px;
         border-radius: 15px;
         color: #1793d1;
-        font-size: 13px;
-        background-color: rgba(226, 152, 255, 0.169);
+        font-size: 15px;
+        background: rgba(217,179,255,0.1);
 
 }
 
 #custom-rofi:hover {
-        background-color: rgba(75,0,130,0.3);
-        border: 2px;
+        /* background-color: rgba(75,0,130,0.3); */
+        /* border: 2px; */
         border-style: solid;
         border-color: #9d7cd8;
-        padding-left: 5px;
-        padding-right: 9px;
 
 }
 
@@ -448,7 +439,7 @@ label:focus {
 }
 
 #mpris {
-        background-color: rgba(217,179,255,0.1);
+        background-color: @bg0;
         color: #c0caf5;
         margin-top: 4px;
         margin-bottom: 4px;
@@ -481,6 +472,17 @@ label:focus {
         background: rgba(144,177,177,0.2);
 }
 
+#taskbar button{
+        padding: 2px;
+        background-color: transparent;
+        margin-left: 5px;
+        transition: all 0.25s linear;
+}
+
+
+/* Groups config */
+
+
 .modules-left {
         color: transparent;
 }
@@ -491,10 +493,17 @@ label:focus {
         padding-left: 0px;
         padding-right: 0px;
         color: #C4C4C4;
-        background: rgba(217,179,255,0.1);
+        background: @bg0;
         border-radius: 15px;
 
 }
+
 #statusInfo {
         margin-right: 0px;
 }
+
+#menu {
+        margin: 0px;
+
+}
+

@@ -1,0 +1,493 @@
+* {
+        border: none;
+        font-family: JetBrainsMono Nerd Font;
+        font-weight: bold;
+        font-size: 10px;
+        min-height: 0;
+        padding-bottom: 0px;
+        padding-top: 0px;
+}
+
+window#waybar {
+	background: rgba(19,16,20,0.9);
+        /* background: transparent;*/
+        border-bottom: 0px solid rgba(0,4,26,0.8);
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+}
+
+window#waybar.hidden {
+        opacity: 0.2;
+}
+
+window#waybar.empty #window {
+        background-color: transparent;
+        box-shadow: inherit;
+        border-color:transparent;
+
+}
+
+tooltip {
+        border-radius: 5px;
+        background-color: rgba(37,46,51,0.9);
+}
+
+tooltip label {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #b4c6d0;
+}
+
+button {
+        /* Use box-shadow instead of border so the text isn't offset */
+        /* box-shadow: inset 0 -3px transparent; */
+        /* Avoid rounded borders under each button name */
+        border: none;
+        border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+        background: inherit;
+        border-bottom: 1px solid #ffffff;
+        box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces {
+        background-color: @bg0;
+        margin-left: 2px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding: 3px 1px;
+        border-radius: 15px;
+}
+
+#workspaces button {
+        margin: 0px 3px;
+        padding: 0px 2px;
+        box-shadow: inherit;
+        border-radius: 15px;
+        color: #a9b1d6;
+        background-color: rgba(169, 177, 214, 0.2);
+        font-size: 2px;
+
+}
+
+#workspaces button:hover {
+        background-color: rgba(75,0,130,0.3);
+        padding: 0px 0px;
+        border-radius: 15px;
+        border: 2px;
+        border-style: solid;
+        border-color:#9d7cd8;
+        color: #CCFFDD;
+}
+
+/*Hyprland Specific*/
+#workspaces button.active {
+        border-radius: 15px;
+        min-width: 30px;
+        background-color: #545c7e;
+}
+
+#workspaces button.active:hover {
+        background-color: rgba(75,0,130,0.3);
+}
+
+/*Hyprland*/
+
+#mode {
+        border-radius: 25px;
+}
+
+#clock,
+#battery,
+#backlight,
+#network,
+#wireplumber,
+#tray,
+#mode,
+#scratchpad,
+#mode {
+        padding-left: 5px;
+        padding-right: 5px;
+
+}
+
+#window {
+        margin-left: 0px;
+        background: transparent;
+        /* color: #C4C4C4; */
+        color: #b4c6d0;
+        padding-left: 5px;
+        padding-right:9px;
+        border-radius: 25px;
+        border: 2px;
+        border-style: solid;
+        border-color: transparent;
+}
+
+#window:hover {
+        padding-left: 5px;
+        padding-right:9px;
+        border: 2px;
+        border-style: solid;
+        border-color: transparent;
+        color: #fff;
+        /* border-color: #9d7cd8; */
+        /* background: rgba(144,177,177,0.2); */
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+        margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+        margin-right: 0;
+}
+
+#clock {
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding: 1px;
+        padding-top: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: #C4C4C4;
+        background: rgba(217,179,255,0.1);
+        border-radius: 15px;
+        border: 1.5px;
+        /* border-style: solid; */
+        /* border-color:#4c4561; */
+        /* border-color: rgba(255,255,0,0.4); */
+
+}
+
+#clock:hover {
+        /* background: rgba(153,0,76,0.1); */
+        /* color: #C3E88D; */
+        color: #ffc777;
+        /* background-color: rgba(75,0,130,0.3); */
+        background: rgba(144,177,177,0.2);
+        box-shadow: inset 0px 0px 1px #9eecf9;
+}
+
+#battery {
+        padding-right: 11px;
+        padding-left: 5px;
+        color: #fff;
+        border-radius: 5px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: transparent;
+
+}
+
+#battery.charging, #battery.plugged {
+        /* background: rgba(23,48,40,0.5); */
+        color: #4fd6be;
+        padding-right: 11px;
+        background: transparent;
+}
+#battery.warning {
+        color: #ec9706;
+}
+
+#battery.critical:not(.charging) {
+        color: #f53c3c;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: steps(12);
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+}
+
+#battery:hover{
+        background: rgba(144,177,177,0.2);
+
+        /*
+        box-shadow: inset 0px 0px 2px #ffffff;
+         */
+}
+
+label:focus {
+        background-color: #000000;
+}
+
+
+#backlight {
+        /*	margin: 3px 0px 3px 0px; */
+        padding-right: 6px;
+        color: #bb9af7;
+        padding-right: 8px;
+        border-radius: 5px;
+        border: 0px;
+        border-style: solid;
+        border-color:#4c4561;
+
+        background: transparent;
+
+}
+
+#backlight:hover {
+        background: rgba(144,177,177,0.2);
+}
+
+#network {
+        color: #b4f9f8;
+        padding-left: 10px;
+        padding-right: 8px;
+        border-radius: 5px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        background: transparent;
+}
+#network.wifi {
+        color: #00b4d8;
+}
+
+#network:hover {
+        background: rgba(144,177,177,0.2);
+}
+
+#network.disabled,
+#network.disconnected {
+        color: red;
+}
+
+#bluetooth {
+        padding-left: 5px;
+        padding-right: 6px;
+        border-radius: 4px;
+}
+#bluetooth:hover {
+        background: rgba(144,177,177,0.2);
+}
+#bluetooth.on,
+#bluetooth.connected {
+        color: #21d375;
+}
+
+#wireplumber {
+        color: #ff757f;
+        border-radius: 5px;
+        border: 0px;
+        border-style: solid;
+        border-color:#4c4561;
+        background: transparent;
+}
+
+#wireplumber.muted {
+        background: rgba(144,177,177,0.1);
+        padding-right: 8px;
+        color: #a3b8c8;
+}
+
+#wireplumber:hover {
+        background: rgba(144,177,177,0.2);
+}
+
+#tray {
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding: 1px;
+        padding-top: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: #C4C4C4;
+        background: rgba(217,179,255,0.1);
+        border-radius: 15px;
+
+}
+
+#tray:hover {
+        background: rgba(144,177,177,0.2);
+}
+#tray > .active {
+        color: red;
+}
+
+#tray > .passive {
+        -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+        -gtk-icon-effect: highlight;
+        background-color: #eb4d4b;
+}
+
+#custom-power {
+        margin: 2px 3px 2px 0px;
+        margin-left: 0px;
+        border-radius: 20;
+        background: transparent;
+        color: #c3e88d;
+        padding-left: 10px;
+        padding-right: 12px;
+        /*
+        box-shadow: inset 0px 0px 2px #9eecf9;
+         */
+        border: 1px;
+        border-style: solid;
+        border-color:#4c4561;
+}
+
+#custom-power:hover {
+        background: rgba(144,177,177,0.2);
+        /*
+        box-shadow: inset 0px 0px 2px #ffffff;
+         */
+}
+
+#keyboard-state {
+        margin-left: 4px;
+        margin-right: 5px;
+        color: #ebdbb2;
+
+}
+
+#keyboard-state label.capslock.locked {
+        color: #ffa500;
+}
+
+#backlight-slider slider {
+        min-height: 0px;
+        min-width: 0px;
+        opacity: 0;
+        background-image: none;
+        border: none;
+        box-shadow: none;
+}
+
+#backlight-slider trough {
+        min-height: 0px;
+        min-width: 1px;
+        border-radius: 5px;
+        background-color: black;
+}
+
+#backlight-slider highlight {
+        min-width: 0px;
+        border-radius: 5px;
+        background-color: red;
+}
+
+#custom-rofi {
+        margin: 5px 0px 5px 6px;
+        padding-left: 6px;
+        padding-right: 9px;
+        padding-top: 0px;
+        border-radius: 15px;
+        color: #1793d1;
+        font-size: 15px;
+        background: rgba(217,179,255,0.1);
+
+}
+
+#custom-rofi:hover {
+        /* background-color: rgba(75,0,130,0.3); */
+        /* border: 2px; */
+        border-style: solid;
+        border-color: #9d7cd8;
+
+}
+
+#privacy {
+        color: #FF9E64;
+        margin-right: 5px;
+}
+
+#privacy-item.audio-in {
+        color: #FF007C;
+        margin-right: 5px;
+}
+
+#privacy-item.screenshare {
+        color: #bb9af7;
+        margin-right: 5px;
+}
+
+#privacy-item.audio-in:hover,
+#privacy-item.screenshare:hover {
+        color: #7aa2f7;
+}
+
+#privacy:hover {
+        color: #7aa2f7;
+}
+
+#mpris {
+        background-color: @bg0;
+        color: #c0caf5;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding: 1px;
+        padding-top: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 15px;
+        border: 1.5px;
+}
+
+#mpris.firefox {
+        color : #c3e88d;
+}
+
+#mpris.chromium {
+        color: #9d7cd8;
+}
+
+#mpris.chromium.paused,
+#mpris.firefox.paused,
+#mpris.paused {
+        color : #ff007c;
+}
+
+#mpris:hover,
+#mpris.firefox:hover,
+#mpris.chromium:hover {
+        color: #ffc777;
+        background: rgba(144,177,177,0.2);
+}
+
+#taskbar button{
+        padding: 2px;
+        background-color: transparent;
+        margin-left: 5px;
+        transition: all 0.25s linear;
+}
+
+
+/* Groups config */
+
+
+.modules-left {
+        color: transparent;
+}
+#systemInfo {
+        margin-right: 0px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding-left: 0px;
+        padding-right: 0px;
+        color: #C4C4C4;
+        background: @bg0;
+        border-radius: 15px;
+
+}
+
+#statusInfo {
+        margin-right: 0px;
+}
+
+#menu {
+        margin: 0px;
+
+}
+

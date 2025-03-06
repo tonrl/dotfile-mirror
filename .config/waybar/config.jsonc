@@ -21,7 +21,7 @@
 
         // Choose the order of the modules
         "modules-left": [
-                "group/menu",
+                "group/menuOutside",
                 "hyprland/window"
         ],
         "modules-center": [
@@ -48,6 +48,12 @@
                 "modules": [
                         "custom/rofi",
                         "wlr/taskbar"
+                ]
+        },
+        "group/menuOutside": {
+                "orientation": "horizontal",
+                "modules": [
+                        "group/menu"
                 ]
         },
 
@@ -93,7 +99,7 @@
         "hyprland/window": {
                 "max-length": 30,
                 "icon": true,
-                "icon-size": 12,
+                "icon-size": 14,
                 "format": "{title}",
                 "separate-outputs": true,
                 "rewrite": {
@@ -168,21 +174,29 @@
                         }
                 ]       
         },
+        "idle_inhibitor": {
+                "format": "{icon} ",
+                "tooltip": true,
+                "format-icons": {
+                        "activated": "",
+                        "deactivated": ""
+                }
+        },
+
         "mpris": {
-                "format": "{player_icon}Playing" ,
+                "format": "{player_icon} Playing" ,
                 "tooltip-format": "{status_icon} {dynamic}",
                 "tooltip-format-paused": "{status_icon} {status} {dynamic}",
                 "format-paused":  "{status_icon} {position}",
                 "on-click": "playerctl play-pause",
                 "on-click-right":"playerctl stop",
-                "family": "ipv4",
                 "player-icons": {
-                        "default": " ",
+                        "default": "",
                         "mpv": "🎵"
                 },
                 "status-icons": {
-                        "playing": " ",
-                        "paused": "⏸",
+                        "playing": "",
+                        "paused": "",
                         "stopped": ""
                 }
                 // "ignored-players": ["firefox"]
@@ -190,7 +204,7 @@
 
         "clock" : {
                 "format": "  {:%H:%M %Z}",
-                "format-alt": "󰃰 {:%a, %b %d %Y}",
+                "format-alt": "󰃰  {:%a, %b %d %Y}",
                 "tooltip-format": "<span size='12pt'>{calendar}</span>",
                 "calendar": {
                         "on-scroll" : 1,
@@ -215,7 +229,7 @@
         // ====================== Module Right ============================
         "battery": {
                 "format": "{capacity}% {icon}",
-                "interval": 1,
+                "interval": 10,
                 "format-charging": "{capacity}% ",
                 "format-plugged": "{capacity}% ",
                 "format-warning": "{capacity}% ",
@@ -241,14 +255,6 @@
                         "󰁹"
                 ]
         },
-        "idle_inhibitor": {
-                "format": "{icon} ",
-                "tooltip": true,
-                "format-icons": {
-                        "activated": "",
-                        "deactivated": ""
-                }
-        },
         "network": {
                 // "format-wifi": "{essid}   ({signalStrength}%)",
                 "format-wifi": "{essid} {icon}",
@@ -262,6 +268,7 @@
                 "tooltip-format-ethernet": "󰈀 {ipaddr}",
                 "tooltip-format-disconnected": "Disconnected",
                 "tooltip-format-disabled": "Disconnected",
+                "family": "ipv4",
                 "format-icons": [
                         "󰤟",
                         "󰤢",

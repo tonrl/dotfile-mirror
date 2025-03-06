@@ -29,12 +29,13 @@ window#waybar.empty #window {
 
 tooltip {
         border-radius: 5px;
-        background-color: rgba(37,46,51,0.9);
+        /* background-color: rgba(37,46,51,0.9); */
+        background-color: @tooltip_bg;
 }
 
 tooltip label {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         color: #b4c6d0;
 }
 
@@ -48,13 +49,13 @@ button {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-        background: inherit;
-        border-bottom: 1px solid #ffffff;
-        box-shadow: inset 0 -3px #ffffff;
+        /* background: inherit; */
+        border-bottom: 3px solid transparent;
+        /* box-shadow: inset 0px -2px #8391A1; */
 }
 
 #workspaces {
-        background-color: @bg0;
+        background-color: @def_background;
         margin-left: 2px;
         margin-top: 4px;
         margin-bottom: 4px;
@@ -68,18 +69,20 @@ button:hover {
         box-shadow: inherit;
         border-radius: 15px;
         color: #a9b1d6;
-        background-color: rgba(169, 177, 214, 0.2);
+        background: rgba(169, 177, 214, 0.2);
         font-size: 2px;
-
+        border: 2px;
 }
 
 #workspaces button:hover {
-        background-color: rgba(75,0,130,0.3);
-        padding: 0px 0px;
-        border-radius: 15px;
-        border: 2px;
+        background-color: rgba(75,0,130,0.7);
+        padding: 0px;
+        /* border-radius: 15px; */
+        /* border: 2px; */
         border-style: solid;
-        border-color:#9d7cd8;
+        /* border-color:#9d7cd8; */
+        border-color: @def_hover_bg;
+        /* border-color:transparent; */
         color: #CCFFDD;
 }
 
@@ -91,7 +94,7 @@ button:hover {
 }
 
 #workspaces button.active:hover {
-        background-color: rgba(75,0,130,0.3);
+        background-color: rgba(75,0,130,0.5);
 }
 
 /*Hyprland*/
@@ -100,6 +103,7 @@ button:hover {
         border-radius: 25px;
 }
 
+#window,
 #clock,
 #battery,
 #backlight,
@@ -108,6 +112,7 @@ button:hover {
 #tray,
 #mode,
 #scratchpad,
+#bluetooth,
 #mode {
         padding-left: 5px;
         padding-right: 5px;
@@ -116,26 +121,22 @@ button:hover {
 
 #window {
         margin-left: 0px;
+        margin-top: 5.2px;
+        margin-bottom: 5.2px;
         background: transparent;
         /* color: #C4C4C4; */
         color: #b4c6d0;
-        padding-left: 5px;
-        padding-right:9px;
-        border-radius: 25px;
-        border: 2px;
+        border-radius: 15px;
+        border: 0px;
         border-style: solid;
         border-color: transparent;
 }
 
 #window:hover {
-        padding-left: 5px;
-        padding-right:9px;
-        border: 2px;
+        border-bottom: 1px;
         border-style: solid;
         border-color: transparent;
         color: #fff;
-        /* border-color: #9d7cd8; */
-        /* background: rgba(144,177,177,0.2); */
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -161,19 +162,10 @@ button:hover {
         background: rgba(217,179,255,0.1);
         border-radius: 15px;
         border: 1.5px;
-        /* border-style: solid; */
-        /* border-color:#4c4561; */
-        /* border-color: rgba(255,255,0,0.4); */
-
 }
 
 #clock:hover {
-        /* background: rgba(153,0,76,0.1); */
-        /* color: #C3E88D; */
         color: #ffc777;
-        /* background-color: rgba(75,0,130,0.3); */
-        background: rgba(144,177,177,0.2);
-        box-shadow: inset 0px 0px 1px #9eecf9;
 }
 
 #battery {
@@ -206,13 +198,6 @@ button:hover {
         animation-direction: alternate;
 }
 
-#battery:hover{
-        background: rgba(144,177,177,0.2);
-
-        /*
-        box-shadow: inset 0px 0px 2px #ffffff;
-         */
-}
 
 label:focus {
         background-color: #000000;
@@ -238,7 +223,8 @@ label:focus {
 }
 
 #network {
-        color: #b4f9f8;
+        /* color: #b4f9f8; */
+        color: #00b4d8;
         padding-left: 10px;
         padding-right: 8px;
         border-radius: 5px;
@@ -250,23 +236,16 @@ label:focus {
         color: #00b4d8;
 }
 
-#network:hover {
-        background: rgba(144,177,177,0.2);
-}
-
 #network.disabled,
 #network.disconnected {
         color: red;
 }
 
 #bluetooth {
-        padding-left: 5px;
         padding-right: 6px;
         border-radius: 4px;
 }
-#bluetooth:hover {
-        background: rgba(144,177,177,0.2);
-}
+
 #bluetooth.on,
 #bluetooth.connected {
         color: #21d375;
@@ -330,19 +309,9 @@ label:focus {
         color: #c3e88d;
         padding-left: 10px;
         padding-right: 12px;
-        /*
-        box-shadow: inset 0px 0px 2px #9eecf9;
-         */
         border: 1px;
         border-style: solid;
         border-color:#4c4561;
-}
-
-#custom-power:hover {
-        background: rgba(144,177,177,0.2);
-        /*
-        box-shadow: inset 0px 0px 2px #ffffff;
-         */
 }
 
 #keyboard-state {
@@ -356,30 +325,8 @@ label:focus {
         color: #ffa500;
 }
 
-#backlight-slider slider {
-        min-height: 0px;
-        min-width: 0px;
-        opacity: 0;
-        background-image: none;
-        border: none;
-        box-shadow: none;
-}
-
-#backlight-slider trough {
-        min-height: 0px;
-        min-width: 1px;
-        border-radius: 5px;
-        background-color: black;
-}
-
-#backlight-slider highlight {
-        min-width: 0px;
-        border-radius: 5px;
-        background-color: red;
-}
 
 #custom-rofi {
-        margin: 5px 0px 5px 6px;
         padding-left: 6px;
         padding-right: 9px;
         padding-top: 0px;
@@ -387,14 +334,6 @@ label:focus {
         color: #1793d1;
         font-size: 15px;
         background: rgba(217,179,255,0.1);
-
-}
-
-#custom-rofi:hover {
-        /* background-color: rgba(75,0,130,0.3); */
-        /* border: 2px; */
-        border-style: solid;
-        border-color: #9d7cd8;
 
 }
 
@@ -423,7 +362,7 @@ label:focus {
 }
 
 #mpris {
-        background-color: @bg0;
+        background-color: @def_background;
         color: #c0caf5;
         margin-top: 4px;
         margin-bottom: 4px;
@@ -463,9 +402,27 @@ label:focus {
         transition: all 0.25s linear;
 }
 
+/* Hover effect */
+
+#window:hover,
+#custom-power:hover,
+#custom-rofi:hover {
+        background: @def_hover_bg;
+}
+
+#mpris:hover,
+#wireplumber:hover,
+#backlight:hover,
+#battery:hover,
+#network:hover,
+#bluetooth:hover,
+#clock:hover {
+        background: @def_hover_bg;
+        border-bottom: 2px solid transparent;
+}
+
 
 /* Groups config */
-
 
 .modules-left {
         color: transparent;
@@ -477,7 +434,7 @@ label:focus {
         padding-left: 0px;
         padding-right: 0px;
         color: #C4C4C4;
-        background: @bg0;
+        background-color: @def_background;
         border-radius: 15px;
 
 }
@@ -487,7 +444,17 @@ label:focus {
 }
 
 #menu {
-        margin: 0px;
+        margin-right: 3px;
+}
 
+#menuOutside {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 6px;
+        border-radius: 25px;
+}
+#menuOutside:hover {
+        /* border-radius: 25px; */
+        background: @def_hover_bg;
 }
 

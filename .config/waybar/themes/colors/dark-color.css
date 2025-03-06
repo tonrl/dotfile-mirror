@@ -1,3 +1,5 @@
-@define-color bg0 rgba(217,179,255,0.1);
+@define-color def_background rgba(217,179,255,0.1);
+@define-color tooltip_bg rgba(37,46,51,0.9);
+@define-color def_hover_bg rgba(144,177,177,0.2);
 
 

@@ -9,7 +9,7 @@ filekinds:
   char_device: { foreground: "#e0af68" }
   socket: { foreground: "#414868" }
   special: { foreground: "#9d7cd8" }
-  executable: { foreground: "#9ece6a"}
+  executable: { foreground: "#4ff4cb"}
   mount_point: { foreground: "#b4f9f8" }
 
 perms:
@@ -76,12 +76,12 @@ security_context:
   range: { foreground: "#9d7cd8" }
 
 file_type:
-  image: { foreground: "#89ddff" }
+  image: { foreground: "#81c8be" }
   video: { foreground: "#b4f9f8" }
   music: { foreground: "#73daca" }
   lossless: { foreground: "#41a6b5" }
   crypto: { foreground: "#db4b4b" }
-  document: { foreground: "#a9b1d6" }
+  document: { foreground: "#a6d189" }
   compressed: { foreground: "#ff9e64" }
   temp: { foreground: "#737aa2" }
   compiled: { foreground: "#737aa2"}

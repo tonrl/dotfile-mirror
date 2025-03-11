@@ -27,13 +27,13 @@
     width = 350
 
     # The maximum height of a single notification, excluding the frame.
-    height = 130
+    height = (0, 130)
 
     # Position the notification in the top right corner
     origin = top-right
 
     # Offset from the origin
-    offset = 15x25
+    offset = (15,25)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -393,6 +393,18 @@
     format = "<b>%s</b>\n%b\n"
     history_ignore = yes
 
+[udiskie]
+    appname = "udiskie"
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/devices/device_usb.svg
+    history_ignore = yes
+
+[qBittorrent]
+    appname = "qBittorrent"
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/qbittorrent.svg
+
+# [play_sound]
+#     appname = "NetworkManager Applet"
+#     script = "$HOME/.local/bin/alert_sound.sh"
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #

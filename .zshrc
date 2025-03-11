@@ -256,6 +256,11 @@ eval "$(zoxide init --cmd cd zsh)"
 source <(fzf --zsh)
 # Custom message script to run on new shell
 alias linux='echo "$(date +%Y) is Year of Linux Desktop!"'
+# Cmatrix custom
+alias cmatrix='cmatrix -u 1 -C magenta -a'
+
+
+
 
 
 # Yazi allow to change CWD
@@ -266,4 +271,11 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+
+function secure_chromium {
+    port=4711
+    chromium --proxy-server="socks://localhost:$port" &
+    exit
 }

@@ -10,9 +10,9 @@ function get_wifi_status {
 
 function send_notification {
         if [ "$1" == "on" ]; then
-                dunstify -a "radio" -i "$icon_on" -r 2593 -u low "Wi-Fi Enabled" "Your Wi-Fi is now turned on" -t 2500
+                notify-send -a "radio" -i "$icon_on" -r 2593 -u low "Wi-Fi Enabled" "Your Wi-Fi is now turned on" -t 2500
         else
-                dunstify -a "radio" -i "$icon_off" -r 2593 -u low "Wi-Fi Disabled" "Your Wi-Fi is now turned off" -t 2500
+                notify-send -a "radio" -i "$icon_off" -r 2593 -u low "Wi-Fi Disabled" "Your Wi-Fi is now turned off" -t 2500
         fi
 }
 

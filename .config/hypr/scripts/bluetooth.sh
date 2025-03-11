@@ -9,11 +9,11 @@ function get_bluetooth_status {
 }
 function send_notification {
         if [ "$1" == "on" ]; then
-                dunstify -a "radio" -i "$icon_on" -r 2593 -u low "Bluetooth Enabled" "Your Bluetooth is now turned on." -t 2500
+                notify-send -a "radio" -i "$icon_on" -r 2593 -u low "Bluetooth Enabled" "Your Bluetooth is now turned on." -t 2500
         elif [ "$1" == "off" ]; then
-                dunstify -a "radio" -i "$icon_off" -r 2593 -u low "Bluetooth Disabled" "Your Bluetooth is now turned off" -t 2500
+                notify-send -a "radio" -i "$icon_off" -r 2593 -u low "Bluetooth Disabled" "Your Bluetooth is now turned off" -t 2500
         else
-                dunstify -a "radio" -i "$icon_on" -r 2593 -u low "Error" -t 2500
+                notify-send -a "radio" -i "$icon_on" -r 2593 -u low "Error" -t 2500
                 
         fi
 }

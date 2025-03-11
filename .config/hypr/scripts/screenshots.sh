@@ -25,7 +25,7 @@ send_notification() {
                         ;;
         esac
         notification_id=$(date +%s)
-        dunstify -a "System" -i "$icon" -r "$notification_id" -u low "Screenshot" "$message" -t 4500
+        notify-send -a "System" -i "$icon" -r "$notification_id" -u low "Screenshot" "$message" -t 4500
 }
 
 generate_filename() {

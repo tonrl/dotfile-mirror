@@ -9,16 +9,16 @@ DAY_TEMP=4000
 
 
 function send_notification_on {
-        dunstify -a "System" -i "$icon_on" -r 2593 -u low "Night Mode On" "$sunset_value"k -t 3500
+        notify-send -a "System" -i "$icon_on" -r 2593 -u low "Night Mode On" "$sunset_value"k -t 3500
 }
 
 function send_notification_no_off {
-        dunstify -a "System" -i "$icon_on" -r 2593 -u low "Night Mode on" "DO NOT TURN OFF" -t 3500
+        notify-send -a "System" -i "$icon_on" -r 2593 -u low "Night Mode on" "DO NOT TURN OFF" -t 3500
 }
 
 
 function send_notification_off {
-        dunstify -a "System" -i "$icon_off" -r 2593 -u low "Night Mode Off" -t 3500
+        notify-send -a "System" -i "$icon_off" -r 2593 -u low "Night Mode Off" -t 3500
 }
 # Get the current hour
 current_hour=$(date +%H)
@@ -28,7 +28,7 @@ echo $current_hour
 if [ "$current_hour" -ge 22 ] && [ "$current_hour" -lt 24 ]; then
         sunset_value="$DEEP_NIGHT_TEMP"
 
-elif [ "$current_hour" -ge 0 ] && [ "$current_hour" -lt 8 ]; then
+elif [ "$current_hour" -ge 0 ] && [ "$current_hour" -lt 6 ]; then
         sunset_value="$DEEP_NIGHT_TEMP"
 
 elif [ "$current_hour" -ge 18 ] && [ "$current_hour" -lt 22 ]; then
@@ -47,8 +47,8 @@ case $1 in
                 hyprsunset -t "$sunset_value" > /dev/null
                 ;;
         off)
-                if [ "$current_hour" -ge 0 ] && [ "$current_hour" -lt 8 ]; then
-                        sunset_value="$DEEP_NIGHT_TEMP"
+                if [ "$current_hour" -ge 0 ] && [ "$current_hour" -lt 6 ]; then
+                        sunset_value="$EVENING_TEMP"
                         send_notification_no_off
                         hyprsunset -t "$sunset_value" > /dev/null
                 else

@@ -24,22 +24,22 @@ function send_notification {
         volume=`get_volume`
         # Make the bar with the special character ─ (it's not dash -)
         if [ "$volume" -gt 0 ]; then
-                bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')"─"
+                bar=$(seq -s "─" $(($volume / 3)) | sed 's/[0-9]//g')"─"
         else
                 bar=""
         fi
         # Send the notification
-        if [ "$volume" -ge 80 ]; then
-                dunstify -a "System" -i "$icon_volume_high" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
-        elif [ "$volume" -ge 50 ]; then
-                dunstify -a "System" -i "$icon_volume" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
+        if [ "$volume" -ge 95 ]; then
+                notify-send -a "System" -i "$icon_volume" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
+        elif [ "$volume" -ge 70 ]; then
+                notify-send -a "System" -i "$icon_volume" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
 
-        elif [ "$volume" -ge 10 ]; then
-                dunstify -a "System" -i "$icon_volume_mid" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
+        elif [ "$volume" -ge 20 ]; then
+                notify-send -a "System" -i "$icon_volume_mid" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
         elif [ "$volume" -eq 0 ]; then
-                dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: ${volume}%" "Your Speakers are Disabled" 
+                notify-send -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: ${volume}%" "Your Speakers are Disabled" 
         else
-                dunstify -a "System" -i "$icon_volume_low" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
+                notify-send -a "System" -i "$icon_volume_low" -r 2593 -u low "Volume: ${volume}%" "$bar" -t 4000
 
         fi
 }
@@ -61,7 +61,7 @@ case $1 in
                 # Toggle mute
                 amixer -D pulse set Master 1+ toggle > /dev/null
                 if is_mute ; then
-                        dunstify -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: 0%" "Your Speakers are Disabled"
+                        notify-send -a "System" -i "$icon_mute" -t 4000 -r 2593 -u low "Volume: 0%" "Your Speakers are Disabled"
                 else
                         send_notification
                 fi
@@ -69,9 +69,9 @@ case $1 in
         mic)
                 pactl set-source-mute @DEFAULT_SOURCE@ toggle
                 if mic_on_off ; then 
-                        dunstify -a "System" -i "$mic_on" -t 4000 -r 2593 -u low "Microphone Enabled" "Your microphone is now turned on"
+                        notify-send -a "System" -i "$mic_on" -t 4000 -r 2593 -u low "Microphone Enabled" "Your microphone is now turned on"
                 else
-                        dunstify -a "System" -i "$mic_mute" -t 4000 -r 2593 -u low "Microphone Muted" "Your microphone is now turned off"
+                        notify-send -a "System" -i "$mic_mute" -t 4000 -r 2593 -u low "Microphone Muted" "Your microphone is now turned off"
                 fi
                 ;;
 

@@ -16,7 +16,7 @@ function send_notification {
         brightness=${brightness%%.*}
 
         if [ "$brightness" -gt 0 ]; then
-                bar=$(seq -s "─" $(($brightness / 5)) | sed 's/[0-9]//g')"─"
+                bar=$(seq -s "─" $(($brightness / 3)) | sed 's/[0-9]//g')"─"
         else
                 bar=""
         fi

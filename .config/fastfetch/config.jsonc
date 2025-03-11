@@ -14,15 +14,15 @@
 
         "logo": {
                 "type" : "kitty-direct",
-                "source": "$HOME/.config/fastfetch/logo/cow.png",
+                // "source": "$HOME/.config/fastfetch/logo/cow.png",
                 // "source": "arch1",
                 "width": 45,
                 "height": 20,
                 "padding" : {
-                        "left" : 7,
-                        "right" : 10,
-                        // "left": 10,
-                        // "right": 12
+                        // "left" : 7,
+                        // "right" : 10,
+                        "left": 10,
+                        "right": 15
                 }
         },
 

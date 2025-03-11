@@ -300,6 +300,7 @@ label:focus {
 #tray > .needs-attention {
         -gtk-icon-effect: highlight;
         background-color: #eb4d4b;
+        border-radius: 15px;
 }
 
 #custom-power {
@@ -396,7 +397,7 @@ label:focus {
         background: rgba(144,177,177,0.2);
 }
 #taskbar {
-        padding-right: 3px;
+        padding-right: 0px;
 }
 
 #taskbar button {

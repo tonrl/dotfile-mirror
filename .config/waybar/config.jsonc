@@ -52,6 +52,11 @@
         },
         "group/menuOutside": {
                 "orientation": "horizontal",
+                "drawer": {
+                       "transition-duration": 500,
+                       "children-class": "childs",
+                       "transition-left-to-right": true
+                 },
                 "modules": [
                         "group/menu"
                 ]
@@ -306,8 +311,8 @@
                 "tooltip-format": "{node_name}\nVolume: {volume}%  "
         },
         "tray": {
-                "icon-size": 11,
-                "spacing": 6
+                "icon-size": 14,
+                "spacing": 5
         },
         "backlight": {
                 // "device": "acpi_video1",

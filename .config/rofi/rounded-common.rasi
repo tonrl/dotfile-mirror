@@ -1,20 +1,20 @@
 
 * {
-    font:   "ttf-jetbrains-mono-nerd 13";
+    font:   "ttf-jetbrains-mono-nerd 12";
 
     background-color:   transparent;
     text-color:         @fg0;
 
     margin:     0px;
-    padding:    0px;
+    padding:    5px;
     spacing:    0px;
 }
 
 window {
     location:       center;
     width:          580;
-    border:         0;
-    border-color:   #41a6b5;
+    border:         2;
+    border-color:   @bg2;
     border-radius:     15px;
     background-color:   @bg0;
 }

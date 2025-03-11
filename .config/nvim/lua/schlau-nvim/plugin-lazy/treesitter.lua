@@ -58,5 +58,8 @@ return {
                 }
 
                 vim.treesitter.language.register("templ", "templ")
+                vim.filetype.add({
+                        pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+                })
         end
 }

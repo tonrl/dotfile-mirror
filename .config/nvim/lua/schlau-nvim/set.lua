@@ -43,3 +43,14 @@ vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSig
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
 vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 
+vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
+		pattern = {"*.hl", "hypr*.conf"},
+		callback = function(event)
+				print(string.format("starting hyprls for %s", vim.inspect(event)))
+				vim.lsp.start {
+						name = "hyprlang",
+						-- cmd = {"hyprls"},
+						root_dir = vim.fn.getcwd(),
+				}
+		end
+})

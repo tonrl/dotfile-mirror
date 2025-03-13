@@ -123,10 +123,14 @@
         "wlr/taskbar": {
                 "format": "{icon}",
                 "tooltip-format": "{title}",
-                "icon-size": 14,
+                "icon-theme": "ePapirus-Dark",
+                "icon-size": 16,
                 "active-first": false,
                 "on-click": "activate",
                 "on-click-middle": "close",
+                "app_ids-mapping": {
+                        "firefoxnightly": "firefox-nightly"
+                },
                 "ignore-list": [
                         "kitty"
                 ]
@@ -209,7 +213,8 @@
 
         "clock" : {
                 "format": "  {:%H:%M %Z}",
-                "format-alt": "󰃰  {:%a, %b %d %Y}",
+                "format-alt": "󰃰  {:%a, %d. %b %Y}",
+                "locale": "de_DE.UTF-8",
                 "tooltip-format": "<span size='12pt'>{calendar}</span>",
                 "calendar": {
                         "on-scroll" : 1,
@@ -224,10 +229,14 @@
                                 "today": "<span color='#ff6699'><b>{}</b></span>"
                         }
                 },
+                "timezones": [
+                        "",
+                        "Australia/South"
+                ],
                 "actions": {
                         "on-click-right": "mode",
-                        "on-scroll-up": "shift_up",
-                        "on-scroll-down": "shift_down"
+                        "on-scroll-up": "tz_up",
+                        "on-scroll-down": "tz_down"
                 }
         },
 
@@ -281,7 +290,8 @@
                         "󰤨"
                 ],
                 "max-length": 50,
-                "on-click-right": "nm-connection-editor"
+                // "on-click-right": "nm-connection-editor"
+                "on-click-right": "iwgtk"
         },
   
         "wireplumber": {

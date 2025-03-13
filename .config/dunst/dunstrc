@@ -392,15 +392,20 @@
     appname = "radio"
     format = "<b>%s</b>\n%b\n"
     history_ignore = yes
-
 [udiskie]
     appname = "udiskie"
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/devices/device_usb.svg
     history_ignore = yes
-
 [qBittorrent]
     appname = "qBittorrent"
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/qbittorrent.svg
+[firefox]
+    appname = "Firefox"
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/firefox.svg
+[nightly]
+    appname = "Nightly"
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/firefox-nightly.svg
+
 
 # [play_sound]
 #     appname = "NetworkManager Applet"

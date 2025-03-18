@@ -246,9 +246,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Yazi
 alias f='y'
 
-# Rust command
-. "$HOME/.cargo/env"
-
 # Enable z command
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -258,10 +255,6 @@ source <(fzf --zsh)
 alias linux='echo "$(date +%Y) is Year of Linux Desktop!"'
 # Cmatrix custom
 alias cmatrix='cmatrix -u 1 -C magenta -a'
-
-
-
-
 
 # Yazi allow to change CWD
 function y() {

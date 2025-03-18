@@ -405,7 +405,9 @@
 [nightly]
     appname = "Nightly"
     new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/firefox-nightly.svg
-
+[firewall-applet]
+    appname = "firewall-applet"
+    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/firewall-config.svg
 
 # [play_sound]
 #     appname = "NetworkManager Applet"

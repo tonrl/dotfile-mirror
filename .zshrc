@@ -246,6 +246,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Yazi
 alias f='y'
 
+# Rust command
+. "$HOME/.cargo/env"
+
 # Enable z command
 eval "$(zoxide init --cmd cd zsh)"
 

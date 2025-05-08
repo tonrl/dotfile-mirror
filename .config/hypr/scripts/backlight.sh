@@ -1,8 +1,10 @@
 #!/bin/bash
-icon_base="/usr/share/icons/ePapirus-Dark/32x32"
+icon_base="$HOME/.local/share/icons/ePapirus/32x32/"
 high_icon="$icon_base/panel/brightness-high-symbolic.svg"
 mid_icon="$icon_base/panel/brightness-symbolic.svg"
 low_icon="$icon_base/panel/brightness-low-symbolic.svg" 
+off_icon="$icon_base/panel/gpm-brightness-lcd-disabled.svg"
+expireTime=1000
 
 function get_brightness {
         brightness=$(brightnessctl get)
@@ -21,16 +23,19 @@ function send_notification {
                 bar=""
         fi
 
-        if [ "$brightness" -ge 80 ]; then
-                notify-send -a "System" -i "${high_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
+        if [ "$brightness" -ge 85 ]; then
+                notify-send -a "System" -i "${high_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t $expireTime
 
-        elif [ "$brightness" -ge 30 ]; then
-                notify-send -a "System" -i "${mid_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
+        elif [ "$brightness" -ge 55 ]; then
+                notify-send -a "System" -i "${mid_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t $expireTime
         
+        elif [ "$brightness" -ge 25 ]; then
+                notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t $expireTime
+
         elif [ "$brightness" -eq 0 ]; then
-                notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "Backlight off" -t 4000
+                notify-send -a "System" -i "${off_icon}" -r 2593 -u low "Brightness: ${brightness}" "Backlight off" -t $expireTime
         else
-                notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t 4000
+                notify-send -a "System" -i "${off_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t $expireTime
         fi  
 
 }

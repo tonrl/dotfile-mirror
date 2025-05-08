@@ -1,8 +1,9 @@
 #!/bin/bash
 
-icon_base="/usr/share/icons/ePapirus-Dark/32x32/"
+icon_base="/usr/share/icons/Papirus-Dark/32x32/"
 icon_pic="$icon_base/apps/lximage.svg" 
 icon_err="$icon_base/categories/system-error.svg" 
+expireTime=1500
 
 send_notification() {
         local type="$1"
@@ -25,7 +26,7 @@ send_notification() {
                         ;;
         esac
         notification_id=$(date +%s)
-        notify-send -a "System" -i "$icon" -r "$notification_id" -u low "Screenshot" "$message" -t 4500
+        notify-send -a "System" -i "$icon" -r "$notification_id" -u low "Screenshot" "$message" -t $expireTime
 }
 
 generate_filename() {

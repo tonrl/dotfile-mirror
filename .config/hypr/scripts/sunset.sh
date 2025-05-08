@@ -1,24 +1,26 @@
 #!/bin/bash
 
-icon_base="/usr/share/icons/ePapirus-Dark/32x32/"
+icon_base="/usr/share/icons/Papirus-Dark/32x32/"
 icon_on="$icon_base/categories/tomato.svg" 
 icon_off="$icon_base/categories/Temps.svg" 
 DEEP_NIGHT_TEMP=1500
 EVENING_TEMP=2000
 DAY_TEMP=4000
 
+expireTime=1500
+
 
 function send_notification_on {
-        notify-send -a "System" -i "$icon_on" -r 2593 -u low "Night Mode On" "$sunset_value"k -t 3500
+        notify-send -a "System" -i "$icon_on" -r 2593 -u low "Night Mode On" "$sunset_value"k -t $expireTime
 }
 
 function send_notification_no_off {
-        notify-send -a "System" -i "$icon_on" -r 2593 -u low "Night Mode on" "DO NOT TURN OFF" -t 3500
+        notify-send -a "System" -i "$icon_on" -r 2593 -u low "Night Mode on" "DO NOT TURN OFF" -t $expireTime
 }
 
 
 function send_notification_off {
-        notify-send -a "System" -i "$icon_off" -r 2593 -u low "Night Mode Off" -t 3500
+        notify-send -a "System" -i "$icon_off" -r 2593 -u low "Night Mode Off" -t $expireTime
 }
 # Get the current hour
 current_hour=$(date +%H)

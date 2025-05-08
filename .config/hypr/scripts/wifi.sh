@@ -1,8 +1,9 @@
 #!/bin/bash
 
-icon_base="/usr/share/icons/ePapirus-Dark/32x32/"
-icon_on="$icon_base/panel/network-wireless-signal-excellent.svg"
-icon_off="$icon_base/panel/airplane-mode.svg" 
+icon_base="/usr/share/icons/Papirus-Dark/32x32/"
+icon_on="$icon_base/status/network-wired-activated-locked.svg"
+icon_off="$icon_base/status/network-flightmode-on.svg" 
+expireTime=1500
 
 function get_wifi_status {
         nmcli radio wifi
@@ -10,9 +11,9 @@ function get_wifi_status {
 
 function send_notification {
         if [ "$1" == "on" ]; then
-                notify-send -a "radio" -i "$icon_on" -r 2593 -u low "Wi-Fi Enabled" "Your Wi-Fi is now turned on" -t 2500
+                notify-send -a "radio" -i "$icon_on" -r 2593 -u low "Wi-Fi Enabled" "Your Wi-Fi is now turned on" -t $expireTime
         else
-                notify-send -a "radio" -i "$icon_off" -r 2593 -u low "Wi-Fi Disabled" "Your Wi-Fi is now turned off" -t 2500
+                notify-send -a "radio" -i "$icon_off" -r 2593 -u low "Wi-Fi Disabled" "Your Wi-Fi is now turned off" -t $expireTime
         fi
 }
 

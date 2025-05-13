@@ -24,16 +24,16 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 350
+    width = 375
 
     # The maximum height of a single notification, excluding the frame.
-    height = (0, 130)
+    height = (75, 140)
 
     # Position the notification in the top right corner
     origin = top-right
 
     # Offset from the origin
-    offset = (15,25)
+    offset = (35,25)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -82,7 +82,6 @@
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
     transparency = 50
-
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
@@ -230,7 +229,7 @@
 
     # Paths to default icons (only necessary when not using recursive icon lookup)
     # icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-    icon_path = /home/schlau/.local/share/icons/ePapirus-Dark/32x32/status/:/home/schlau/.local/share/icons/ePapirus-Dark/32x32/apps/:/home/schlau/.local/share/icons/ePapirus-Dark/32x32/panel/
+    icon_path = /home/schlau/.local/share/icons/Papirus-Dark/24x24/status/:/home/schlau/.local/share/icons/Papirus-Dark/32x32/apps/:/home/schlau/.local/share/icons/Papirus-Dark/32x32/status/
 
     ### History ###
 
@@ -338,7 +337,7 @@
     # frame_color = "#7de0a6"
     frame_color = "#bb9af7"
     timeout = 8
-    # new_icon = '/usr/share/icons/ePapirus-Dark/32x32/panel/audio-on.svg'
+    # new_icon = '/usr/share/icons/ePapirus-Dark/24x24/panel/audio-on.svg'
 
 [urgency_normal]
     # background = "#181825"
@@ -347,7 +346,7 @@
     highlight = "#CDD6F4"
     frame_color = "#7801f7"
     timeout = 10
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/preferences-desktop-notification-bell.svg
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/preferences-desktop-notification-bell.svg
     # new_icon = preferences-desktop-notification-bell.svg
 
 [urgency_critical]
@@ -355,38 +354,41 @@
     foreground = "#CDD6F4"
     frame_color = "#f38ba8"
     timeout = 60
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/gnome-warning.svg
+    new_icon = ~/.local/share/icons/Papirus-Dark/24x24/apps/gnome-warning.svg
 
 [system]
     appname = "System"
-    urgency = critical
+    # urgency = critical
     format = "<b>%s</b>\n%b\n"
     history_ignore = yes
+    min_icon_size = 42
+
 [thunderbird]
-    appname = "Thunderbird"
+    appname = "Thunderbird Beta"
     urgency = normal
     timeout = 20
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/org.mozilla.Thunderbird.svg
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/thunderbird.svg
 
 [nm_applet]
     appname = "NetworkManager Applet"
     urgency = normal
     timeout = 3
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/devices/network-wired.svg
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/devices/network-wired.svg
     history_ignore = yes
+
 [mullvad_vpn]
     appname = "Mullvad VPN"
     timeout = 3
     set_stack_tag = "Mullvad"
-    new_icon =  ~/.local/share/icons/ePapirus-Dark/32x32/apps/mullvad-vpn.svg
+    new_icon =  /usr/share/icons/Papirus-Dark/24x24/apps/mullvad-vpn.svg
     history_ignore = yes
 [clamav]
     appname = "clamav"
-    new_icon =  ~/.local/share/icons/ePapirus-Dark/32x32/apps/clamav.svg 
+    new_icon =  /usr/share/icons/Papirus-Dark/24x24/apps/clamav.svg 
     format = "<b>%s</b>\n%b\n"
 [apparmor]
     appname = "AppArmor"
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/gufw.svg 
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/gufw.svg 
     history_ignore = yes
 [wireless]
     appname = "radio"
@@ -394,150 +396,23 @@
     history_ignore = yes
 [udiskie]
     appname = "udiskie"
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/devices/device_usb.svg
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/devices/device_usb.svg
     history_ignore = yes
 [qBittorrent]
     appname = "qBittorrent"
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/qbittorrent.svg
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/qbittorrent.svg
 [firefox]
     appname = "Firefox"
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/firefox.svg
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/firefox.svg
 [nightly]
     appname = "Nightly"
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/firefox-nightly.svg
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/firefox-nightly.svg
 [firewall-applet]
     appname = "firewall-applet"
-    new_icon = ~/.local/share/icons/ePapirus-Dark/32x32/apps/firewall-config.svg
+    timeout = 2
+    new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/firewall-config.svg
+[KeePassXC]
+   appname = "KeePassXC"
+    timeout = 2
+   new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/keepassxc.svg
 
-# [play_sound]
-#     appname = "NetworkManager Applet"
-#     script = "$HOME/.local/bin/alert_sound.sh"
-# Every section that isn't one of the above is interpreted as a rules to
-# override settings for certain messages.
-#
-# Messages can be matched by
-#    appname (discouraged, see desktop_entry)
-#    body
-#    category
-#    desktop_entry
-#    icon
-#    match_transient
-#    msg_urgency
-#    stack_tag
-#    summary
-#
-# and you can override the
-#    background
-#    foreground
-#    format
-#    frame_color
-#    fullscreen
-#    new_icon
-#    set_stack_tag
-#    set_transient
-#    set_category
-#    timeout
-#    urgency
-#    icon_position
-#    skip_display
-#    history_ignore
-#    action_name
-#    word_wrap
-#    ellipsize
-#    alignment
-#    hide_text
-#    override_pause_level
-#
-# Shell-like globbing will get expanded.
-#
-# Instead of the appname filter, it's recommended to use the desktop_entry filter.
-# GLib based applications export their desktop-entry name. In comparison to the appname,
-# the desktop-entry won't get localized.
-#
-# You can also allow a notification to appear even when paused. Notification will appear whenever notification's override_pause_level >= dunst's paused level.
-# This can be used to set partial pause modes, where more urgent notifications get through, but less urgent stay paused. To do that, you can override the following in the rules:
-# override_pause_level = X
-
-# SCRIPTING
-# You can specify a script that gets run when the rule matches by
-# setting the "script" option.
-# The script will be called as follows:
-#   script appname summary body icon urgency
-# where urgency can be "LOW", "NORMAL" or "CRITICAL".
-#
-# NOTE: It might be helpful to run dunst -print in a terminal in order
-# to find fitting options for rules.
-
-# Disable the transient hint so that idle_threshold cannot be bypassed from the
-# client
-#[transient_disable]
-#    match_transient = yes
-#    set_transient = no
-#
-# Make the handling of transient notifications more strict by making them not
-# be placed in history.
-#[transient_history_ignore]
-#    match_transient = yes
-#    history_ignore = yes
-
-# fullscreen values
-# show: show the notifications, regardless if there is a fullscreen window opened
-# delay: displays the new notification, if there is no fullscreen window active
-#        If the notification is already drawn, it won't get undrawn.
-# pushback: same as delay, but when switching into fullscreen, the notification will get
-#           withdrawn from screen again and will get delayed like a new notification
-#[fullscreen_delay_everything]
-#    fullscreen = delay
-#[fullscreen_show_critical]
-#    msg_urgency = critical
-#    fullscreen = show
-
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
-
-#[script-test]
-#    summary = "*script*"
-#    script = script/volume.sh
-#
-#[ignore]
-#    # This notification will not be displayed
-#    summary = "foobar"
-#    skip_display = true
-
-#[history-ignore]
-#    # This notification will not be saved in history
-#     appname = "System"
-#    summary = "foobar"
-#     history_ignore = yes
-
-#[skip-display]
-     # This notification will not be displayed, but will be included in the history
-     # summary = "foobar"
-     # skip_display = yes
-     #
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
-#[signed_off]
-#    appname = Pidgin
-#    summary = *signed off*
-#    urgency = low
-#
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
-#
-#[stack-volumes]
-#    appname = "some_volume_notifiers"
-#    set_stack_tag = "volume"
-#
-# vim: ft=cfg

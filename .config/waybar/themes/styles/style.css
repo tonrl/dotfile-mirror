@@ -9,12 +9,10 @@
 }
 
 window#waybar {
-	background: rgba(19,16,20,0.9);
-	/* background: rgba(0,0,0,0.9); */
-        /* background: transparent;*/
         border-bottom: 0px solid rgba(0,4,26,0.8);
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
+	background: @waybar-bg;
 }
 
 window#waybar.hidden {
@@ -30,7 +28,6 @@ window#waybar.empty #window {
 
 tooltip {
         border-radius: 5px;
-        /* background-color: rgba(37,46,51,0.9); */
         background-color: @tooltip_bg;
 }
 
@@ -56,12 +53,13 @@ button:hover {
 }
 
 #workspaces {
-        background-color: @def_background;
         margin-left: 2px;
+        margin-right: 0px;
         margin-top: 4px;
         margin-bottom: 4px;
-        padding: 3px 1px;
-        border-radius: 15px;
+        padding: 0px 1px;
+        border-radius: 8px;
+        background-color: @def_background;
 }
 
 #workspaces button {
@@ -69,35 +67,47 @@ button:hover {
         padding: 2px 2px;
         box-shadow: inherit;
         border-radius: 15px;
-        color: #a9b1d6;
-        background: rgba(169, 177, 214, 0.2);
         font-size: 2px;
         border: 2px;
+        background: @workspaces_button_bg;
+        color: @workspace_button_text;
 }
 
 #workspaces button:hover {
         background-color: rgba(75,0,130,0.7);
+        margin-top: 2px;
+        margin-bottom: 2px;
         padding: 0px;
-        /* border-radius: 15px; */
-        /* border: 2px; */
         border-style: solid;
-        /* border-color:#9d7cd8; */
-        border-color: @def_hover_bg;
-        /* border-color:transparent; */
         color: #CCFFDD;
+        border-color: @waybar_border;
 }
 
 /*Hyprland Specific*/
 #workspaces button.active {
-        border-radius: 15px;
-        min-width: 30px;
-        background-color: #545c7e;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+        padding-left: 2px;
+        padding-right: 2px;
+        min-width: 31px;
+        color: @workspace_active_button_text;
+        background-color: @workspace_active_button_bg;
 }
 
 #workspaces button.active:hover {
         background-color: rgba(75,0,130,0.5);
+        padding-left: 0px;
+        padding-right: 0px;
+        /* padding-left: 0px; */
 }
 
+#workspaces button.special {
+        color: #08c6d3;
+}
+#workspaces button.special.active {
+        background-color: rgba(75,0,130,0.5);
+}
 /*Hyprland*/
 
 #mode {
@@ -115,23 +125,22 @@ button:hover {
 #scratchpad,
 #bluetooth,
 #mode {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 4px;
+        padding-right: 6px;
 
 }
 
 #window {
+        border-radius: 8px;
         margin-left: 0px;
         margin-top: 5.2px;
         margin-bottom: 5.2px;
-        padding-left: 8px;
+        padding-left: 4px;
         background: transparent;
-        /* color: #C4C4C4; */
-        color: #b4c6d0;
-        border-radius: 15px;
         border: 0px;
         border-style: solid;
         border-color: transparent;
+        color: @def_text_color;
 }
 
 #window:hover {
@@ -151,19 +160,23 @@ button:hover {
         margin-right: 0;
 }
 
+#idle_inhibitor {
+        color: @clock_text_color;
+}
+
 #clock {
-        margin-left: 4px;
-        margin-right: 4px;
+        margin-left: 2px;
+        margin-right: 2px;
         margin-top: 4px;
         margin-bottom: 4px;
         padding: 1px;
         padding-top: 1px;
-        padding-left: 10px;
-        padding-right: 10px;
-        color: #C4C4C4;
-        background: rgba(217,179,255,0.1);
-        border-radius: 15px;
-        border: 1.5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        color: @clock_text_color;
+        background: @def_background;
+        border-radius: 8px;
+        /* border: 1.5px; */
 }
 
 #clock:hover {
@@ -171,21 +184,22 @@ button:hover {
 }
 
 #battery {
-        padding-right: 11px;
-        padding-left: 5px;
-        color: #fff;
+        /* padding-right: 5px; */
+        /* padding-left: 3px; */
         border-radius: 5px;
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
         background-color: transparent;
+        color: @battery_def;
 
 }
 
 #battery.charging, #battery.plugged {
         /* background: rgba(23,48,40,0.5); */
-        color: #4fd6be;
-        padding-right: 11px;
+        /* color: #4fd6be; */
+        padding-right: 8.5px;
         background: transparent;
+        color: @battery_charging;
 }
 #battery.warning {
         color: #ec9706;
@@ -208,15 +222,13 @@ label:focus {
 
 #backlight {
         /*	margin: 3px 0px 3px 0px; */
-        padding-right: 6px;
-        color: #bb9af7;
         padding-right: 8px;
         border-radius: 5px;
         border: 0px;
         border-style: solid;
         border-color:#4c4561;
-
         background: transparent;
+        color: @backlight_color;
 
 }
 
@@ -225,17 +237,16 @@ label:focus {
 }
 
 #network {
-        /* color: #b4f9f8; */
-        color: #00b4d8;
-        padding-left: 10px;
-        padding-right: 8px;
+        padding-left: 6px;
+        /* padding-right: 8px; */
         border-radius: 5px;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
         background: transparent;
+        color: @colour_network;
 }
 #network.wifi {
-        color: #00b4d8;
+        color: @colour_network;
 }
 
 #network.disabled,
@@ -244,8 +255,9 @@ label:focus {
 }
 
 #bluetooth {
-        padding-right: 6px;
-        border-radius: 4px;
+        padding-right: 4px;
+        border-radius: 5px;
+        color: @def_text_color;
 }
 
 #bluetooth.on,
@@ -254,18 +266,18 @@ label:focus {
 }
 
 #wireplumber {
-        color: #ff757f;
         border-radius: 5px;
         border: 0px;
         border-style: solid;
         border-color:#4c4561;
         background: transparent;
+        color: @wp_color;
 }
 
 #wireplumber.muted {
         background: rgba(144,177,177,0.1);
         padding-right: 8px;
-        color: #a3b8c8;
+        color: @wp_muted;
 }
 
 #wireplumber:hover {
@@ -273,48 +285,51 @@ label:focus {
 }
 
 #tray {
-        margin-left: 4px;
-        margin-right: 4px;
+        margin-left: 2px;
+        margin-right: 2px;
         margin-top: 4px;
         margin-bottom: 4px;
-        padding: 1px;
-        padding-top: 1px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
         color: #C4C4C4;
-        background: rgba(217,179,255,0.1);
-        border-radius: 15px;
+        border-radius: 8px;
+        background: @def_background;
 
 }
 
 #tray:hover {
-        background: rgba(144,177,177,0.2);
+        background: @hover_transparent;
 }
+
 #tray > .active {
-        color: red;
+        /* color: rgba(144,177,177,0.2); */
+        border-radius: 5px;
 }
 
 #tray > .passive {
         -gtk-icon-effect: dim;
+        border-radius: 5px;
 }
 
 #tray > .needs-attention {
         -gtk-icon-effect: highlight;
-        background-color: #eb4d4b;
-        border-radius: 15px;
+        background-color: rgba(144,177,177,0.2);
+        border-radius: 5px;
 }
 
 #custom-power {
-        margin: 2px 3px 2px 0px;
+        margin: 4px 3px 4px 0px;
         margin-left: 0px;
-        border-radius: 20;
-        background: transparent;
-        color: #c3e88d;
+        border-radius: 8px;
         padding-left: 10px;
         padding-right: 12px;
-        border: 1px;
+        border: 0px;
         border-style: solid;
         border-color:#4c4561;
+        background: @def_background;
+        color: @custom_power_text;
 }
 
 #keyboard-state {
@@ -330,29 +345,29 @@ label:focus {
 
 
 #custom-rofi {
-        padding-left: 6px;
-        padding-right: 9px;
+        padding-left: 7px;
+        padding-right: 10px;
         padding-top: 0px;
         border-radius: 15px;
         color: #1793d1;
         font-size: 15px;
-        background: rgba(217,179,255,0.1);
+        background: transparent;
 
-}
-
-#privacy {
-        color: #FF9E64;
-        margin-right: 5px;
 }
 
 #privacy-item.audio-in {
-        color: #FF007C;
+        /* color: #FF007C; */
         margin-right: 5px;
+        color: @pv_audio_in_fg;
+}
+#privacy-item.audio-out {
+        margin-right: 5px;
+        color: @pv_audio_out_fg;
 }
 
 #privacy-item.screenshare {
-        color: #bb9af7;
         margin-right: 5px;
+        color: @pv_screen_fg;
 }
 
 #privacy-item.audio-in:hover,
@@ -365,28 +380,33 @@ label:focus {
 }
 
 #mpris {
-        background-color: @def_background;
         color: #c0caf5;
         margin-top: 4px;
         margin-bottom: 4px;
         padding: 1px;
         padding-top: 1px;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius: 15px;
-        border: 1.5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 8px;
+        /* border: 1.5px; */
+        background-color: @def_background;
 }
 
 #mpris.firefox {
-        color : #c3e88d;
+        color : @mpris_firefox;
 }
 
 #mpris.chromium {
-        color: #9d7cd8;
+        color: @mpris_chromium;
 }
 
+#mpris.mpv {
+        color: @mpris_chromium;
+
+}
 #mpris.chromium.paused,
 #mpris.firefox.paused,
+#mpris.mpv.paused,
 #mpris.paused {
         color : #ff007c;
 }
@@ -395,8 +415,9 @@ label:focus {
 #mpris.firefox:hover,
 #mpris.chromium:hover {
         color: #ffc777;
-        background: rgba(144,177,177,0.2);
+        background:  @hover_transparent;
 }
+
 #taskbar {
         padding-right: 0px;
 }
@@ -417,18 +438,22 @@ label:focus {
 #window:hover,
 #custom-power:hover,
 #custom-rofi:hover {
-        background: @def_hover_bg;
+        background: @hover_transparent;
 }
 
-#mpris:hover,
 #wireplumber:hover,
 #backlight:hover,
 #battery:hover,
 #network:hover,
-#bluetooth:hover,
-#clock:hover {
+#bluetooth:hover {
+        border-bottom: 2.5px solid transparent;
         background: @def_hover_bg;
-        border-bottom: 2px solid transparent;
+}
+
+#mpris:hover,
+#clock:hover {
+        border-bottom: 2.5px solid transparent;
+        background: @hover_transparent;
 }
 
 
@@ -437,6 +462,7 @@ label:focus {
 .modules-left {
         color: transparent;
 }
+
 #systemInfo {
         margin-right: 0px;
         margin-top: 4px;
@@ -445,7 +471,7 @@ label:focus {
         padding-right: 0px;
         color: #C4C4C4;
         background-color: @def_background;
-        border-radius: 15px;
+        border-radius: 8px;
 
 }
 
@@ -458,14 +484,16 @@ label:focus {
 }
 
 #menuOutside {
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-left: 6px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        margin-left: 3px;
         border-radius: 15px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
         margin-right: 3px;
 }
 #menuOutside:hover {
         /* border-radius: 25px; */
-        background: @def_hover_bg;
+        background: @def_background;
 }
 

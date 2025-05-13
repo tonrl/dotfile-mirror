@@ -1,5 +1,69 @@
+/* Colour of the base waybar*/
+@define-color waybar-bg rgba(19,16,20,0.8);
+
+/* Default colour for element*/
 @define-color def_background rgba(217,179,255,0.1);
+
+/*tooltip color*/
 @define-color tooltip_bg rgba(37,46,51,0.9);
+
+/*hovering color for no background*/
 @define-color def_hover_bg rgba(144,177,177,0.2);
+
+/*hovering color for with background*/
+@define-color hover_transparent rgba(144,177,177,0.2);
+
+/* Text color */
+@define-color def_text_color #b4c6d0;
+
+/* Text color for workspace button */
+@define-color workspace_button_text #a9b1d6;
+@define-color workspace_active_button_text #bbffc0;
+/* Text color for clock */
+@define-color clock_text_color #C4C4C4;
+
+/* Custom text color for eatch modules*/
+
+/* Module Colours*/
+
+/* Color Network Module */
+@define-color colour_network #00b4d8;
+
+/* Wireplumber Module */
+@define-color wp_color #ff757f;
+@define-color wp_muted #a3b8c8;
+
+/*Back light*/
+@define-color backlight_color #bb9af7;
+
+/* Battery */
+@define-color battery_def #fff;
+@define-color battery_charging #4fd6be;
+
+/* Mpris */
+@define-color mpris_firefox #c3e88d;
+@define-color mpris_chromium #9d7cd8;
+
+/* Privacy item*/
+/* audioin */
+@define-color pv_audio_in_fg #FF007C;
+
+/*audioout*/
+@define-color pv_audio_out_fg #FF9E64;
+
+/*Screen share*/
+@define-color pv_screen_fg #bb9af7;
+
+/* Power button */
+@define-color custom_power_text #c3e88d;
+
+/*Color for workspace button*/
+@define-color workspaces_button_bg transparent;
+
+/* Colour for active button workspace*/
+@define-color workspace_active_button_bg rgba(91,50,86,1);
+
+/* Workspace button border */
+@define-color waybar_border rgba(144,177,177,0.2);
 
 

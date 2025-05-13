@@ -14,7 +14,7 @@
 {
         "layer": "middle",
         "position": "top",
-        "height": 32,
+        "height": 34,
         "spacing": 2,
         "margin-top": 0,
         "margin-bottom": 0,
@@ -36,7 +36,7 @@
                 "custom/power"
         ],
 
-        // ===================== Groups ==============================
+        // ===================== Groups ==============================//
 
         "group/menu": {
                 "orientation": "horizontal",
@@ -59,6 +59,18 @@
                  },
                 "modules": [
                         "group/menu"
+                ]
+        },
+        "group/systemGroups": {
+                "orientation": "horizontal",
+                "drawer": {
+                       "transition-duration": 500,
+                       "children-class": "childs",
+                       "transition-left-to-right": true
+                 },
+                "modules": [
+                        "group/systemInfo",
+                        "tray"
                 ]
         },
 
@@ -92,8 +104,6 @@
                          "battery"
                 ]
         },
-
-
         
         // ================== Module Left ===============================
 
@@ -137,12 +147,13 @@
         },
 
         
-        // ===================== Module Center ===========================
+        // ===================== Module Center ===========================//
 
         "hyprland/workspaces": {
-                "format": " {icon} ",
+                "format": "{icon}",
                 "on-scroll-up": "hyprctl dispatch workspace e+1",
                 "on-scroll-down": "hyprctl dispatch workspace e-1",
+                "show-special": true,
                 "format-icons": {
                         "1": "0",
                         "2": "1",
@@ -154,11 +165,11 @@
                         "8": "7",
                         "9": "8",
                         "10": "9",
-                        "active": "",
-                        "special": " "
+                        "active": "󰒃",
+                        "special": "S"
                 },
                 "persistent-workspaces": {
-                        "*": [ 1,2,3,4,5,6]
+                        "*": [ 1,2,3,4,5]
                 }
         },
         "privacy": {
@@ -186,12 +197,14 @@
         "idle_inhibitor": {
                 "format": "{icon} ",
                 "tooltip": true,
+                "start-activated" : true,
                 "format-icons": {
-                        "activated": "",
-                        "deactivated": ""
+                        "activated": "",
+                        "deactivated": ""
+                        // "activated": "",
+                        // "deactivated": ""
                 }
         },
-
         "mpris": {
                 "format": "{player_icon} Playing" ,
                 "tooltip-format": "{status_icon} {dynamic}",
@@ -201,7 +214,7 @@
                 "on-click-right":"playerctl stop",
                 "player-icons": {
                         "default": "",
-                        "mpv": "🎵"
+                        "mpv": ""
                 },
                 "status-icons": {
                         "playing": "",
@@ -210,10 +223,9 @@
                 }
                 // "ignored-players": ["firefox"]
         },
-
         "clock" : {
-                "format": "  {:%H:%M %Z}",
-                "format-alt": "󰃰  {:%a, %d. %b %Y}",
+                "format": "{:%H:%M %Z・%d.%m}",
+                "format-alt": "{:%a, %d. %b %Y}",
                 "locale": "de_DE.UTF-8",
                 "tooltip-format": "<span size='12pt'>{calendar}</span>",
                 "calendar": {
@@ -240,7 +252,7 @@
                 }
         },
 
-        // ====================== Module Right ============================
+        // ====================== Module Right ============================//
         "battery": {
                 "format": "{capacity}% {icon}",
                 "interval": 10,
@@ -290,16 +302,15 @@
                         "󰤨"
                 ],
                 "max-length": 50,
-                // "on-click-right": "nm-connection-editor"
-                "on-click-right": "iwgtk"
+                "on-click-right": "nm-connection-editor"
+                // "on-click-right": "iwgtk"
         },
-  
         "wireplumber": {
                 "scroll-step": 1, // %, can be a float
                 "format": "{volume}% {icon}",
                 "format-bluetooth": "{volume}% {icon}",
-                "format-bluetooth-muted": "Off {icon}󰂲",
-                "format-muted": "Off 󰖁",
+                "format-bluetooth-muted": "Aus {icon}󰂲",
+                "format-muted": "Aus 󰖁",
                 "format-source": " {volume}% ",
                 "format-source-muted": "",
                 "format-icons": {
@@ -321,7 +332,7 @@
                 "tooltip-format": "{node_name}\nVolume: {volume}%  "
         },
         "tray": {
-                "icon-size": 14,
+                "icon-size": 12,
                 "spacing": 5
         },
         "backlight": {
@@ -342,12 +353,11 @@
                 "tooltip-format": "Shutdown",
                 "on-click": "wlogout"
         },
-
         "bluetooth": {
-                "format": " {status}",
+                "format": "{status} ",
                 "format-disabled": "",
                 "format-no-controller": "",
-                "format-connected": " {device_alias}",
+                "format-connected": "{device_alias} ",
                 "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
                 "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
                 "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",

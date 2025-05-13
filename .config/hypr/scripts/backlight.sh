@@ -26,10 +26,10 @@ function send_notification {
         if [ "$brightness" -ge 85 ]; then
                 notify-send -a "System" -i "${high_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t $expireTime
 
-        elif [ "$brightness" -ge 55 ]; then
+        elif [ "$brightness" -ge 50 ]; then
                 notify-send -a "System" -i "${mid_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t $expireTime
         
-        elif [ "$brightness" -ge 25 ]; then
+        elif [ "$brightness" -ge 20 ]; then
                 notify-send -a "System" -i "${low_icon}" -r 2593 -u low "Brightness: ${brightness}" "$bar" -t $expireTime
 
         elif [ "$brightness" -eq 0 ]; then

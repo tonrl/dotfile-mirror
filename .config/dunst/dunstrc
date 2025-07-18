@@ -364,7 +364,7 @@
     min_icon_size = 42
 
 [thunderbird]
-    appname = "Thunderbird Beta"
+    appname = "Thunderbird"
     urgency = normal
     timeout = 20
     new_icon = /usr/share/icons/Papirus-Dark/24x24/apps/thunderbird.svg
